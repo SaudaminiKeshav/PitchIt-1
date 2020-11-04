@@ -1,0 +1,30 @@
+.hero {
+    height: 75vh;
+    background-blend-mode: multiply;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0px 0px 200px 200px / 0px 0px 175px 175px
+}
+
+.title, .subtitle{
+    width: 60%;
+    margin: auto;
+}
+
+.title{
+    font-size: 3rem;
+    line-height: initial;
+    padding: var(--space);
+}
+
+.subtitle {
+    font-size: 18px;
+}
+
+#main-title {
+    font-family: 'Caveat', cursive;
+    font-size: 110px;
+}
