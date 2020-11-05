@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 import DashboardBtn from "../components/DashboardBtn";
+import Navbar from "../components/Navbar";
 import SideBar from "../components/MainProfile/Sidebar";
-import Navbar from "../components/Navbar/index";
 
 class Profile extends Component {
   onLogoutClick = e => {

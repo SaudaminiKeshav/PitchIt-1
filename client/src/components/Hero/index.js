@@ -1,9 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar";
 import "./style.css"
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import 'bootstrap-css-only/css/bootstrap.min.css';
-// import 'mdbreact/dist/css/mdb.css';
 
 const HeroImg = {
     background: "url(https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)center / cover no-repeat, rgba(0,0,0,.5)"
@@ -15,11 +12,10 @@ const Hero = () => {
             <Navbar />
             <div className="hero" style={ HeroImg }>
                 <div className="landing">
-                    <h1 id="main-title" className="title">PitchIT</h1>
+                    <h1 id="main-title" className="title">PitchIt</h1>
                     <h1 className="title">Find Yourself Outside.</h1>
                     <br />
                     <p className="subtitle">Plan a unique trip with your friends that you will remember for a lifetime.</p>
-                    <br /><br /><br /><br />
                     <div className="boxes">
                         <div className="box">
                             <img src="img/camper.png" alt="" width='50' />
