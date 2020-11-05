@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 import DashboardBtn from "../components/DashboardBtn";
 import Navbar from "../components/Navbar";
+import SideBar from "../components/MainProfile/Sidebar";
 
 class Profile extends Component {
   onLogoutClick = e => {
@@ -14,8 +15,8 @@ class Profile extends Component {
   const { user } = this.props.auth;
   return (
     <>
-      <Navbar />
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+    <Navbar />
+      {/* <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
@@ -41,9 +42,10 @@ class Profile extends Component {
             <DashboardBtn />
           </div>
         </div>
-      </div>
-    </>
-  );
+      </div> */}
+      <SideBar />
+      </>
+    );
   }
 }
 
