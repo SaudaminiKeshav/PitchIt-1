@@ -1,3 +1,8 @@
 :root{
     --space: 1rem 0;
 }
+
+.nav-item :hover {
+    color: rgba(255, 166, 0, 0.637) !important;
+    background-color: rgba(76, 192, 61, 0.705) !important;
+}
