@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 import DashboardBtn from "../components/DashboardBtn";
+import Navbar from "../components/Navbar";
 
 class Profile extends Component {
   onLogoutClick = e => {
@@ -12,6 +13,8 @@ class Profile extends Component {
   render() {
   const { user } = this.props.auth;
   return (
+    <>
+      <Navbar />
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
@@ -39,7 +42,8 @@ class Profile extends Component {
           </div>
         </div>
       </div>
-    );
+    </>
+  );
   }
 }
 
