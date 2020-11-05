@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 import DashboardBtn from "../components/DashboardBtn";
 
-class Dashboard extends Component {
+class Profile extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -43,7 +43,7 @@ class Dashboard extends Component {
   }
 }
 
-Dashboard.propTypes = {
+Profile.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -55,4 +55,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Dashboard);
+)(Profile);
