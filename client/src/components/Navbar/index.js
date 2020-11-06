@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
         <nav style={ navBackgroundStyle } className="navbar navbar-expand-lg navbar-light">
             <li className="brand nav-link">
-                <img src="img/campfire.png" alt="" className='logo' width='50px' />
+                <img src="img/campfire.png" alt="logo" className="logo" width="50px" />
             </li>
             <a style={ navTitleBtnStyle } className="navbar-brand" href="">PitchIt</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
