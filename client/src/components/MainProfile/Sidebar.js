@@ -5,48 +5,48 @@ import badgeIcon from "../../img/badge-icon.png";
 import placeHolder from "../../img/placeholder.png";
 
 const sideBarStyle = {
-    backgroundColor: "teal",
+    backgroundColor: "#FFFFFF",
     float: "left",
-    marginTop: "3%",
-    marginLeft: "3%",
-    width: "20%",
-    textAlign: "left",
-    padding: "1%",
-    borderRadius: "10px",
+    borderRadius: "40px",
+    width: "12%",
+    height: "10%",
+    marginTop: "10%",
     fontWeight: "bold",
     fontSize: "large",
-    boxShadow: "0px 0px 5px rgba(0,0,0,.6)"
+    boxShadow: "0px 0px 2px rgba(0,0,0,.5)",
+    textAlign: "center",
+    marging: "5%",
+    marginLeft: "1%"
 }
 
 const profilePicStyle = {
-    height: "35%",
-    width: "35%",
-    marginBottom: "50%",
-    textAlign: "center"
+    height: "55%",
+    width: "55%",
+    margin: "10%",
+    textAlign: "center",
+    alignSelf: "center"
 }
 
 const iconStyle = {
     height: "15%",
     width: "15%",
-    marginRight: "10%"
+    margin: "10%",
 }
 
 const SideBar = () => {
-  return <>
-      <div style={ sideBarStyle }>
-        <div>
-            <img src={placeHolder} alt="profile picture" />
+    return <>
+        <div style={sideBarStyle}>
+            <img src={placeHolder} style={profilePicStyle} alt="profile picture" />
+            <ul>
+                <hr />
+                <li style={{ color: "rgb(76, 192, 61)", margin: "10%" }}><img src={tripIcon} style={iconStyle} alt="cannot display" />Trips</li>
+                <hr />
+                <li style={{ color: "brown", margin: "10%" }}><img src={reviewIcon} style={iconStyle} alt="cannot display" />Reviews</li>
+                <hr />
+                <li style={{ color: "orange", margin: "10%" }}><img src={badgeIcon} style={iconStyle} alt="cannot display" />Milestones</li>
+            </ul>
         </div>
-
-        <ul>
-            <li><img src={tripIcon} style={iconStyle} alt="cannot display"/>Trips</li>
-            <hr/>
-            <li><img src={reviewIcon} style={iconStyle} alt="cannot display"/>Reviews</li>
-            <hr/>
-            <li><img src={badgeIcon} style={iconStyle} alt="cannot display"/>Milestones</li>
-        </ul>
-      </div>
-      </>;
+    </>;
 }
 
 export default SideBar;

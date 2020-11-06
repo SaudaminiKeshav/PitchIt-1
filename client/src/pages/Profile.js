@@ -5,6 +5,7 @@ import { logoutUser } from "../actions/authActions";
 import DashboardBtn from "../components/DashboardBtn";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/MainProfile/Sidebar";
+import "../components/MainProfile/style.css"
 
 class Profile extends Component {
   onLogoutClick = e => {
