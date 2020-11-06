@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../Navbar";
 import "./style.css"
 
 const HeroImg = {
@@ -9,7 +8,6 @@ const HeroImg = {
 const Hero = () => {
     return (
         <>
-            <Navbar />
             <div className="hero" style={ HeroImg }>
                 <div className="landing">
                     <h1 id="main-title" className="title">PitchIt</h1>
