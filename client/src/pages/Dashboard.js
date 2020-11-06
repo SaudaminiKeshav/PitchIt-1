@@ -5,6 +5,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Suggestions from "../components/Suggestions";
+import CurrentAdvContainer from "../components/CurrentAdvContainer";
+import CompletedAdvContainer from "../components/CompletedAdv";
 
 
 const Dashboard = () => {
@@ -19,6 +21,8 @@ const Dashboard = () => {
         <Navbar />
         <Hero />
         <Suggestions />
+        <CurrentAdvContainer />
+        <CompletedAdvContainer />
     </div>
     );
 
