@@ -42,6 +42,9 @@ const Navbar = () => {
                         <a style={navTabBtns} className="nav-link" href="/gallery">Gallery</a>
                     </li>
                     <li className="nav-item">
+                        <a style={navTabBtns} className="nav-link" href="/createtrip">Create Trip</a>
+                    </li>
+                    <li className="nav-item">
                         <a style={navTabBtns} className="nav-link" href="/contact">Contact</a>
                     </li>
                 </ul>
