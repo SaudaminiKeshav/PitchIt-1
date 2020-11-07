@@ -8,7 +8,7 @@ function Gallery() {
         <>
             <Navbar />
             <div style={{paddingTop: "6%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "6%"}}>
-                <p>Yo what's up, this is the gallery place holder</p>
+                <p>Yo what's up, I still need to work on it....</p>
             </div>
 
             <div>
