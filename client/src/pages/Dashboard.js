@@ -4,8 +4,9 @@ import React from "react";
 // import { logoutUser } from "../actions/authActions";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Suggestions from "../components/Suggestions";
-
+import TopLocations from "../components/TopLocations";
+import CurrentAdvContainer from "../components/CurrentAdvContainer";
+import CompletedAdvContainer from "../components/CompletedAdv";
 
 const Dashboard = () => {
 //   onLogoutClick = e => {
@@ -18,7 +19,9 @@ const Dashboard = () => {
     <div>
         <Navbar />
         <Hero />
-        <Suggestions />
+        <TopLocations />
+        <CurrentAdvContainer />
+        <CompletedAdvContainer />
     </div>
     );
 
