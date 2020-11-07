@@ -37,18 +37,20 @@ const OptionsTextAlign = {
     fontWeight: "795",
 }
 
-const SideBar = () => {
+const SideBar = (props) => {
+    // const [sideBarOption, setSideBarOption] = useState('');
+    console.log(props.user);
 
     function displayTrips() {
-
+        props.onSelectionChange("Trips")
     }
 
     function displayReviews() {
-
+        props.onSelectionChange("Reviews")
     }
 
     function displayMilestones() {
-
+        props.onSelectionChange("Milestones")
     }
 
     return <>
@@ -56,7 +58,7 @@ const SideBar = () => {
             <div style={sideBarStyle}>
                 <img src={placeHolder} style={profilePicStyle} alt="profile picture" />
                 <ul>
-                    <li style={{ color: "#f4511e", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232) " }} onClick={displayTrips}>
+                    <li style={{ color: "#f4511e", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232) " }} onClick={displayTrips.bind(this)}>
                         <h5 style={OptionsTextAlign}>
                             <img src={tripIcon} style={iconStyle} alt="cannot display" />
                             Trips
@@ -64,14 +66,14 @@ const SideBar = () => {
                     </li>
 
                     <li></li>
-                    <li style={{ color: "#7cb342", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232)" }} onClick={displayReviews}>
+                    <li style={{ color: "#7cb342", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232)" }} onClick={displayReviews.bind(this)}>
                         <h5 style={OptionsTextAlign}>
                             <img src={reviewIcon} style={iconStyle} alt="cannot display" />
                             Reviews
                         </h5>
                     </li>
                     <li></li>
-                    <li style={{ color: "#FFAB00", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232)" }} onClick={displayMilestones}>
+                    <li style={{ color: "#FFAB00", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232)" }} onClick={displayMilestones.bind(this)}>
                         <h5 style={OptionsTextAlign}>
                             <img src={badgeIcon} style={iconStyle} alt="cannot display" />
                             Milestones

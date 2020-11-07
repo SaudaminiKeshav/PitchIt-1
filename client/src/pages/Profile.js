@@ -6,18 +6,32 @@ import DashboardBtn from "../components/DashboardBtn";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/MainProfile/Sidebar";
 import "../components/MainProfile/style.css"
+import MainProfile from "../components/MainProfile/MainProfile";
 
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSideBarOptionChange = this.handleSideBarOptionChange.bind(this);
+    this.state = { option: '' };
+  }
+
+  handleSideBarOptionChange(userSelection) {
+    this.setState({ option: userSelection });
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
   render() {
+    const userSelection = this.state.option;
+
     const { user } = this.props.auth;
     return (
       <>
         <Navbar />
-        <SideBar className="sideBar" />
+        <SideBar className="sideBar" user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
+        <MainProfile user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
       </>
     );
   }
