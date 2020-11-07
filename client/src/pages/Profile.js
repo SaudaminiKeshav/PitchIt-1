@@ -5,6 +5,10 @@ import { logoutUser } from "../actions/authActions";
 import DashboardBtn from "../components/DashboardBtn";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/MainProfile/Sidebar";
+import MainProfile from "../components/MainProfile/MainProfile";
+import Trips from "../components/MainProfile/Trips";
+import Reviews from "../components/MainProfile/Reviews";
+import Milestones from "../components/MainProfile/Milestones";
 
 class Profile extends Component {
   onLogoutClick = e => {
@@ -44,6 +48,7 @@ class Profile extends Component {
         </div>
       </div> */}
       <SideBar />
+      <Trips />
       </>
     );
   }
