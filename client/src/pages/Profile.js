@@ -5,18 +5,62 @@ import { logoutUser } from "../actions/authActions";
 import DashboardBtn from "../components/DashboardBtn";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/MainProfile/Sidebar";
+import "../components/MainProfile/style.css"
+import MainProfile from "../components/MainProfile/MainProfile";
+import Banner from "../components/MainProfile/Banner";
+import Trips from "../components/MainProfile/Trips";
+import Reviews from "../components/MainProfile/Reviews";
+import Milestones from "../components/MainProfile/Milestones";
 
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSideBarOptionChange = this.handleSideBarOptionChange.bind(this);
+    this.state = { option: '' };
+  }
+
+  handleSideBarOptionChange(userSelection) {
+    this.setState({ option: userSelection });
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
   render() {
-  const { user } = this.props.auth;
-  return (
-    <>
-    <Navbar />
-      {/* <div style={{ height: "75vh" }} className="container valign-wrapper">
+    const userSelection = this.state.option;
+
+    const { user } = this.props.auth;
+    return (
+      <>
+        <Navbar />
+        <Banner user={user} />
+        <SideBar className="sideBar" user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
+        <MainProfile user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
+      </>
+    );
+  }
+}
+
+Profile.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Profile);
+
+
+
+//Contains login signout buttons login 
+
+{/* <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
@@ -41,24 +85,4 @@ class Profile extends Component {
             </button>
             <DashboardBtn />
           </div>
-        </div>
-      </div> */}
-      <SideBar />
-      </>
-    );
-  }
-}
-
-Profile.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Profile);
+            </div>*/}
