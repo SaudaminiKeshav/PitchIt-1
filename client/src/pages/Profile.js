@@ -13,11 +13,35 @@ class Profile extends Component {
     this.props.logoutUser();
   };
   render() {
-  const { user } = this.props.auth;
-  return (
-    <>
-    <Navbar />
-      {/* <div style={{ height: "75vh" }} className="container valign-wrapper">
+    const { user } = this.props.auth;
+    return (
+      <>
+        <Navbar />
+        <SideBar className="sideBar" />
+      </>
+    );
+  }
+}
+
+Profile.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Profile);
+
+
+
+//Contains login signout buttons login 
+
+{/* <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
@@ -44,22 +68,3 @@ class Profile extends Component {
           </div>
         </div>
       </div> */}
-      <SideBar />
-      </>
-    );
-  }
-}
-
-Profile.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Profile);

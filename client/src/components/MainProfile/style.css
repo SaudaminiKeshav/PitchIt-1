@@ -1,3 +1,22 @@
-body{
-    background-color: #F7F7FF;
+body {
+    background-color: #f3f3fc;
+}
+
+section {
+    animation: slider 1s forwards;
+}
+
+@keyframes slider {
+    0% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(3%);
+    }
+}
+
+li:hover{
+    background-color:#f3f3fc;
+    border-radius: 18px
 }
