@@ -22,9 +22,9 @@ const MainProfile = (props) => {
 
     return <>
         <div style={profileAreaStyle}>
-            <div>
-                <h2 style={{ paddingTop: "10%", paddingLeft: "40%" }}>Welcome {userName}</h2>
-            </div>
+            <container>
+              <p>I am the container</p>
+            </container>
         </div>
     </>;
 }
