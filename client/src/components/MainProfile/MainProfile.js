@@ -1,9 +1,32 @@
 import React from "react";
 
-const MainProfile = (props) => {
-  const size = props.size.split(" ").map(size => "col-" + size).join(" ");
+const profileAreaStyle = {
+    backgroundColor: "orange"
+}
 
-  return <div className={size} {...props} />;
+const tripStyle = {
+    textAlign: "center",
+    borderRadius: "10%",
+    backgroundColor: "orange"
+}
+
+const mileStoneStyle = {
+    textAlign: "center",
+    borderRadius: "50%",
+    backgroundColor: "green"
+}
+
+const MainProfile = (props) => {
+    console.log(props.userSelection)
+    let userName = props.user.name
+
+    return <>
+        <div style={profileAreaStyle}>
+            <container>
+              <p>I am the container</p>
+            </container>
+        </div>
+    </>;
 }
 
 export default MainProfile;
