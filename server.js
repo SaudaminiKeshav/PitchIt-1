@@ -12,7 +12,7 @@ app.use(
 );
 app.use(bodyParser.json());
 // DB Config
-const db = process.env.MONGODB_URI;
+const db = require("./config/keys").mongoURI;
 // Connect to MongoDB
 mongoose.connect(
   db || "mongodb://localhost/5000", {
