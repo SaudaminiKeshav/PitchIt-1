@@ -3,6 +3,7 @@ import tripIcon from "../../img/trips-icon.png";
 import reviewIcon from "../../img/review-icon.png";
 import badgeIcon from "../../img/badge-icon.png";
 import placeHolder from "../../img/placeholder.png";
+import campImg from "../../img/camp-profile.jpg";
 import "../MainProfile/style.css"
 
 const sideBarStyle = {
@@ -23,7 +24,8 @@ const sideBarStyle = {
 const profilePicStyle = {
     height: "55%",
     width: "55%",
-    margin: "10%"
+    margin: "8%",
+    borderRadius: "10px"
 }
 
 const iconStyle = {
@@ -56,7 +58,7 @@ const SideBar = (props) => {
     return <>
         <section>
             <div style={sideBarStyle}>
-                <img src={placeHolder} style={profilePicStyle} alt="profile picture" />
+                <img src={campImg} style={profilePicStyle} alt="profile picture" />
                 <ul>
                     <li style={{ color: "#f4511e", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232) " }} onClick={displayTrips.bind(this)}>
                         <h5 style={OptionsTextAlign}>

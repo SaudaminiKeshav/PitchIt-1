@@ -1,19 +1,11 @@
 import React from "react";
+import "./style.css";
 
 const profileAreaStyle = {
-    backgroundColor: "orange"
-}
-
-const tripStyle = {
-    textAlign: "center",
-    borderRadius: "10%",
-    backgroundColor: "orange"
-}
-
-const mileStoneStyle = {
-    textAlign: "center",
-    borderRadius: "50%",
-    backgroundColor: "green"
+    backgroundColor: "orange",
+    position: "fixed",
+    marginTop: "40%",
+    marginLeft: "20%"
 }
 
 const MainProfile = (props) => {
@@ -22,9 +14,9 @@ const MainProfile = (props) => {
 
     return <>
         <div style={profileAreaStyle}>
-            <container>
-              <p>I am the container</p>
-            </container>
+            <div>
+                <h2 style={{ paddingTop: "10%", paddingLeft: "40%" }}>Welcome {userName}</h2>
+            </div>
         </div>
     </>;
 }
