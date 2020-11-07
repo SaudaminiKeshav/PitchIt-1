@@ -16,7 +16,9 @@ const navTitleBtnStyle = {
 
 const navTabBtns = {
     fontSize: "18px",
-    color: "rgb(76, 192, 61)"
+    color: "rgb(76, 192, 61)",
+    paddingTop: "0%",
+    paddingBottom: "0%"
 };
 
 const Navbar = () => {
