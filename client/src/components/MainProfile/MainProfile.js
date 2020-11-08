@@ -10,13 +10,13 @@ const profileAreaStyle = {
 
 const MainProfile = (props) => {
     console.log(props.userSelection)
-    let userName = props.user.name
+    let userName = props.user.name;
+    let userSelectedOption = props.userSelection;
 
     return <>
-        <div style={profileAreaStyle}>
-            <div>
-                <h2 style={{ paddingTop: "10%", paddingLeft: "40%" }}>Welcome {userName}</h2>
-            </div>
+        <div className="contentAreaStyle">
+            <h1 style={{ textAlign: "center" }}>{userSelectedOption}</h1>
+            <hr />
         </div>
     </>;
 }
