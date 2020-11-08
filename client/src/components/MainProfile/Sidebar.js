@@ -6,6 +6,8 @@ import placeHolder from "../../img/placeholder.png";
 import arrowIcon from "../../img/arrowIcon.png";
 import "../MainProfile/style.css"
 import classNames from 'classnames'
+import campImg from "../../img/camp-profile.jpg";
+
 
 const SideBar = (props) => {
     console.log(props.user);
@@ -26,6 +28,7 @@ const SideBar = (props) => {
         <section>
             <div className="sideBarStyle">
                 <img src={placeHolder} className="profilePicStyle" alt="profile" />
+
                 <ul>
                     <li className={classNames('sideBarMenuItem', props.userSelection == "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>
                         <h5 className="optionsTextAlign">

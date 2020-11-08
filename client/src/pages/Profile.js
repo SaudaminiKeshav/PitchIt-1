@@ -6,9 +6,7 @@ import Navbar from "../components/Navbar";
 import SideBar from "../components/MainProfile/Sidebar";
 import "../components/MainProfile/style.css"
 import MainProfile from "../components/MainProfile/MainProfile";
-// import Trips from "../components/MainProfile/Trips";
-// import Reviews from "../components/MainProfile/Reviews";
-// import Milestones from "../components/MainProfile/Milestones";
+import Banner from "../components/MainProfile/Banner";
 
 class Profile extends Component {
   constructor(props) {
@@ -32,6 +30,7 @@ class Profile extends Component {
     return (
       <>
         <Navbar />
+        <Banner user={user} />
         <SideBar className="sideBar" user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
         <MainProfile user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
       </>

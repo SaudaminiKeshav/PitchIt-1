@@ -1,4 +1,12 @@
 import React from "react";
+import "./style.css";
+
+const profileAreaStyle = {
+    backgroundColor: "orange",
+    position: "fixed",
+    marginTop: "40%",
+    marginLeft: "20%"
+}
 
 const MainProfile = (props) => {
     console.log(props.userSelection)
