@@ -2,12 +2,10 @@ import React from "react";
 import tripIcon from "../../img/trips-icon.png";
 import reviewIcon from "../../img/review-icon.png";
 import badgeIcon from "../../img/badge-icon.png";
-import placeHolder from "../../img/placeholder.png";
+import placeHolder from "../../img/placeholder.heic";
 import arrowIcon from "../../img/arrowIcon.png";
 import "../MainProfile/style.css"
 import classNames from 'classnames'
-import campImg from "../../img/camp-profile.jpg";
-
 
 const SideBar = (props) => {
     console.log(props.user);
