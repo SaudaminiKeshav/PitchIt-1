@@ -23,11 +23,11 @@ const navTabBtns = {
 
 const Navbar = () => {
     return (
-        <nav style={ navBackgroundStyle } className="navbar navbar-expand-lg navbar-light">
+        <nav style={navBackgroundStyle} className="navbar navbar-expand-lg navbar-light">
             <li className="brand nav-link">
                 <img src="img/campfire.png" alt="logo" className="logo" width="50px" />
             </li>
-            <a style={ navTitleBtnStyle } className="navbar-brand" href="">PitchIt</a>
+            <a style={navTitleBtnStyle} className="navbar-brand" href="">PitchIt</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -51,7 +51,7 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <li className="navbar-nav nav-item sign-out-btn">
-                        <a style={navTabBtns} className="nav-link" href="">Sign Out</a>
+                    <a style={navTabBtns} className="nav-link" href="">Sign Out</a>
                 </li>
                 {/* <form className="form-inline my-2 my-lg-0">
                     <button className="btn btn-outline-warning my-2 my-sm-0" type="submit">Sign Out</button>
