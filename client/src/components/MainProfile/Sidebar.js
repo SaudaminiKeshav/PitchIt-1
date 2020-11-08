@@ -4,26 +4,19 @@ import reviewIcon from "../../img/review-icon.png";
 import badgeIcon from "../../img/badge-icon.png";
 import placeHolder from "../../img/placeholder.png";
 import "../MainProfile/style.css"
+import classNames from 'classnames'
 
 const sideBarStyle = {
-    backgroundColor: "white",
     float: "left",
-    borderRadius: "30px",
     width: "12%",
     height: "10%",
     marginTop: "10%",
     fontWeight: "900",
     fontSize: "large",
-    boxShadow: "0px 0px 2px rgba(0,0,0,.5)",
-    marging: "5%",
-    marginLeft: "1%",
-    textAlign: "center"
-}
 
-const profilePicStyle = {
-    height: "55%",
-    width: "55%",
-    margin: "10%"
+    marging: "5%",
+    marginLeft: "4%",
+    textAlign: "center"
 }
 
 const iconStyle = {
@@ -33,9 +26,11 @@ const iconStyle = {
 }
 const OptionsTextAlign = {
     textAlign: "start",
-    fontSize: "105%",
+    fontSize: "100%",
     fontWeight: "795",
 }
+
+// let classes = classNames.bind(styles);
 
 const SideBar = (props) => {
     // const [sideBarOption, setSideBarOption] = useState('');
@@ -56,24 +51,21 @@ const SideBar = (props) => {
     return <>
         <section>
             <div style={sideBarStyle}>
-                <img src={placeHolder} style={profilePicStyle} alt="profile picture" />
+                <img src={placeHolder} className="profilePicStyle" alt="profile" />
                 <ul>
-                    <li style={{ color: "#f4511e", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232) " }} onClick={displayTrips.bind(this)}>
+                    <li className={classNames('sideBarMenuItem', 'tripsStyle')} onClick={displayTrips.bind(this)}>
                         <h5 style={OptionsTextAlign}>
                             <img src={tripIcon} style={iconStyle} alt="cannot display" />
                             Trips
                         </h5>
                     </li>
-
-                    <li></li>
-                    <li style={{ color: "#7cb342", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232)" }} onClick={displayReviews.bind(this)}>
+                    <li className={classNames('sideBarMenuItem', 'reviewStyle')} onClick={displayReviews.bind(this)}>
                         <h5 style={OptionsTextAlign}>
                             <img src={reviewIcon} style={iconStyle} alt="cannot display" />
                             Reviews
                         </h5>
                     </li>
-                    <li></li>
-                    <li style={{ color: "#FFAB00", padding: "10%", borderTop: "1px solid  rgb(238, 232, 232)" }} onClick={displayMilestones.bind(this)}>
+                    <li className={classNames('sideBarMenuItem', 'mileStoneStyle')} onClick={displayMilestones.bind(this)}>
                         <h5 style={OptionsTextAlign}>
                             <img src={badgeIcon} style={iconStyle} alt="cannot display" />
                             Milestones

@@ -1,11 +1,76 @@
 body {
-    background-color: #f3f3fc;
+    background-color: rgba(53, 53, 53, 0.884);
 }
 
+/* Side bar styling  */
 section {
-    animation: slider 1s forwards;
+    
+   
 }
 
+@keyframes slider {
+    0% {
+        transform: translateX(-50%);
+       opacity: 0;
+    }
+
+    150% {
+        transform: translateX(100%);
+        opacity: 1;
+    }
+}
+
+.profilePicStyle{
+    height: 75%;
+    width: 95%;
+    padding: 15%;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 15px 0px 15px 15px;
+    animation: slider 2s forwards;
+}
+
+.sideBarMenuItem {
+    padding: 1%;
+    border-top: 1px solid rgb(238, 232, 232);
+    background-color: white;
+    border-radius: 15px 0px 15px 15px;
+    margin-bottom: 10px;
+    box-shadow: 1.5px 1.5px 3px rgba(1,1,1,.5);
+    cursor: pointer;
+    position: relative;
+    animation: slider 2s forwards;
+}
+
+.tripsStyle {
+    color: #f4511e;
+    animation-timing-function: linear;
+}
+.tripsStyle:hover {
+    color: black;
+    background-color: #f4511e;
+}
+
+.reviewStyle {
+    color: #7cb342;
+    animation-timing-function: ease-out;
+}
+.reviewStyle:hover {
+    color: black;
+    background-color:  #7cb342;
+}
+
+.mileStoneStyle {
+    color: #FFAB00;
+    animation-timing-function: ease-in-out;
+}
+.mileStoneStyle:hover {
+    color:black;
+    background-color:  #FFAB00;
+}
+
+/* Content section styling  */
+/* 
 @keyframes slider {
     0% {
         transform: translateX(-5%);
@@ -14,9 +79,4 @@ section {
     100% {
         transform: translateX(3%);
     }
-}
-
-li:hover{
-    background-color:#f3f3fc;
-    border-radius: 18px
-}
+} */
