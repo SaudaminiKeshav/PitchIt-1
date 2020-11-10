@@ -8,7 +8,7 @@ const Reviews = () => {
 
   return <>
   <div style={ reviewStyle }>
-
+    <p>this is the review</p>
   </div>
   </>;
 }

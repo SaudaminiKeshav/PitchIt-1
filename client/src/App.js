@@ -15,7 +15,7 @@ import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import TripForm from "./pages/CreateTrip";
 import Gallery from "./pages/Gallery";
-import Contact from "./pages/Contact";
+//import Contact from "./pages/Contact";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -50,7 +50,7 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/createtrip" component={TripForm} />
               <PrivateRoute exact path="/gallery" component={Gallery} />
-              <PrivateRoute exact path="/contact" component={Contact} />              
+              {/* <PrivateRoute exact path="/contact" component={Contact} />*/}
             </Switch>
           </div>
         </Router>
