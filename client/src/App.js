@@ -15,7 +15,7 @@ import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import TripForm from "./pages/CreateTrip";
 import Gallery from "./pages/Gallery";
-import Contact from "./pages/Contact";
+import Contact from "./components/Contact/Contact";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
