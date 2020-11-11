@@ -132,7 +132,7 @@
 .contentAreaStyle {
     background-color: white;
     width: 75%;
-    height: 500px;
+    height: auto;
     margin-bottom: 50%;
     margin-left: 20%;
     top: 49%;
@@ -182,3 +182,27 @@
     padding-left: "40%";
     color: rgb(233, 233, 233);
 }
+
+.reviewTitle {
+    float: left;
+    padding-right: 0.5%;
+}
+
+/*Star Rating*/
+.checked {
+    color: orange;
+    float: left;
+  }
+
+  .reviewText {
+      clear: both;
+  }
+
+  /*Add image label*/
+  .add-image-label {
+      color: transparent;
+  }
+
+  #add-image-input {
+      opacity: 0;
+  }

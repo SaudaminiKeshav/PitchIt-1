@@ -1,14 +1,20 @@
 import React from "react";
+import ReviewBubble from "../MainProfile/ReviewBubble";
+import Bubble from "../MainProfile/ReviewBubble";
 
 const reviewStyle = {
-  backgroundColor: "orange"
+  backgroundColor: "transparent"
 }
 
 const Reviews = () => {
 
   return <>
   <div style={ reviewStyle }>
-    <p>this is the review</p>
+    <ReviewBubble />
+    <br />
+    <ReviewBubble />
+    <br /> 
+    <ReviewBubble />
   </div>
   </>;
 }
