@@ -23,6 +23,11 @@ const MainProfile = (props) => {
         case "Reviews":
             icon = <img src={reviewsIcon} className="contentTitleIcon" alt="stars" />
             content = <Reviews />
+            break;
+        case "Milestones":
+            icon = <img src="..." className="contentTitleIcon" alt="mountain badge" />
+            content = <Milestones />
+            break;
         default: <></>
             break;
     }
