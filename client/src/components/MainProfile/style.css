@@ -206,3 +206,10 @@
   #add-image-input {
       opacity: 0;
   }
+
+  .card {
+      float: left;
+      width: 25rem;
+      margin: 2%;
+      text-align: center;
+  }

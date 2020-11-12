@@ -1,7 +1,8 @@
 import React from "react";
+import "../MainProfile/style.css"
 
 const profileAreaStyle = {
-    backgroundColor: "orange"
+    backgroundColor: "none"
 }
 
 // const tripStyle = {
@@ -21,7 +22,7 @@ const Trips = (props) => {
   return <>
   <div style={ profileAreaStyle }>
     <div>
-      <div class="card" style={{width: "18rem"}}>
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">Trip Title</h5>
           <h6 class="card-subtitle mb-2 text-muted">Trip Location</h6>
@@ -32,7 +33,7 @@ const Trips = (props) => {
       </div>
     </div>
     <div>
-      <div class="card" style={{width: "18rem"}}>
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">Trip Title</h5>
           <h6 class="card-subtitle mb-2 text-muted">Trip Location</h6>
@@ -43,7 +44,7 @@ const Trips = (props) => {
       </div>
     </div>
     <div>
-      <div class="card" style={{width: "18rem"}}>
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">Trip Title</h5>
           <h6 class="card-subtitle mb-2 text-muted">Trip Location</h6>
