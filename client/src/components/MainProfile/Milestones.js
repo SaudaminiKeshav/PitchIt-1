@@ -1,16 +1,15 @@
 import React from "react";
-
-const milestoneStyle = {
-    backgroundColor: "yellow"
-}
+import "./style.css";
+import Timelines from "./Milestones_Timeline";
 
 const Milestones = () => {
 
-  return <>
-  <div style={ milestoneStyle }>
-      
-  </div>
-  </>;
+  return (<>
+    <div className="milestoneStyle">
+      <Timelines/>
+
+    </div>
+  </>);
 }
 
 export default Milestones;

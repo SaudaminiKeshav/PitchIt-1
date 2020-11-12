@@ -16,8 +16,8 @@ let userName = props.user.name;
   return <>
   <div style={ bannerStyle }>
     <div>
-        <h2 class="welcome">Welcome {userName}</h2>
-        <p class="quote">"The mountains are calling, and I must go" -John Muir</p>
+        <h2 className="welcome">Welcome {userName}</h2>
+        <p className="quote">"The mountains are calling, and I must go" -John Muir</p>
     </div>
   </div>
   </>;

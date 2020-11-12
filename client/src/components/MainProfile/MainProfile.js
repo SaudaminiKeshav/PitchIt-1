@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 import campfire from "../../img/campfire.gif";
-import { render } from "@testing-library/react";
 import reviewsIcon from "../../img/star.png";
 import Reviews from "../MainProfile/Reviews";
 import Trips from "../MainProfile/Trips";
@@ -23,6 +22,10 @@ const MainProfile = (props) => {
         case "Reviews":
             icon = <img src={reviewsIcon} className="contentTitleIcon" alt="stars" />
             content = <Reviews />
+            break;
+        case "Milestones":
+            content = <Milestones />
+            break;
         default: <></>
             break;
     }
@@ -32,9 +35,9 @@ const MainProfile = (props) => {
             <h3 style={{ textAlign: "start", verticalAlign: "middle", marginTop: "1%", padding: ".5%", display: "inline-block" }}>{userSelectedOption}</h3>
             <hr />
             {content}
-        </div> 
+        </div>
         <div>
-        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
         </div>
     </>;
 }
