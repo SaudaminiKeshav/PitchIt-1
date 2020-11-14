@@ -1,37 +1,35 @@
 import React from "react";
 
 const Milestones_Timeline = (props) => {
+    let totalTrips = props.trips;
+    let trips = [];
+
+    if (totalTrips != 0 && totalTrips % 2 == 0) {
+        trips.push(<li>
+            <div class="direction-r">
+                <div class="flag-wrapper">
+                    <span class="flag">" "</span>
+                    <span class="time-wrapper"><span class="time">" "</span></span>
+                </div>
+                <div class="desc">" "</div>
+            </div>
+        </li>);
+    } else if (totalTrips != 0 && totalTrips % 2 != 0) {
+        trips.push(<li>
+            <div class="direction-l">
+                <div class="flag-wrapper">
+                    <span class="flag">" "</span>
+                    <span class="time-wrapper"><span class="time">" "</span></span>
+                </div>
+                <div class="desc">" "</div>
+            </div>
+        </li>);
+    }
+
     return <>
+
         <ul class="timeline">
-            <li>
-                <div class="direction-r">
-                    <div class="flag-wrapper">
-                        <span class="flag">props.title</span>
-                        <span class="time-wrapper"><span class="time">props.date</span></span>
-                    </div>
-                    <div class="desc">props.location</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="direction-l">
-                    <div class="flag-wrapper">
-                        <span class="flag">Apple Inc.</span>
-                        <span class="time-wrapper"><span class="time">2011 - 2013</span></span>
-                    </div>
-                    <div class="desc">My first employer. All the stuff I've learned and projects I've been working on.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="direction-r">
-                    <div class="flag-wrapper">
-                        <span class="flag">Harvard University</span>
-                        <span class="time-wrapper"><span class="time">2008 - 2011</span></span>
-                    </div>
-                    <div class="desc">A description of all the lectures and courses I have taken and my final degree?</div>
-                </div>
-            </li>
+            {trips}
         </ul>
     </>;
 }

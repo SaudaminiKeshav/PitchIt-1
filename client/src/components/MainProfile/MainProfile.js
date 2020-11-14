@@ -24,6 +24,7 @@ const MainProfile = (props) => {
             content = <Reviews />
             break;
         case "Milestones":
+            icon = <img src="..." className="contentTitleIcon" alt="mountain badge" />
             content = <Milestones />
             break;
         default: <></>

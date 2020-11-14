@@ -25,7 +25,10 @@ const SideBar = (props) => {
     return <>
         <section>
             <div className="sideBarStyle">
+                <label className="add-image-label">
+                <input id="add-image-input" type="file" className="add-image" />
                 <img src={placeHolder} className="profilePicStyle" alt="profile" />
+                </label>
 
                 <ul>
                     <li className={classNames('sideBarMenuItem', props.userSelection == "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>

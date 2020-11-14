@@ -471,3 +471,33 @@
   }
   
 /* End region  */
+.reviewTitle {
+    float: left;
+    padding-right: 0.5%;
+}
+
+/*Star Rating*/
+.checked {
+    color: orange;
+    float: left;
+  }
+
+  .reviewText {
+      clear: both;
+  }
+
+  /*Add image label*/
+  .add-image-label {
+      color: transparent;
+  }
+
+  #add-image-input {
+      opacity: 0;
+  }
+
+  .card {
+      float: left;
+      width: 25rem;
+      margin: 2%;
+      text-align: center;
+  }
