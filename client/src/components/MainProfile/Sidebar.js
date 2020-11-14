@@ -4,8 +4,15 @@ import reviewIcon from "../../img/review-icon.png";
 import badgeIcon from "../../img/badge-icon.png";
 import placeHolder from "../../img/placeholder.heic";
 import arrowIcon from "../../img/arrowIcon.png";
-import "../MainProfile/style.css"
-import classNames from 'classnames'
+import "../MainProfile/style.css";
+import classNames from 'classnames';
+
+// document.querySelector('.upload-profile-btn').addEventListener('click', function(event) {
+//     event.preventDefault();
+    
+//     let profilePic = document.getElementById('add-image-input').value;
+//     console.log(profilePic);
+// })
 
 const SideBar = (props) => {
     console.log(props.user);
@@ -25,10 +32,13 @@ const SideBar = (props) => {
     return <>
         <section>
             <div className="sideBarStyle">
+                <div className="img-upload">
                 <label className="add-image-label">
                 <input id="add-image-input" type="file" className="add-image" />
                 <img src={placeHolder} className="profilePicStyle" alt="profile" />
                 </label>
+                <button type="submit" className="upload-profile-btn">+</button>
+                </div>
 
                 <ul>
                     <li className={classNames('sideBarMenuItem', props.userSelection == "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>

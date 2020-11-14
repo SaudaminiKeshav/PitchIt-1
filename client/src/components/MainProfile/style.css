@@ -213,3 +213,28 @@
       margin: 2%;
       text-align: center;
   }
+
+  /*Image upload Div*/
+  .img-upload {
+      position: relative;
+  }
+
+  /*hidden*/
+.hidden {
+    visibility: hidden;
+}
+
+  /*Upload profile picture button*/
+  .upload-profile-btn {
+      position: absolute;
+      z-index: 10;
+      left: 59%;
+      top: 58%;
+      width: 20%;
+      height: 20%;
+      background-color: rgb(255, 205, 97);
+      border-radius: 25%;
+      border: 1px solid rgb(107, 107, 107);
+      font-size: 32px;
+      text-align: center;
+  }
