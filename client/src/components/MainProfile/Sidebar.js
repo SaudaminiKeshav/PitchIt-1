@@ -31,21 +31,21 @@ const SideBar = (props) => {
                 </label>
 
                 <ul>
-                    <li className={classNames('sideBarMenuItem', props.userSelection == "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>
+                    <li className={classNames('sideBarMenuItem', props.userSelection === "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>
                         <h5 className="optionsTextAlign">
                             <img src={tripIcon} className="iconStyle" alt="cannot display" />
                             Trips
                             <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
                         </h5>
                     </li>
-                    <li className={classNames('sideBarMenuItem', props.userSelection == "Reviews" ? 'revewActive' : 'reviewStyle')} onClick={displayReviews.bind(this)}>
+                    <li className={classNames('sideBarMenuItem', props.userSelection === "Reviews" ? 'revewActive' : 'reviewStyle')} onClick={displayReviews.bind(this)}>
                         <h5 className="optionsTextAlign">
                             <img src={reviewIcon} className="iconStyle" alt="cannot display" />
                             Reviews
                             <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
                         </h5>
                     </li>
-                    <li className={classNames('sideBarMenuItem', props.userSelection == "Milestones" ? 'milestoneActive' : 'mileStoneStyle')} onClick={displayMilestones.bind(this)}>
+                    <li className={classNames('sideBarMenuItem', props.userSelection === "Milestones" ? 'milestoneActive' : 'mileStoneStyle')} onClick={displayMilestones.bind(this)}>
                         <h5 className="optionsTextAlign">
                             <img src={badgeIcon} className="iconStyle" alt="cannot display" />
                             Milestones

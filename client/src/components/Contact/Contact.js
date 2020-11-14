@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Navbar from "../Navbar";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -27,7 +27,7 @@ render() {
 return (
     <>
         <Navbar />
-    //   <div style={{ height: "150vh" }} className="container valign-wrapper">
+        <div style={{ height: "150vh" }} className="container valign-wrapper">
         <div style={{ padding: "15px" }} className="row">
           <Form onSubmit={fields => this.onSubmit(fields)} />
           <p>
@@ -55,7 +55,7 @@ return (
             </button>
           </div>
         </div>
-    //   </div>
+       </div>
     </>
     );
   }

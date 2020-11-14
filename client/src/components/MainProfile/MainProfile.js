@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import campfire from "../../img/campfire.gif";
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 import reviewsIcon from "../../img/star.png";
 import Reviews from "../MainProfile/Reviews";
 import Trips from "../MainProfile/Trips";
@@ -10,7 +10,7 @@ import Milestones from "../MainProfile/Milestones";
 
 const MainProfile = (props) => {
     console.log(props.userSelection)
-    let userName = props.user.name;
+    // let userName = props.user.name;
     let userSelectedOption = props.userSelection;
 
     let icon;
