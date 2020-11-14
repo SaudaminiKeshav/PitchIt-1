@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
+const keys = require("../config/keys");
 // Load input validation
-const validateRegisterInput = require("../../models/validation/register");
-const validateLoginInput = require("../../models/validation/login");
+const validateRegisterInput = require("../models/validation/register");
+const validateLoginInput = require("../models/validation/login");
 // Load User model
-const User = require("../../models/User");
+const User = require("../models/User");
+const CreateTripModel = require("../models/CreateTrip");
 
 // @route POST api/users/register
 // @desc Register user
@@ -89,6 +90,24 @@ router.post("/login", (req, res) => {
             .status(400)
             .json({ passwordincorrect: "Password incorrect" });
         }
+      });
+    });
+  });
+
+  // Posting new trip card data
+  router.post("/create", (req, res) => {
+    console.log('Body: ', req.body);
+    const data = req.body;
+    const newTripPost = new CreateTripModel(data);
+
+    newTripPost.save((error) => {
+      if (error) {
+        res.status(500).json({ msg: 'Sorry, internal server errors...' });
+        return;
+      }
+
+      return res.json({
+        msg: 'Your data has been saved!!!'
       });
     });
   });
