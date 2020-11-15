@@ -6,16 +6,20 @@ import placeHolder from "../../img/placeholder.heic";
 import arrowIcon from "../../img/arrowIcon.png";
 import "../MainProfile/style.css";
 import classNames from 'classnames';
+import ProfilePicture from './ProfilePicture';
 
 // document.querySelector('.upload-profile-btn').addEventListener('click', function(event) {
 //     event.preventDefault();
-    
 //     let profilePic = document.getElementById('add-image-input').value;
 //     console.log(profilePic);
 // })
 
+
+//let profileSrc;
+
 const SideBar = (props) => {
     console.log(props.user);
+    console.log(props.user.img);
 
     function displayTrips() {
         props.onSelectionChange("Trips")
@@ -29,16 +33,23 @@ const SideBar = (props) => {
         props.onSelectionChange("Milestones")
     }
 
+    // if(props.user.img) {
+    //     profileSrc = props.user.img;
+    // } else {
+    //     profileSrc = placeHolder;
+    // }
+
     return <>
         <section>
             <div className="sideBarStyle">
-                <div className="img-upload">
+                {/* <div className="img-upload">
                 <label className="add-image-label">
-                <input id="add-image-input" type="file" className="add-image" />
+                <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" />
                 <img src={placeHolder} className="profilePicStyle" alt="profile" />
                 </label>
                 <button type="submit" className="upload-profile-btn">+</button>
-                </div>
+                </div> */}
+                <ProfilePicture />
 
                 <ul>
                     <li className={classNames('sideBarMenuItem', props.userSelection === "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>
