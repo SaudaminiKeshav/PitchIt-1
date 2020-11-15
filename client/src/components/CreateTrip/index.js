@@ -3,15 +3,20 @@ import axios from 'axios';
 import CalendarComponent from "../Calendar/CalendarComponent"
 
 class CreateTrip extends React.Component {
-    state = {
-        title: '',
-        location: '',
-        date: '',
-        campers: '',
-        items: '',
-        displayCalendar: false,
-        // posts: []
-    };
+    constructor(props) {
+        super(props);
+        this.handleCalendarDateSelected = this.handleCalendarDateSelected.bind(this);
+        this.state = {
+            title: '',
+            location: '',
+            date: '',
+            campers: '',
+            items: '',
+            displayCalendar: false,
+            // posts: []
+        };
+      }
+   
 
     // componentDidMount = () => {
     //     this.getTripPost();
@@ -39,6 +44,10 @@ class CreateTrip extends React.Component {
     openCalendar = () => {
         this.setState({displayCalendar: true})
     }
+
+    handleCalendarDateSelected(userSelection) {
+        this.setState({ date: userSelection });
+      }
 
     // POSTing trip data with axios
     submit = (event) => {
@@ -162,7 +171,7 @@ class CreateTrip extends React.Component {
                     </form>
                 </div>
                 </div>
-                <CalendarComponent show={this.state.displayCalendar}/>
+                <CalendarComponent show={this.state.displayCalendar} onSelectionChange={this.handleCalendarDateSelected}/>
             </>
         );
     }

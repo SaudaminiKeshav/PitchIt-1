@@ -200,24 +200,25 @@ class CalendarComponent extends React.Component {
             </table>
         );
     };
-    onDayClick = (e, d) => {
+    onDayClick = (e, d, currentMonth, currentYear) => {
         this.setState(
             {
-                selectedDay: d
+                selectedDay: d + " " +currentMonth + " " + currentYear
             },
             () => {
                 console.log("SELECTED DAY: ", this.state.selectedDay);
+                this.props.onSelectionChange(this.state.selectedDay);
             }
         );
     };
 
     render() {
-        console.log(this.state.display);
-        console.log(moment().format('ddd'));
+        // console.log(this.state.display);
+        // console.log(moment().format('ddd'));
         let day = moment().format('DD');
         let month = moment().format('MM');
         let days = moment(month).daysInMonth();
-        console.log(days);
+        // console.log(days);
         let i;
 
         function closeModal() {
@@ -251,12 +252,14 @@ class CalendarComponent extends React.Component {
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
             let currentDay = d == this.currentDay() ? "today" : "";
+            let currentMonth = this.month();
+            let currentYear = this.year();
             // let selectedClass = (d == this.state.selectedDay ? " selected-day " : "")
             daysInMonth.push(
                 <td key={d} className={`calendar-day ${currentDay}`}>
                     <span
                         onClick={e => {
-                            this.onDayClick(e, d);
+                            this.onDayClick(e, d, currentMonth, currentYear);
                         }}
                     >
                         {d}

@@ -24,7 +24,7 @@
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  /* background-color: #fefefe; */
   margin: auto;
 
   border: 1px solid #888;
@@ -33,7 +33,7 @@
 
 @media only screen and (max-width: 600px) {
   .modal-content {
-    background-color: #fefefe;
+    /* background-color: #fefefe; */
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
