@@ -1,17 +1,24 @@
 import React from "react";
 import axios from 'axios';
+import CalendarComponent from "../Calendar/CalendarComponent"
 // import router from "react-express-router";
 // import CreateTripModel from "../../models/create-trip";
 
 class CreateTrip extends React.Component {
-    state = {
-        title: '',
-        location: '',
-        date: '',
-        campers: '',
-        items: '',
-        // posts: []
-    };
+    constructor(props) {
+        super(props);
+        this.handleCalendarDateSelected = this.handleCalendarDateSelected.bind(this);
+        this.state = {
+            title: '',
+            location: '',
+            date: '',
+            campers: '',
+            items: '',
+            displayCalendar: false,
+            // posts: []
+        };
+      }
+   
 
     // componentDidMount = () => {
     //     this.getTripPost();
@@ -35,6 +42,14 @@ class CreateTrip extends React.Component {
         const { name, value } = target;
         this.setState({ [name]: value });
     };
+
+    openCalendar = () => {
+        this.setState({displayCalendar: true})
+    }
+
+    handleCalendarDateSelected(userSelection) {
+        this.setState({ date: userSelection });
+      }
 
     // POSTing trip data with axios
     submit = (event) => {
@@ -94,14 +109,16 @@ class CreateTrip extends React.Component {
             location: '',
             date: '',
             campers: '',
-            items: ''
+            items: '',
+            isCalendarOpen: false
         });
     };
 
     render(){
         console.log('State: ', this.state);
         return(
-            <div>
+            <>
+            <div className=  "blurBackground" >
                 <div style={{paddingTop: "6%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "6%"}}>
                     <form id="create-adventure" onSubmit={this.submit}>
                         <div>
@@ -139,6 +156,7 @@ class CreateTrip extends React.Component {
                                 placeholder="MM/DD/YYYY - MM/DD/YYYY"
                                 value={this.state.date}
                                 onChange={this.handleChange}
+                                onClick={this.openCalendar}
                             ></input>
                         </div>
                         <br></br>
@@ -179,7 +197,9 @@ class CreateTrip extends React.Component {
                     <a className="cancel" href="/dashboard"><button type="button" className="btn btn-outline-success">Cancel</button></a>
                     </form>
                 </div>
-            </div>
+                </div>
+                <CalendarComponent show={this.state.displayCalendar} onSelectionChange={this.handleCalendarDateSelected}/>
+            </>
         );
     }
 }
