@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./style.css";
 
 const AdvCard = (props) => {
 
@@ -23,8 +24,11 @@ const AdvCard = (props) => {
                                 alt="..."
                             />
                             <div className="card-body">
-                                <h5 className="card-title">{each.title}</h5>
-                                <p className="card-text">{each.date}</p>
+                                <h5 style={{fontWeight: "600", marginBottom: "5%"}} className="card-title">{each.title}</h5>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Dates: </p>{each.date}</p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Location: </p>{each.location}</p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Campers: </p>{each.campers}</p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Backpack: </p>{each.items}</p>
                             </div>
                         </div>
                     </div>
