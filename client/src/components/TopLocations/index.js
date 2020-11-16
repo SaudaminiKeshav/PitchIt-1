@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const TopLocations = () => {
     return (
@@ -10,12 +11,15 @@ const TopLocations = () => {
             <div style={{ marginLeft: "10%", marginRight: "10%"}} className="row row-cols-1 row-cols-md-3">
                 <div className="col mb-4">
                     <div className="card h-100">
-                        <a href="https://travel.usnews.com/Yosemite_CA/">
+                        <a href="https://travel.usnews.com/Yosemite_CA/" target="_blank" className="img-tag">
                             <img
                                 src="https://media.cntraveler.com/photos/5b71a3d92211d70d9158ae1a/4:3/w_3348,h_2511,c_limit/Yosemite_GettyImages-632167865.jpg"
                                 className="card-img-top"
                                 alt="..."
                             />
+                            <div class="overlay">
+                                <div class="text">Click for more info!</div>
+                            </div>
                         </a>
                         <div className="card-body">
                             <h5 style={{fontWeight: "600"}} className="card-title">Yosemite</h5>
@@ -26,12 +30,15 @@ const TopLocations = () => {
                 </div>
                 <div className="col mb-4">
                     <div className="card h-100">
-                        <a href="https://travel.usnews.com/Yellowstone_National_Park_WY/">
+                        <a href="https://travel.usnews.com/Yellowstone_National_Park_WY/" target="_blank"  className="img-tag">
                             <img
                                 src="https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/01/08ET/top-10-wonders-west-yellowstone-national-park.jpg.rend.hgtvcom.616.462.suffix/1491581132559.jpeg"
                                 className="card-img-top"
                                 alt="..."
                             />
+                            <div class="overlay">
+                                <div class="text">Click for more info!</div>
+                            </div>
                         </a>
                         <div className="card-body">
                             <h5 style={{fontWeight: "600"}} className="card-title">Yellowstone</h5>
@@ -42,12 +49,15 @@ const TopLocations = () => {
                 </div>
                 <div className="col mb-4">
                     <div className="card h-100">
-                        <a href="https://travel.usnews.com/Glacier_National_Park_MT/">
+                        <a href="https://travel.usnews.com/Glacier_National_Park_MT/" target="_blank"  className="img-tag">
                             <img
                                 src="https://static.rootsrated.com/image/upload/s--G0QLeuLf--/t_rr_large_traditional/kntxugnawdhqcpgkfzu5.jpg"
                                 className="card-img-top"
                                 alt="..."
                             />
+                            <div class="overlay">
+                                <div class="text">Click for more info!</div>
+                            </div>
                         </a>
                         <div className="card-body">
                             <h5 style={{fontWeight: "600"}} className="card-title">Glacier National Park</h5>
