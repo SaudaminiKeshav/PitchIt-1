@@ -1,6 +1,28 @@
 import React from "react";
 
 const AdvCard = () => {
+
+    // state = {
+    //     posts: []
+    // };
+
+    // componentDidMount = () => {
+    //     this.getTripPost();
+    // };
+
+    // // GETing trip data with axios
+    // getTripPost = () => {
+    //     axios.get('/api')
+    //         .then((response) => {
+    //             const data = response.data;
+    //             this.setState({ posts: data });
+    //             console.log('Data has been received!');
+    //         })
+    //         .catch(() => {
+    //             console.log('Error retrieving data!');
+    //         });
+    // };
+
     return (
         <>
             <div className="col mb-4">

@@ -1,23 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from 'axios';
+import CalendarComponent from "../Calendar/CalendarComponent"
+// import router from "react-express-router";
+// import CreateTripModel from "../../models/create-trip";
 
 class CreateTrip extends React.Component {
-    state = {
-        title: '',
-        location: '',
-        date: '',
-        campers: '',
-        items: '',
-        // posts: []
-    };
+    constructor(props) {
+        super(props);
+        this.handleCalendarDateSelected = this.handleCalendarDateSelected.bind(this);
+        this.state = {
+            title: '',
+            location: '',
+            date: '',
+            campers: '',
+            items: '',
+            displayCalendar: false,
+            // posts: []
+        };
+      }
+   
 
     // componentDidMount = () => {
     //     this.getTripPost();
     // };
 
-    // GETing trip data with axios
+    // // GETing trip data with axios
     // getTripPost = () => {
-    //     axios.get('/api')
+    //     axios.get('/api/create')
     //         .then((response) => {
     //             const data = response.data;
     //             this.setState({ posts: data });
@@ -28,11 +37,19 @@ class CreateTrip extends React.Component {
     //         });
     // }
 
-    // Handling name/ value as targets
+    // Handling name/value as targets
     handleChange = ({ target }) => {
         const { name, value } = target;
         this.setState({ [name]: value });
     };
+
+    openCalendar = () => {
+        this.setState({displayCalendar: true})
+    }
+
+    handleCalendarDateSelected(userSelection) {
+        this.setState({ date: userSelection });
+      }
 
     // POSTing trip data with axios
     submit = (event) => {
@@ -58,6 +75,31 @@ class CreateTrip extends React.Component {
             .catch(() => {
                 console.log('Internal server error :(');
             });
+
+        // let trips = [];
+        
+        // fetch("/create")
+        //     .then(response => {
+        //         return response.json();
+        //     })
+        //     .then(data => {
+        //         // save db data on global variable
+        //         trips = data;
+        //         console.log(trips);
+        //     });
+
+        // axios.get("/trips", (req, res) => {
+        //     console.log('Body: ', req.body);
+        //     // const data = req.body;
+        
+        //     CreateTripModel.find((err, trips) => {
+        //       if (err) {
+        //         console.log(err);
+        //       } else {
+        //         return res.json(trips);
+        //       }
+        //     })
+        //   });
     };
 
     // Reset inputs
@@ -67,14 +109,16 @@ class CreateTrip extends React.Component {
             location: '',
             date: '',
             campers: '',
-            items: ''
+            items: '',
+            isCalendarOpen: false
         });
     };
 
     render(){
         console.log('State: ', this.state);
         return(
-            <div>
+            <>
+            <div className=  "blurBackground" >
                 <div style={{paddingTop: "6%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "6%"}}>
                     <form id="create-adventure" onSubmit={this.submit}>
                         <div>
@@ -112,6 +156,7 @@ class CreateTrip extends React.Component {
                                 placeholder="MM/DD/YYYY - MM/DD/YYYY"
                                 value={this.state.date}
                                 onChange={this.handleChange}
+                                onClick={this.openCalendar}
                             ></input>
                         </div>
                         <br></br>
@@ -148,11 +193,13 @@ class CreateTrip extends React.Component {
                                 onChange={this.handleChange}
                             ></textarea>
                         </div>
-                    <a className="submit-trip" href=""><button type="submit" className="btn btn-outline-success">Submit</button></a>
+                    <a className="submit-trip" href="/dashboard"><button type="submit" className="btn btn-outline-success">Submit</button></a>
                     <a className="cancel" href="/dashboard"><button type="button" className="btn btn-outline-success">Cancel</button></a>
                     </form>
                 </div>
-            </div>
+                </div>
+                <CalendarComponent show={this.state.displayCalendar} onSelectionChange={this.handleCalendarDateSelected}/>
+            </>
         );
     }
 }
