@@ -1,8 +1,8 @@
-import React from "react";
-import "../MainProfile/style.css"
+import React, { useEffect, useState } from "react";
+
 
 const profileAreaStyle = {
-    backgroundColor: "none"
+    backgroundColor: "orange"
 }
 
 // const tripStyle = {
@@ -19,41 +19,34 @@ const profileAreaStyle = {
 
 const Trips = (props) => {
 
+  const [ trips, setTrips] = useState([]);
+
+  useEffect(()=>{
+    console.log("works");
+    fetch("/api/all")
+    .then(data=> data.json())
+    .then(data => setTrips(data))
+  },[])
+
+
   return <>
   <div style={ profileAreaStyle }>
-    <div>
-      <div class="card">
+    {trips.map((each, index)=>{
+      return (
+        <div>
+      <div class="card" style={{width: "18rem"}}>
         <div class="card-body">
-          <h5 class="card-title">Trip Title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Trip Location</h6>
-          <p class="card-text">Trip Dates</p>
+      <h5 class="card-title">{each.title}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{each.location}</h6>
+          <p class="card-text">{each.date}</p>
           <button>View Details</button>
           <button>Edit</button>
         </div>
       </div>
     </div>
-    <div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Trip Title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Trip Location</h6>
-          <p class="card-text">Trip Dates</p>
-          <button>View Details</button>
-          <button>Edit</button>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Trip Title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Trip Location</h6>
-          <p class="card-text">Trip Dates</p>
-          <button>View Details</button>
-          <button>Edit</button>
-        </div>
-      </div>
-    </div>
+      )
+    })}
+    
   </div>
   </>;
 }
