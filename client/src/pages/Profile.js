@@ -56,7 +56,7 @@ export default connect(
 
 //Contains login signout buttons login 
 
-{/* <div style={{ height: "75vh" }} className="container valign-wrapper">
+/* <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
@@ -81,4 +81,4 @@ export default connect(
             </button>
             <DashboardBtn />
           </div>
-            </div>*/}
+            </div>*/

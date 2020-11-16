@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from 'axios';
 import CalendarComponent from "../Calendar/CalendarComponent"
+// import router from "react-express-router";
+// import CreateTripModel from "../../models/create-trip";
 
 class CreateTrip extends React.Component {
     constructor(props) {
@@ -22,9 +24,9 @@ class CreateTrip extends React.Component {
     //     this.getTripPost();
     // };
 
-    // GETing trip data with axios
+    // // GETing trip data with axios
     // getTripPost = () => {
-    //     axios.get('/api')
+    //     axios.get('/api/create')
     //         .then((response) => {
     //             const data = response.data;
     //             this.setState({ posts: data });
@@ -35,7 +37,7 @@ class CreateTrip extends React.Component {
     //         });
     // }
 
-    // Handling name/ value as targets
+    // Handling name/value as targets
     handleChange = ({ target }) => {
         const { name, value } = target;
         this.setState({ [name]: value });
@@ -73,6 +75,31 @@ class CreateTrip extends React.Component {
             .catch(() => {
                 console.log('Internal server error :(');
             });
+
+        // let trips = [];
+        
+        // fetch("/create")
+        //     .then(response => {
+        //         return response.json();
+        //     })
+        //     .then(data => {
+        //         // save db data on global variable
+        //         trips = data;
+        //         console.log(trips);
+        //     });
+
+        // axios.get("/trips", (req, res) => {
+        //     console.log('Body: ', req.body);
+        //     // const data = req.body;
+        
+        //     CreateTripModel.find((err, trips) => {
+        //       if (err) {
+        //         console.log(err);
+        //       } else {
+        //         return res.json(trips);
+        //       }
+        //     })
+        //   });
     };
 
     // Reset inputs
@@ -166,7 +193,7 @@ class CreateTrip extends React.Component {
                                 onChange={this.handleChange}
                             ></textarea>
                         </div>
-                    <a className="submit-trip" href=""><button type="submit" className="btn btn-outline-success">Submit</button></a>
+                    <a className="submit-trip" href="/dashboard"><button type="submit" className="btn btn-outline-success">Submit</button></a>
                     <a className="cancel" href="/dashboard"><button type="button" className="btn btn-outline-success">Cancel</button></a>
                     </form>
                 </div>

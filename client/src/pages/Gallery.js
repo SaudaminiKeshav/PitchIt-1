@@ -14,70 +14,70 @@ function Gallery() {
             <div>
                   <Carousel infiniteLoop useKeyboardArrows autoPlay interval="5000" transitionTime="5000">
                       <div>
-                          <img src="img/gallery/gates-of-arctic.jpg" />
+                          <img src="img/gallery/gates-of-arctic.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/Arches.jpg" />
+                          <img src="img/gallery/Arches.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/badlands.jpg" />
+                          <img src="img/gallery/badlands.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/big-bend.jpg" />
+                          <img src="img/gallery/big-bend.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/black-canyon.jpg" />
+                          <img src="img/gallery/black-canyon.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/bryce-canyon.jpg" />
+                          <img src="img/gallery/bryce-canyon.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/canyonlands.jpg" />
+                          <img src="img/gallery/canyonlands.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/carlsbad-caverns.jpg" />
+                          <img src="img/gallery/carlsbad-caverns.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/channel-islands.jpg" />
+                          <img src="img/gallery/channel-islands.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/congaree.jpg" />
+                          <img src="img/gallery/congaree.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/crater-lake.jpg" />
+                          <img src="img/gallery/crater-lake.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/cuyahoga.jpg" />
+                          <img src="img/gallery/cuyahoga.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/death-valley.jpg" />
+                          <img src="img/gallery/death-valley.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/denali.jpg" />
+                          <img src="img/gallery/denali.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/dry-tortugas.jpg" />
+                          <img src="img/gallery/dry-tortugas.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/everglades.jpg" />
+                          <img src="img/gallery/everglades.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/glacier-bay.jpg" />
+                          <img src="img/gallery/glacier-bay.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/glacier.jpg" />
+                          <img src="img/gallery/glacier.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/grand-canyon.jpg" />
+                          <img src="img/gallery/grand-canyon.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/grand-tetons.JPG" />
+                          <img src="img/gallery/grand-tetons.JPG" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/great-smokey-mountains.jpg" />
+                          <img src="img/gallery/great-smokey-mountains.jpg" alt="" />
                       </div>
                       <div>
-                          <img src="img/gallery/volcanoes.jpg" />
+                          <img src="img/gallery/volcanoes.jpg" alt="" />
                       </div>
                   </Carousel>
             </div>

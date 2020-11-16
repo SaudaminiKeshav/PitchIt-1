@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewBubble from "../MainProfile/ReviewBubble";
-import Bubble from "../MainProfile/ReviewBubble";
+// import Bubble from "../MainProfile/ReviewBubble";
 
 const reviewStyle = {
   backgroundColor: "transparent"

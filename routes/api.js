@@ -112,4 +112,17 @@ router.post("/login", (req, res) => {
     });
   });
 
+  // router.get("/trips", (req, res) => {
+  //   console.log('Body: ', req.body);
+  //   const data = req.body;
+
+  //   CreateTripModel.find((err, trips) => {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       return res.json(trips);
+  //     }
+  //   })
+  // })
+
   module.exports = router;
