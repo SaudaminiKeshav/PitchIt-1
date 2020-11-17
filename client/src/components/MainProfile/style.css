@@ -526,3 +526,11 @@
       font-size: 32px;
       text-align: center;
   }
+
+  .displayBlock {
+    display: inline-block;
+  }
+
+  .displayNone {
+    display: none;
+  }

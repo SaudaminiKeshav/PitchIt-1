@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const Milestones_Timeline = (props) => {
     let totalTrips = props.trips;
@@ -6,31 +7,33 @@ const Milestones_Timeline = (props) => {
 
     if (totalTrips != 0 && totalTrips % 2 == 0) {
         trips.push(<li>
-            <div class="direction-r">
-                <div class="flag-wrapper">
-                    <span class="flag">" "</span>
-                    <span class="time-wrapper"><span class="time">" "</span></span>
+            <div className="direction-r">
+                <div className="flag-wrapper">
+                    <span className="flag">" "</span>
+                    <span className="time-wrapper"><span className="time">" "</span></span>
                 </div>
-                <div class="desc">" "</div>
+                <div className="desc">" "</div>
             </div>
         </li>);
     } else if (totalTrips != 0 && totalTrips % 2 != 0) {
         trips.push(<li>
-            <div class="direction-l">
-                <div class="flag-wrapper">
-                    <span class="flag">" "</span>
-                    <span class="time-wrapper"><span class="time">" "</span></span>
+            <div className="direction-l">
+                <div className="flag-wrapper">
+                    <span className="flag">" "</span>
+                    <span className="time-wrapper"><span className="time">" "</span></span>
                 </div>
-                <div class="desc">" "</div>
+                <div className="desc">" "</div>
             </div>
         </li>);
     }
 
     return <>
+        <section style={{clear:"both"}}>
+            <ul className="timeline">
+                {trips}
+            </ul>
+        </section>
 
-        <ul class="timeline">
-            {trips}
-        </ul>
     </>;
 }
 

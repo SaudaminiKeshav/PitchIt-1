@@ -3,6 +3,7 @@ import "./style.css";
 import campfire from "../../img/campfire.gif";
 // import { render } from "@testing-library/react";
 import reviewsIcon from "../../img/star.png";
+import milestoneIcon from "../../img/milestone_icon.jpg";
 import Reviews from "../MainProfile/Reviews";
 import Trips from "../MainProfile/Trips";
 import Milestones from "../MainProfile/Milestones";
@@ -25,7 +26,7 @@ const MainProfile = (props) => {
             content = <Reviews />
             break;
         case "Milestones":
-            icon = <img src="..." className="contentTitleIcon" alt="mountain badge" />
+            icon = <img src={milestoneIcon} className="contentTitleIcon" alt="mountain badge" />
             content = <Milestones />
             break;
         default: <></>
