@@ -1,4 +1,5 @@
 import React from "react";
+import CompleCard from "../CompleCard"
 
 const CompletedAdvContainer = () => {
     return (
@@ -8,6 +9,7 @@ const CompletedAdvContainer = () => {
                 <hr />
             </div>
             <div style={{ marginLeft: "10%", marginRight: "10%"}} className="row row-cols-1 row-cols-md-3">
+                <CompleCard />
             </div>
         </>
     )
