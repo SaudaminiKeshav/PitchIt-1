@@ -1,12 +1,14 @@
 import React from "react";
+import axios from "axios";
+import "./ContactForm.css";
 
 export default class Form extends React.Component {
     state = {
         firstName: "",
         lastName:"",
-        userName:"",
         email:"",
-        password:"",
+        textMessage:"",
+        sent:false
     }
 
     change = (e) => {
@@ -18,71 +20,93 @@ export default class Form extends React.Component {
     onSubmit = e => {
         e.preventDefault();
         this.props.onSubmit(this.state);
-        console.log(this.state);
+        let data = {
+            name:this.state.firstName,
+            lastname:this.state.lastName,
+            email:this.state.email,
+            message:this.state.textMessage    
+        }
+        console.log("my data: " , data);
+        axios.post("/api/forma", data)
+        .then(res=>{
+            console.log(res);
+            this.setState({
+                sent:true,
+            },this.resetForm())
+        }).catch((err)=>{
+            console.log("message not sent", err);
+        });
+
+        
+    }
+
+    resetForm=()=>{
         this.setState({
             firstName: "",
             lastName:"",
-            userName:"",
             email:"",
-            password:"",
-        });
+            textMessage:""
+        })
+
+        setTimeout(()=>{
+            this.setState({
+            sent:false,
+            })
+        },3000)
     }
 
 
     render () {
        return (
-           <div className="contactForm" style={{
-                "border":"5px",
-                "padding": "1.5em",
-                "border-radius": "1em",
-               "display" : "flex", 
-               "justify-content" : "center",
-               "align-items" : "center",
-               "width" : "100%",
-               "height" : "100vh", 
-               }}>
+           <div className="container">
                 <form>
-                    <input
-                    name="firstName" 
-                    placeholder="First Name" 
-                    value={this.state.firstName} 
-                    onChange={e => this.change(e)}
-                    // onChange={e => this.setState({ firstName: e.target.value })}
-                    />
-                    <br />
-                    <input
-                    name="lastName" 
-                    placeholder="Last Name" 
-                    value={this.state.lastName} 
-                    onChange={e => this.change(e)}
-                    // onChange={e => this.setState({ lastName: e.target.value })}
-                    />
-                    <br />
-                    <input
-                    name="userName" 
-                    placeholder="User Name" 
-                    value={this.state.userName} 
-                    onChange={e => this.change(e)}
-                    // onChange={e => this.setState({ userName: e.target.value })}
-                    />
-                    <br />
-                    <input 
-                    name="email" 
-                    placeholder="Email" 
-                    value={this.state.email} 
-                    onChange={e => this.change(e)}
-                    // onChange={e => this.setState({ email: e.target.value })}
-                    />
-                    <br />
-                    <input 
-                    name="password" 
-                    placeholder="Password"
-                    type="password"
-                    value={this.state.password} 
-                    onChange={e => this.change(e)}
-                    // onChange={e => this.setState({ password: e.target.value })}
-                    />
-                    <button onClick={e => this.onSubmit(e)}>Submit</button>
+                    <div className="singleItem">
+                        <label htmlFor="name">Name</label>
+                        <input
+                        type="text"
+                        name="firstName" 
+                        placeholder="your name" 
+                        className="name"
+                        value={this.state.firstName} 
+                        onChange={e => this.change(e)}
+                        />
+                    </div>
+                    <div className="singleItem">
+                        <label htmlFor="lastname">Last Name</label>
+                        <input
+                            type="text"
+                            name="lastName" 
+                            placeholder="your last name" 
+                            className="lastname"
+                            value={this.state.lastName} 
+                            onChange={e => this.change(e)}
+                            />
+                        </div>
+                    <div className="singleItem">
+                        <label htmlFor="email">Email</label>                        
+                        <input 
+                            type="text"
+                            name="email" 
+                            placeholder="your email" 
+                            className="email"
+                            value={this.state.email} 
+                            onChange={e => this.change(e)}
+                            />
+                        </div>
+                    <div className={this.state.sent ?`msg msgShow`:`msg`}>Message has been sent</div>
+                    <div className="textArea singleItem">
+                        <label htmlFor="message">Message</label>
+                        <textArea    
+                            name="textMessage" 
+                            placeholder="Message ..." 
+                            className="msgtxt"
+                            value={this.state.textMessage} 
+                            onChange={e => this.change(e)} cols={30} rows={10}>
+                        </textArea>
+                    </div>
+                    <div className="btnMessage">
+                    <button onClick={e => this.onSubmit(e)} className="btnMessage">Submit</button>
+                    </div>
                 </form>
             </div>    
        );
