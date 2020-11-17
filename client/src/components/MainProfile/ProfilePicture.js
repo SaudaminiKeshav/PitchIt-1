@@ -35,12 +35,13 @@ class ProfilePicture extends Component {
          .then(res => {
             console.log(res);
             this.setState({
-                img: res.data.img
+                selectedFile: res.data.profilepic
             });
         })
         .catch((error) => {
             console.log('Error in file upload handler')
         })
+        console.log(this.props);
     }
 
 render () { 
@@ -48,7 +49,7 @@ render () {
         <div className="img-upload">
             <label className="add-image-label">
                 <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" ref={fileInput => this.fileInput = fileInput} />
-                <img src={placeHolder} onCLick={() => this.fileInput.click()} className="profilePicStyle" alt="profile" />
+                <img src={placeHolder} onClick={() => this.fileInput.click()} className="profilePicStyle" alt="profile" />
             </label>
             <button type="submit" className="upload-profile-btn" onClick={this.fileUploadHandler}>+</button>
     </div>
