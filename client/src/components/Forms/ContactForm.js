@@ -58,7 +58,7 @@ export default class Form extends React.Component {
 
     render () {
        return (
-           <div className="container">
+           <div className="container contact-container">
                 <form>
                     <div className="singleItem">
                         <label htmlFor="name">Name</label>
