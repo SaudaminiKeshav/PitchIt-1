@@ -18,7 +18,6 @@ class Contact extends React.Component {
 
   onSubmit = (fields) => {
     this.setState({ fields });
-    // console.log("App comp got : ", fields);
   };
 
 
@@ -27,21 +26,20 @@ render() {
 return (
     <>
         <Navbar />
-        <div style={{ height: "150vh" }} className="container valign-wrapper">
-        <div style={{ padding: "15px" }} className="row">
+        <div className="row">
           <Form onSubmit={fields => this.onSubmit(fields)} />
           <p>
             {JSON.stringify(this.state.fields, null, 2)}
           </p>
           <div className="col s12 center-align">
-            <h4>
+            {/* <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
                 You are logged into a full-stack{" "}
                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
               </p>
-            </h4>
-            <button
+            </h4> */}
+            {/* <button
               style={{
                 width: "150px",
                 borderRadius: "3px",
@@ -52,10 +50,9 @@ return (
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
-            </button>
+            </button> */}
           </div>
         </div>
-       </div>
     </>
     );
   }
