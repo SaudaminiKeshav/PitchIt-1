@@ -3,36 +3,84 @@ import "./style.css";
 
 const Milestones_Timeline = (props) => {
     let totalTrips = props.trips;
-    let trips = [];
+    let trips = props.trips;
+    let tripArray = [];
 
-    if (totalTrips != 0 && totalTrips % 2 == 0) {
-        trips.push(<li>
+    // trips.id % 2 == 0
+
+    if (totalTrips != 0) {
+        tripArray.push(<li>
             <div className="direction-r">
                 <div className="flag-wrapper">
-                    <span className="flag">" "</span>
-                    <span className="time-wrapper"><span className="time">" "</span></span>
+                    <span className="flag">Trip ID</span>
+                    <span className="time-wrapper"><span className="time">Date</span></span>
                 </div>
-                <div className="desc">" "</div>
+                <div className="desc">Trip name</div>
+                <div className="desc">Milestone name</div>
             </div>
         </li>);
-    } else if (totalTrips != 0 && totalTrips % 2 != 0) {
-        trips.push(<li>
+        tripArray.push(<li>
             <div className="direction-l">
                 <div className="flag-wrapper">
-                    <span className="flag">" "</span>
-                    <span className="time-wrapper"><span className="time">" "</span></span>
+                    <span className="flag">Trips ID</span>
+                    <span className="time-wrapper"><span className="time">Date</span></span>
                 </div>
-                <div className="desc">" "</div>
+                <div className="desc">Trip name</div>
+                <div className="desc">Milestone name</div>
             </div>
         </li>);
-    }
-
+         tripArray.push(<li>
+            <div className="direction-r">
+                <div className="flag-wrapper">
+                    <span className="flag">Trip ID</span>
+                    <span className="time-wrapper"><span className="time">Date</span></span>
+                </div>
+                <div className="desc">Trip name</div>
+                <div className="desc">Milestone name</div>
+            </div>
+        </li>);
+        tripArray.push(<li>
+            <div className="direction-l">
+                <div className="flag-wrapper">
+                    <span className="flag">Trips ID</span>
+                    <span className="time-wrapper"><span className="time">Date</span></span>
+                </div>
+                <div className="desc">Trip name</div>
+                <div className="desc">Milestone name</div>
+            </div>
+        </li>);
+         tripArray.push(<li>
+            <div className="direction-r">
+                <div className="flag-wrapper">
+                    <span className="flag">Trip ID</span>
+                    <span className="time-wrapper"><span className="time">Date</span></span>
+                </div>
+                <div className="desc">Trip name</div>
+                <div className="desc">Milestone name</div>
+            </div>
+        </li>);
+               tripArray.push(<li>
+                <div className="direction-l">
+                    <div className="flag-wrapper">
+                        <span className="flag">Trips ID</span>
+                        <span className="time-wrapper"><span className="time">Date</span></span>
+                    </div>
+                    <div className="desc">Trip name</div>
+                <div className="desc">Milestone name</div>
+                </div>
+            </li>);
+    } 
+     
+console.log(trips)
     return <>
-        <section style={{clear:"both"}}>
+        <div className="container" style={{clear:"both"}}>
+            <br></br>
+            <hr></hr>
+            <h3 style={{margin:"2%"}}>Milestone Timeline</h3>
             <ul className="timeline">
-                {trips}
+                {tripArray}
             </ul>
-        </section>
+        </div>
 
     </>;
 }
