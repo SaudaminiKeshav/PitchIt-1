@@ -22,7 +22,7 @@ class Contact extends React.Component {
 
 
 render() {
-    const { user } = this.props.auth;
+    // const { user } = this.props.auth;
 return (
     <>
         <Navbar />
