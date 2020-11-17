@@ -49,6 +49,7 @@ class CreateTrip extends React.Component {
 
     handleCalendarDateSelected(userSelection) {
         this.setState({ date: userSelection });
+        this.setState({displayCalendar: false})
       }
 
     // POSTing trip data with axios

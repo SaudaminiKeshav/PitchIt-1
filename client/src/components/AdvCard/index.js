@@ -1,39 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./style.css";
 
-const AdvCard = () => {
+const AdvCard = (props) => {
 
-    // state = {
-    //     posts: []
-    // };
+    const [ trips, setTrips] = useState([]);
 
-    // componentDidMount = () => {
-    //     this.getTripPost();
-    // };
-
-    // // GETing trip data with axios
-    // getTripPost = () => {
-    //     axios.get('/api')
-    //         .then((response) => {
-    //             const data = response.data;
-    //             this.setState({ posts: data });
-    //             console.log('Data has been received!');
-    //         })
-    //         .catch(() => {
-    //             console.log('Error retrieving data!');
-    //         });
-    // };
+    useEffect(()=>{
+      console.log("It works!");
+      fetch("/api/all")
+      .then(data=> data.json())
+      .then(data => setTrips(data))
+    },[])
 
     return (
         <>
-            <div className="col mb-4">
-                <div className="card h-100">
-                    <img src="..." className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            {trips.map((each, index)=>{
+                return (
+                    <div className="col mb-4">
+                        <div className="card h-100">
+                            <img
+                                src="https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1600&h=1067&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2020%2F01%2Fglacier-national-park-GLACIERSIGNS0120.jpg"
+                                className="card-img-top"
+                                alt="..."
+                            />
+                            <div className="card-body">
+                                <h5 style={{fontWeight: "600", marginBottom: "5%"}} className="card-title">{each.title}</h5>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Dates: </p>{each.date}</p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Location: </p>{each.location}</p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Campers: </p>{each.campers}</p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Backpack: </p>{each.items}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                )
+            })}
         </>
     )
 }
