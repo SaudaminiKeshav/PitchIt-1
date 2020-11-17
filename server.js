@@ -53,7 +53,7 @@ app.post("/api/create", (req, res) => {
 });
 
 app.get('/api/all', function(req, res){
-  CreateTripModel.find()
+  CreateTripModel.find().sort({_id:-1})
     .exec()
     .then(doc => {
       res.send(doc)
