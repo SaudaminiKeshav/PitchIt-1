@@ -60,6 +60,15 @@ app.get('/api/all', function(req, res){
     .catch()
 })
 
+app.get('/api/completed', function(req, res){
+  CreateTripModel.find({ completed: true })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+})
+
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
   sgMail.setApiKey(apiKey)
