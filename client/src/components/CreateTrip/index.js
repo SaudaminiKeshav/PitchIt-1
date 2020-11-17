@@ -1,8 +1,6 @@
 import React from "react";
 import axios from 'axios';
 import CalendarComponent from "../Calendar/CalendarComponent"
-// import router from "react-express-router";
-// import CreateTripModel from "../../models/create-trip";
 
 class CreateTrip extends React.Component {
     constructor(props) {
@@ -14,28 +12,9 @@ class CreateTrip extends React.Component {
             date: '',
             campers: '',
             items: '',
-            displayCalendar: false,
-            // posts: []
+            displayCalendar: false
         };
-      }
-   
-
-    // componentDidMount = () => {
-    //     this.getTripPost();
-    // };
-
-    // // GETing trip data with axios
-    // getTripPost = () => {
-    //     axios.get('/api/create')
-    //         .then((response) => {
-    //             const data = response.data;
-    //             this.setState({ posts: data });
-    //             console.log('Data has been received!');
-    //         })
-    //         .catch(() => {
-    //             console.log('Error retrieving data!');
-    //         });
-    // }
+    };
 
     // Handling name/value as targets
     handleChange = ({ target }) => {
@@ -45,12 +24,12 @@ class CreateTrip extends React.Component {
 
     openCalendar = () => {
         this.setState({displayCalendar: true})
-    }
+    };
 
     handleCalendarDateSelected(userSelection) {
         this.setState({ date: userSelection });
         this.setState({displayCalendar: false})
-      }
+    };
 
     // POSTing trip data with axios
     submit = (event) => {
@@ -77,30 +56,6 @@ class CreateTrip extends React.Component {
                 console.log('Internal server error :(');
             });
 
-        // let trips = [];
-        
-        // fetch("/create")
-        //     .then(response => {
-        //         return response.json();
-        //     })
-        //     .then(data => {
-        //         // save db data on global variable
-        //         trips = data;
-        //         console.log(trips);
-        //     });
-
-        // axios.get("/trips", (req, res) => {
-        //     console.log('Body: ', req.body);
-        //     // const data = req.body;
-        
-        //     CreateTripModel.find((err, trips) => {
-        //       if (err) {
-        //         console.log(err);
-        //       } else {
-        //         return res.json(trips);
-        //       }
-        //     })
-        //   });
     };
 
     // Reset inputs
