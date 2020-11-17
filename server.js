@@ -6,6 +6,7 @@ const routes = require("./routes/api");
 const app = express();
 require('dotenv').config();
 const CreateTripModel = require("./models/CreateTrip.js");
+const User = require("./models/User");
 
 // DB Config
 const db = process.env.mongoURI;
@@ -21,9 +22,9 @@ mongoose.connect(
 .catch(err => console.log(err + "Error while connecting to mongo !!!!"));
 
 // Bodyparser middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '500mb', extended: true}));
 app.use(
-  bodyParser.urlencoded({
+  bodyParser.urlencoded({limit: '500mb',
     extended: false
   })
 );
@@ -89,6 +90,19 @@ sgMail
   })
 });
 
+//Upload Profile Picture
+app.put("/api/profile", (req, res) => {
+  console.log(req.body);
+  User.update(req.body)
+  .then(dbUserUpdate => {
+    console.log(dbUserUpdate);
+    res.json(dbUserUpdate);
+  })
+  .catch(err => {
+    console.log(err);
+    res.send(err);
+  });
+});
 
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there

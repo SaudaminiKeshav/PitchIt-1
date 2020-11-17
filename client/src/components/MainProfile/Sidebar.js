@@ -49,7 +49,7 @@ const SideBar = (props) => {
                 </label>
                 <button type="submit" className="upload-profile-btn">+</button>
                 </div> */}
-                <ProfilePicture />
+                <ProfilePicture user={props.user} />
 
                 <ul>
                     <li className={classNames('sideBarMenuItem', props.userSelection === "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>
