@@ -9,6 +9,7 @@ const CreateTripModel = require("./models/CreateTrip.js");
 
 // DB Config
 const db = process.env.mongoURI;
+const apiKey = process.env.apiKey;
 
 // Connect to MongoDB
 mongoose.connect(
@@ -61,8 +62,8 @@ app.get('/api/all', function(req, res){
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey("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")
-const msg = {
+  sgMail.setApiKey(apiKey)
+  const msg = {
   to: 'haroldzuluaga@aol.com',// Change to your recipient
   from: 'haroldzuluaga@aol.com', // Change to your verified sender
   subject: 'Sending with SendGrid is Fun',
