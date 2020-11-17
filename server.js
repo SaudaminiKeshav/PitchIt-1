@@ -59,7 +59,7 @@ app.get('/api/all', function(req, res){
       res.send(doc)
     })
     .catch()
-})
+});
 
 app.get('/api/completed', function(req, res){
   CreateTripModel.find({ completed: true })
@@ -68,7 +68,18 @@ app.get('/api/completed', function(req, res){
       res.send(doc)
     })
     .catch()
-})
+});
+
+//NOT DONE
+app.get('/api/update/:id', function(req, res) {
+  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+//NOT DONE
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
