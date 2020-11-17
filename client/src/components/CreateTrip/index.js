@@ -5,14 +5,16 @@ import CalendarComponent from "../Calendar/CalendarComponent"
 class CreateTrip extends React.Component {
     constructor(props) {
         super(props);
-        this.handleCalendarDateSelected = this.handleCalendarDateSelected.bind(this);
+        this.handleCalendarStartDateSelected = this.handleCalendarStartDateSelected.bind(this);
+        this.handleCalendarEndDateSelected = this.handleCalendarEndDateSelected.bind(this);
         this.state = {
             title: '',
             location: '',
             date: '',
             campers: '',
             items: '',
-            displayCalendar: false
+            displayStartCalendar: false,
+            displayEndCalendar: false
         };
     };
 
@@ -22,13 +24,22 @@ class CreateTrip extends React.Component {
         this.setState({ [name]: value });
     };
 
-    openCalendar = () => {
-        this.setState({displayCalendar: true})
+    openCalendarStart = () => {
+        this.setState({displayStartCalendar: true})
     };
 
-    handleCalendarDateSelected(userSelection) {
-        this.setState({ date: userSelection });
-        this.setState({displayCalendar: false})
+    openCalendarEnd = () => {
+        this.setState({displayEndCalendar: true})
+    };
+
+    handleCalendarStartDateSelected(userSelection) {
+        this.setState({ startDate: userSelection });
+        this.setState({displayStartCalendar: false});
+    };
+
+    handleCalendarEndDateSelected(userSelection) {
+        this.setState({ endDate: userSelection });
+        this.setState({displayEndCalendar: false});
     };
 
     completeTrip = (event) => {
@@ -52,7 +63,7 @@ class CreateTrip extends React.Component {
         const payload = {
             title: this.state.title,
             location: this.state.location,
-            date: this.state.date,
+            date: this.state.startDate + " - " + this.state.endDate,
             campers: this.state.campers,
             items: this.state.items
         };
@@ -66,8 +77,8 @@ class CreateTrip extends React.Component {
                 console.log('Data has been sent to the server!');
                 this.resetUserInputs();
             })
-            .catch(() => {
-                console.log('Internal server error :(');
+            .catch((err) => {
+                console.log('Internal server error :(', err);
             });
 
     };
@@ -118,16 +129,30 @@ class CreateTrip extends React.Component {
                         </div>
                         <br></br>
                         <div>
-                            <label htmlFor="date">Dates:</label>
+                            <label htmlFor="startDate">Start Date:</label>
                             <input
                                 type="text"
-                                name="date"
-                                id="date"
-                                placeholder="MM/DD/YYYY - MM/DD/YYYY"
-                                value={this.state.date}
+                                name="startDate"
+                                id="startDate"
+                                placeholder="Start Date..."
+                                value={this.state.startDate}
                                 onChange={this.handleChange}
-                                onClick={this.openCalendar}
+                                onClick={this.openCalendarStart}
                             ></input>
+                            <CalendarComponent show={this.state.displayStartCalendar} onSelectionChange={this.handleCalendarStartDateSelected}/>
+                        </div>
+                        <div>
+                            <label htmlFor="endDate">End Date:</label>
+                            <input
+                                type="text"
+                                name="endDate"
+                                id="endDate"
+                                placeholder="End Date..."
+                                value={this.state.endDate}
+                                onChange={this.handleChange}
+                                onClick={this.openCalendarEnd}
+                            ></input>
+                            <CalendarComponent show={this.state.displayEndCalendar} onSelectionChange={this.handleCalendarEndDateSelected}/>
                         </div>
                         <br></br>
                         <div>
@@ -168,7 +193,8 @@ class CreateTrip extends React.Component {
                     </form>
                 </div>
                 </div>
-                <CalendarComponent show={this.state.displayCalendar} onSelectionChange={this.handleCalendarDateSelected}/>
+                
+                
             </>
         );
     }

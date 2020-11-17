@@ -4,19 +4,19 @@
   box-sizing: border-box;
 }
 
-.container {
+.contact-container {
   background-color: rgb(186, 198, 186);
   margin: 100px auto;
   width: 90%;
   box-shadow: 1px 1px 4px 1px lightgrey;
 }
 
-.container form {
+.contact-container form {
   width: 100%;
   padding: 10px;
 }
 
-.container label {
+.contact-container label {
   letter-spacing: 0.1rem;
   font-style: italic;
   font-size: 1rem;
@@ -24,8 +24,8 @@
   margin-bottom: 3px;
 }
 
-.container input,
-.container textArea {
+.contact-container input,
+.contact-container textArea {
   width: 100%;
   color: darkgreen;
   margin: 0 auto;
@@ -34,8 +34,8 @@
   box-shadow: 1px 1px 4px 1px lightgoldenrodyellow;
 }
 
-.container input:focus,
-.container textArea:focus {
+.contact-container input:focus,
+.contact-container textArea:focus {
   box-shadow: 1px 1px 4px 1px rgb(185, 70, 13);
 }
 
@@ -85,7 +85,7 @@
 }
 
 @media screen and (min-width: 664px) {
-  .container {
+  .contact-container {
     width: 60%;
   }
 }

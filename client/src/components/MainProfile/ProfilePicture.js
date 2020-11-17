@@ -10,26 +10,32 @@ import axios from 'axios';
 // })
 
 class ProfilePicture extends Component {
+    //const user = this.props.user;
+    
     state = {
         selectedFile: null
     }
     fileSelectedHandler = event => {
-        console.log(event.target.files[0]);
+        //console.log(event.target.files[0]);
+        //console.log(event);
         this.setState({
             selectedFile: event.target.files[0]
         })
     }
 
-    fileUploadHandler = () => {
-        const fd = new FormData();
-        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+    fileUploadHandler = (props) => {
+        //console.log(this.props);
+        //const formData = new FormData();
+        //formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
+        //formData.append('user', this.props.user);
 
+        console.log(this.state.selectedFile);
 
-        axios.post('api/', fd)
+        axios.put('/api/profile', this.state.selectedFile)
          .then(res => {
             console.log(res);
             this.setState({
-            img: res.data.img
+                img: res.data.img
             });
         })
         .catch((error) => {

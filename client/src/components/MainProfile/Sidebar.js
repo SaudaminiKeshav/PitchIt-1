@@ -2,7 +2,7 @@ import React from "react";
 import tripIcon from "../../img/trips-icon.png";
 import reviewIcon from "../../img/review-icon.png";
 import badgeIcon from "../../img/badge-icon.png";
-import placeHolder from "../../img/placeholder.heic";
+// import placeHolder from "../../img/placeholder.heic";
 import arrowIcon from "../../img/arrowIcon.png";
 import "../MainProfile/style.css";
 import classNames from 'classnames';
@@ -49,7 +49,7 @@ const SideBar = (props) => {
                 </label>
                 <button type="submit" className="upload-profile-btn">+</button>
                 </div> */}
-                <ProfilePicture />
+                <ProfilePicture user={props.user} />
 
                 <ul>
                     <li className={classNames('sideBarMenuItem', props.userSelection === "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>
