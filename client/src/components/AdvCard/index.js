@@ -29,10 +29,10 @@ const AdvCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Location: </p>{each.location}</p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Campers: </p>{each.campers}</p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Backpack: </p>{each.items}</p>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-success">Complete</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                <div className="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" className="btn btn-warning">Update</button>
+                                    <button type="button" className="btn btn-success">Complete</button>
+                                    <button type="button" className="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>
