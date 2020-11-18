@@ -22,9 +22,9 @@ mongoose.connect(
 .catch(err => console.log(err + "Error while connecting to mongo !!!!"));
 
 // Bodyparser middleware
-app.use(bodyParser.json({limit: '500mb', extended: true}));
+app.use(bodyParser.json({limit: '2000kb', extended: true}));
 app.use(
-  bodyParser.urlencoded({limit: '500mb',
+  bodyParser.urlencoded({limit: '2000kb',
     extended: false
   })
 );
@@ -53,13 +53,13 @@ app.post("/api/create", (req, res) => {
 });
 
 app.get('/api/all', function(req, res){
-  CreateTripModel.find()
+  CreateTripModel.find().sort({_id:-1})
     .exec()
     .then(doc => {
       res.send(doc)
     })
     .catch()
-})
+});
 
 app.get('/api/completed', function(req, res){
   CreateTripModel.find({ completed: true })
@@ -68,7 +68,18 @@ app.get('/api/completed', function(req, res){
       res.send(doc)
     })
     .catch()
-})
+});
+
+//NOT DONE
+app.get('/api/update/:id', function(req, res) {
+  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+//NOT DONE
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')

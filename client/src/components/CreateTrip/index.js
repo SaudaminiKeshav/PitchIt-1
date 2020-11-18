@@ -42,6 +42,20 @@ class CreateTrip extends React.Component {
         this.setState({displayEndCalendar: false});
     };
 
+    completeTrip = (event) => {
+        event.preventDefault();
+
+        const payload = {
+            title: this.state.title,
+            location: this.state.location,
+            date: this.state.date,
+            campers: this.state.campers,
+            items: this.state.items
+        };
+
+        console.log("This is the info clicked", payload);
+    }
+
     // POSTing trip data with axios
     submit = (event) => {
         event.preventDefault();
