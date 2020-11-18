@@ -492,7 +492,7 @@
   }
 
   #add-image-input {
-      opacity: 0;
+      opacity: 1;
   }
 
   .card {
@@ -512,18 +512,18 @@
     visibility: hidden;
 }
 
-  /*Upload profile picture button*/
+  /*Upload profile picture button */
   .upload-profile-btn {
       position: absolute;
       z-index: 10;
       left: 59%;
       top: 58%;
-      width: 20%;
+      width: 33%;
       height: 20%;
       background-color: rgb(255, 205, 97);
       border-radius: 25%;
       border: 1px solid rgb(107, 107, 107);
-      font-size: 32px;
+      font-size: 22px;
       text-align: center;
   }
 

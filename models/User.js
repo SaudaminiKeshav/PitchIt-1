@@ -9,9 +9,9 @@ const UserSchema = new Schema({
     required: true
   },
   profilepic: { 
-    //data: Buffer, 
-    //contentType: String
-    type: String
+    data: Buffer, 
+    contentType: String
+    //type: String
     //default: null
   },
   email: {
