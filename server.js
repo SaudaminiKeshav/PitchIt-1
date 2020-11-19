@@ -30,19 +30,19 @@ mongoose.connect(
   useUnifiedTopology: true ,
   useFindAndModify: false
 
-//}).then(() => 
-//ADDED NEW STUFF START
-//{
-//  gfs = Grid(conn.db, mongoose.mongo)
-//  gfs.collection('uploads')
-//  console.log("MongoDB successfully connected", db)
-//}
-//ADDED NEW STUFF END
-//)
-//.catch(err => console.log(err + "Error while connecting to mongo !!!!"));
+}).then(() => 
+// ADDED NEW STUFF START
+{
+ gfs = Grid(mongoose.connection.db, mongoose.mongo);
+ gfs.collection('uploads');
+ console.log("MongoDB successfully connected!");
+}
+// ADDED NEW STUFF END
+)
+.catch(err => console.log(err + " => Error while connecting to mongo !!!!"));
 
-}).then(() => console.log("MongoDB successfully connected", db))
-.catch(err => console.log(err + "Error while connecting to mongo !!!!"));
+// }).then(() => console.log("MongoDB successfully connected", db))
+// .catch(err => console.log(err + " => Error while connecting to mongo !!!!"));
 
 // Bodyparser middleware
 app.use(bodyParser.json());

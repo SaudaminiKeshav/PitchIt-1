@@ -55,7 +55,7 @@ const AdvCard = (props) => {
                         </div>
                     </div>
 
-                        {/*//Prompt for review*/}
+                    {/*//Prompt for review*/}
                     <div className="modal fade" id="exampleModalid" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div id="modal-content" className="modal-content">
