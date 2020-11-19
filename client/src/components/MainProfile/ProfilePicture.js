@@ -3,7 +3,7 @@ import "../MainProfile/style.css";
 import placeHolder from "../../img/placeholder.heic";
 import axios from 'axios';
 
-document.getElementById('img').setAttribute('src', file[0].name);
+// document.getElementById('img').setAttribute('src', file[0].name);
 
 class ProfilePicture extends Component {
     //const user = this.props.user;

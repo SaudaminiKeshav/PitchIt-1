@@ -1,12 +1,12 @@
 import React from "react";
-// import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 function Gallery() {
     return(
         <>
-            {/* <Navbar /> */}
+            <Navbar visibility={true}/>
             <div style={{paddingTop: "6%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "6%"}}>
                 <p>Yo what's up, I still need to work on it....</p>
             </div>
