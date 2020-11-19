@@ -1,41 +1,22 @@
 import React from "react";
 import axios from 'axios';
 import CalendarComponent from "../Calendar/CalendarComponent"
-// import router from "react-express-router";
-// import CreateTripModel from "../../models/create-trip";
 
 class CreateTrip extends React.Component {
     constructor(props) {
         super(props);
-        this.handleCalendarDateSelected = this.handleCalendarDateSelected.bind(this);
+        this.handleCalendarStartDateSelected = this.handleCalendarStartDateSelected.bind(this);
+        this.handleCalendarEndDateSelected = this.handleCalendarEndDateSelected.bind(this);
         this.state = {
             title: '',
             location: '',
             date: '',
             campers: '',
             items: '',
-            displayCalendar: false,
-            // posts: []
+            displayStartCalendar: false,
+            displayEndCalendar: false
         };
-      }
-   
-
-    // componentDidMount = () => {
-    //     this.getTripPost();
-    // };
-
-    // // GETing trip data with axios
-    // getTripPost = () => {
-    //     axios.get('/api/create')
-    //         .then((response) => {
-    //             const data = response.data;
-    //             this.setState({ posts: data });
-    //             console.log('Data has been received!');
-    //         })
-    //         .catch(() => {
-    //             console.log('Error retrieving data!');
-    //         });
-    // }
+    };
 
     // Handling name/value as targets
     handleChange = ({ target }) => {
@@ -43,14 +24,37 @@ class CreateTrip extends React.Component {
         this.setState({ [name]: value });
     };
 
-    openCalendar = () => {
-        this.setState({displayCalendar: true})
-    }
+    openCalendarStart = () => {
+        this.setState({displayStartCalendar: true})
+    };
 
-    handleCalendarDateSelected(userSelection) {
-        this.setState({ date: userSelection });
-        this.setState({displayCalendar: false})
-      }
+    openCalendarEnd = () => {
+        this.setState({displayEndCalendar: true})
+    };
+
+    handleCalendarStartDateSelected(userSelection) {
+        this.setState({ startDate: userSelection });
+        this.setState({displayStartCalendar: false});
+    };
+
+    handleCalendarEndDateSelected(userSelection) {
+        this.setState({ endDate: userSelection });
+        this.setState({displayEndCalendar: false});
+    };
+
+    completeTrip = (event) => {
+        event.preventDefault();
+
+        const payload = {
+            title: this.state.title,
+            location: this.state.location,
+            date: this.state.date,
+            campers: this.state.campers,
+            items: this.state.items
+        };
+
+        console.log("This is the info clicked", payload);
+    }
 
     // POSTing trip data with axios
     submit = (event) => {
@@ -59,7 +63,7 @@ class CreateTrip extends React.Component {
         const payload = {
             title: this.state.title,
             location: this.state.location,
-            date: this.state.date,
+            date: this.state.startDate + " - " + this.state.endDate,
             campers: this.state.campers,
             items: this.state.items
         };
@@ -73,34 +77,10 @@ class CreateTrip extends React.Component {
                 console.log('Data has been sent to the server!');
                 this.resetUserInputs();
             })
-            .catch(() => {
-                console.log('Internal server error :(');
+            .catch((err) => {
+                console.log('Internal server error :(', err);
             });
 
-        // let trips = [];
-        
-        // fetch("/create")
-        //     .then(response => {
-        //         return response.json();
-        //     })
-        //     .then(data => {
-        //         // save db data on global variable
-        //         trips = data;
-        //         console.log(trips);
-        //     });
-
-        // axios.get("/trips", (req, res) => {
-        //     console.log('Body: ', req.body);
-        //     // const data = req.body;
-        
-        //     CreateTripModel.find((err, trips) => {
-        //       if (err) {
-        //         console.log(err);
-        //       } else {
-        //         return res.json(trips);
-        //       }
-        //     })
-        //   });
     };
 
     // Reset inputs
@@ -149,16 +129,30 @@ class CreateTrip extends React.Component {
                         </div>
                         <br></br>
                         <div>
-                            <label htmlFor="date">Dates:</label>
+                            <label htmlFor="startDate">Start Date:</label>
                             <input
                                 type="text"
-                                name="date"
-                                id="date"
-                                placeholder="MM/DD/YYYY - MM/DD/YYYY"
-                                value={this.state.date}
+                                name="startDate"
+                                id="startDate"
+                                placeholder="Start Date..."
+                                value={this.state.startDate}
                                 onChange={this.handleChange}
-                                onClick={this.openCalendar}
+                                onClick={this.openCalendarStart}
                             ></input>
+                            <CalendarComponent show={this.state.displayStartCalendar} onSelectionChange={this.handleCalendarStartDateSelected}/>
+                        </div>
+                        <div>
+                            <label htmlFor="endDate">End Date:</label>
+                            <input
+                                type="text"
+                                name="endDate"
+                                id="endDate"
+                                placeholder="End Date..."
+                                value={this.state.endDate}
+                                onChange={this.handleChange}
+                                onClick={this.openCalendarEnd}
+                            ></input>
+                            <CalendarComponent show={this.state.displayEndCalendar} onSelectionChange={this.handleCalendarEndDateSelected}/>
                         </div>
                         <br></br>
                         <div>
@@ -199,7 +193,8 @@ class CreateTrip extends React.Component {
                     </form>
                 </div>
                 </div>
-                <CalendarComponent show={this.state.displayCalendar} onSelectionChange={this.handleCalendarDateSelected}/>
+                
+                
             </>
         );
     }

@@ -73,7 +73,7 @@ class CalendarComponent extends React.Component {
         let cells = [];
 
         months.forEach((row, i) => {
-            if (i % 3 !== 0 || i == 0) {
+            if (i % 3 !== 0 || i === 0) {
                 cells.push(row);
             } else {
                 rows.push(cells);
@@ -106,7 +106,7 @@ class CalendarComponent extends React.Component {
 
     onPrev = () => {
         let curr = "";
-        if (this.state.showMonthTable == true) {
+        if (this.state.showMonthTable === true) {
             curr = "year";
         } else {
             curr = "month";
@@ -117,7 +117,7 @@ class CalendarComponent extends React.Component {
     };
     onNext = () => {
         let curr = "";
-        if (this.state.showMonthTable == true) {
+        if (this.state.showMonthTable === true) {
             curr = "year";
         } else {
             curr = "month";
@@ -134,7 +134,6 @@ class CalendarComponent extends React.Component {
             dateObject: dateObject,
             showMonthTable: !this.state.showMonthTable,
             showYearNav: !this.state.showYearNav,
-            showMonthTable: !this.state.showMonthTable
         });
     };
     onYearChange = e => {
@@ -176,7 +175,7 @@ class CalendarComponent extends React.Component {
         let cells = [];
 
         months.forEach((row, i) => {
-            if (i % 3 !== 0 || i == 0) {
+            if (i % 3 !== 0 || i === 0) {
                 cells.push(row);
             } else {
                 rows.push(cells);
@@ -251,7 +250,7 @@ class CalendarComponent extends React.Component {
         }
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
-            let currentDay = d == this.currentDay() ? "today" : "";
+            let currentDay = d === this.currentDay() ? "today" : "";
             let currentMonth = this.month();
             let currentYear = this.year();
             // let selectedClass = (d == this.state.selectedDay ? " selected-day " : "")
@@ -290,7 +289,7 @@ class CalendarComponent extends React.Component {
         });
 
         return <>
-            <div id="myModal" className={classNames('modal', this.state.display == true ? 'displayBlock' : 'displayNone')}>
+            <div id="myModal" className={classNames('modal', this.state.display === true ? 'displayBlock' : 'displayNone')}>
 
                 <div className="modal-content">
                     <span className="close" onClick={closeModal.bind(this)}>&times;</span>

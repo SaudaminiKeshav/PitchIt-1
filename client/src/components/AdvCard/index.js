@@ -5,6 +5,20 @@ const AdvCard = (props) => {
 
     const [ trips, setTrips] = useState([]);
 
+    const completeTrip = (event) => {
+        event.preventDefault();
+
+        const payload = {
+            title: event.target.parentElement.parentElement.querySelector("#title").innerHTML,
+            location: event.target.parentElement.parentElement.querySelector("#location").innerHTML,
+            date: event.target.parentElement.parentElement.querySelector("#date").innerHTML,
+            campers: event.target.parentElement.parentElement.querySelector("#campers").innerHTML,
+            items: event.target.parentElement.parentElement.querySelector("#items").innerHTML
+        };
+
+        console.log("This is the info clicked", payload);
+    };
+
     useEffect(()=>{
       console.log("It works!");
       fetch("/api/all")
@@ -24,11 +38,16 @@ const AdvCard = (props) => {
                                 alt="..."
                             />
                             <div className="card-body">
-                                <h5 style={{fontWeight: "600", marginBottom: "5%"}} className="card-title">{each.title}</h5>
-                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Dates: </p>{each.date}</p>
-                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Location: </p>{each.location}</p>
-                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Campers: </p>{each.campers}</p>
-                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Backpack: </p>{each.items}</p>
+                                <h5 id="title" style={{fontWeight: "600", marginBottom: "5%"}} className="card-title">{each.title}</h5>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Dates: </span><span id="date">{each.date}</span></p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Location: </span><span id="location">{each.location}</span></p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Campers: </span><span id="campers">{each.campers}</span></p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning" onClick={completeTrip}>Update</button>
+                                    <button type="button" class="btn btn-success">Complete</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,7 @@ const users = require("./routes/api");
 const app = express();
 require('dotenv').config();
 const CreateTripModel = require("./models/CreateTrip.js");
+const User = require("./models/User");
 
 // DB Config
 const db = process.env.mongoURI;
@@ -23,9 +24,9 @@ mongoose.connect(
 .catch(err => console.log(err + "Error while connecting to mongo !!!!"));
 
 // Bodyparser middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '2000kb', extended: true}));
 app.use(
-  bodyParser.urlencoded({
+  bodyParser.urlencoded({limit: '2000kb',
     extended: false
   })
 );
@@ -55,13 +56,33 @@ app.post("/api/create", (req, res) => {
 });
 
 app.get('/api/all', function(req, res){
-  CreateTripModel.find()
+  CreateTripModel.find().sort({_id:-1})
     .exec()
     .then(doc => {
       res.send(doc)
     })
     .catch()
-})
+});
+
+app.get('/api/completed', function(req, res){
+  CreateTripModel.find({ completed: true })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+
+//NOT DONE
+app.get('/api/update/:id', function(req, res) {
+  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+//NOT DONE
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
@@ -83,6 +104,19 @@ sgMail
   })
 });
 
+//Upload Profile Picture
+app.put("/api/profile", (req, res) => {
+  console.log(req.body);
+  User.update(req.body)
+  .then(dbUserUpdate => {
+    console.log(dbUserUpdate);
+    res.json(dbUserUpdate);
+  })
+  .catch(err => {
+    console.log(err);
+    res.send(err);
+  });
+});
 
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
