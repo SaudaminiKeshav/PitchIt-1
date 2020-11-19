@@ -8,7 +8,7 @@ const Milestones_Timeline = (props) => {
 
     // trips.id % 2 == 0
 
-    if (totalTrips != 0) {
+    if (totalTrips !== 0) {
         tripArray.push(<li>
             <div className="direction-r">
                 <div className="flag-wrapper">

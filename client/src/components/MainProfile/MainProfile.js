@@ -12,7 +12,6 @@ import Timeline from "../MainProfile/Timeline";
 
 
 const MainProfile = (props) => {
-    console.log(props.userSelection)
     // let userName = props.user.name;
     let userSelectedOption = props.userSelection;
 
@@ -39,10 +38,10 @@ const MainProfile = (props) => {
             break;
     }
     return <>
-        <div className="contentAreaStyle">
+        <div className="contentAreaStyle" style={{marginBottom:"20%"}}>
             {icon}
             <h3 style={{ textAlign: "start", verticalAlign: "middle", marginTop: "1%", padding: ".5%", display: "inline-block" }}>{userSelectedOption}</h3>
-            <hr />
+            <hr style={{marginLeft:"3%", marginRight:"3%"}}/>
             {content}
         </div>
         <div>

@@ -19,8 +19,6 @@ import ProfilePicture from './ProfilePicture';
 //let profileSrc;
 
 const SideBar = (props) => {
-    console.log(props.user);
-    console.log(props.user.img);
 
     function displayTrips() {
         props.onSelectionChange("Trips")

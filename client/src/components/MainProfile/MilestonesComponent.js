@@ -1,14 +1,15 @@
 import React from "react";
 import "./style.css";
-import Timelines from "./Timeline";
-import UserMilestones from "./MilestonesUser";
+import MilestonesUser from "./MilestonesUser";
+import MilestonesAvailable from "./MilestonesAvailable";
 
 const Milestones = (props) => {
 
   return (<>
     <div className="milestoneStyle">
-      <UserMilestones trips={10} />
+      <MilestonesUser trips={10} />
       <br></br>
+      <MilestonesAvailable />
     </div>
   </>);
 }

@@ -68,6 +68,7 @@ class CalendarComponent extends React.Component {
                     <span>{data}</span>
                 </td>
             );
+            return console.log(data);
         });
         let rows = [];
         let cells = [];
@@ -142,8 +143,8 @@ class CalendarComponent extends React.Component {
     getDates(startDate, stopDate) {
         var dateArray = [];
         var currentDate = moment(startDate);
-        var stopDate = moment(stopDate);
-        while (currentDate <= stopDate) {
+        var stopDate2 = moment(stopDate);
+        while (currentDate <= stopDate2) {
             dateArray.push(moment(currentDate).format("YYYY"));
             currentDate = moment(currentDate).add(1, "year");
         }
@@ -170,6 +171,7 @@ class CalendarComponent extends React.Component {
                     <span>{data}</span>
                 </td>
             );
+            return console.log(data);
         });
         let rows = [];
         let cells = [];
@@ -202,7 +204,7 @@ class CalendarComponent extends React.Component {
     onDayClick = (e, d, currentMonth, currentYear) => {
         this.setState(
             {
-                selectedDay: d + " " +currentMonth + " " + currentYear
+                selectedDay: d + " " + currentMonth + " " + currentYear
             },
             () => {
                 console.log("SELECTED DAY: ", this.state.selectedDay);
@@ -224,13 +226,10 @@ class CalendarComponent extends React.Component {
             this.setState({ display: false })
         }
 
-
-        let dates;
-
         switch (moment().format('ddd')) {
             case "Sun":
                 for (i = 1; i <= days; i++) {
-                    dates = <td tabindex={i}>{day}</td>
+                    <td tabindex={i}>{day}</td>
                 }
 
                 break;
