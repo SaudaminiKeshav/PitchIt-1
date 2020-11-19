@@ -32,6 +32,20 @@ const AdvCard = (props) => {
         console.log("review", review);
 
         event.target.parentElement.previousSibling.firstElementChild.querySelector("#exampleFormControlTextarea1").value = "";
+
+        //Update to True
+        // axios({
+        //     url: '/api/create',
+        //     method: 'POST',
+        //     data: payload
+        // })
+        //     .then(() => {
+        //         console.log('Data has been sent to the server!');
+        //         this.resetUserInputs();
+        //     })
+        //     .catch((err) => {
+        //         console.log('Internal server error :(', err);
+        //     });
     }
 
     useEffect(()=>{
