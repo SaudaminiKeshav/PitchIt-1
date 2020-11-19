@@ -16,6 +16,7 @@ const CompleCard = (props) => {
         <>
             {trips.map((each, index)=>{
                 return (
+                    <>
                     <div className="col mb-4">
                         <div className="card h-100">
                             <img
@@ -31,12 +32,69 @@ const CompleCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Backpack: </p>{each.items}</p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-success">Completed</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <button type="button" class="complete-trip-btn btn btn-outline-success" data-toggle="modal" data-target="#exampleModal{{id}}">
+                                        Complete Trip
+                                    </button>
+                                    <button type="button" className="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    {/*//Prompt for review*/}
+                    <div className="modal fade" id="exampleModal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Review Trip?</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            Would you like to write a review for your trip?
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary no-btn" data-id="{{id}}" data-dismiss="modal">No</button>
+                            <button type="button" className="btn btn-primary writeTxtBtn" data-id="{{id}}" data-toggle="modal" data-target="#exampleModalCenter{{id}}" data-dismiss="modal">
+                                Yes
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    {/*//Prompt for review*/}
+
+
+                    {/*<!-- Review Modal -->*/}
+                    <div className="modal fade" id="exampleModalCenter{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div className="modal-dialog modal-dialog-centered" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLongTitle">{/*{{ title }}*/}</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    <div className="form-group">
+                                        <label for="exampleFormControlTextarea1">Write your review:</label>
+                                        <textarea className="form-control review-text{{id}}" id="exampleFormControlTextarea1" rows="3" maxlength="250"></textarea>
+                                    </div>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" className="btn btn-primary save-review" data-dismiss="modal" data-id="{{id}}">Save changes</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/*<!-- Review Modal -->*/}
+
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"></link>
+                    
+                    </>
                 )
             })}
         </>
