@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const routes = require("./routes/api");
+const users = require("./routes/api");
 const app = express();
 require('dotenv').config();
 const CreateTripModel = require("./models/CreateTrip.js");
@@ -16,6 +17,7 @@ mongoose.connect(
   db , {
   useNewUrlParser: true,
   useCreateIndex: true,
+  useUnifiedTopology: true ,
   useFindAndModify: false
 }).then(() => console.log("MongoDB successfully connected"))
 .catch(err => console.log(err + "Error while connecting to mongo !!!!"));
@@ -35,6 +37,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
+app.use("/api/users", users);
 app.use("/api", routes);
 
 
