@@ -25,7 +25,7 @@ render() {
     // const { user } = this.props.auth;
 return (
     <>
-        <Navbar />
+        <Navbar visibility={true}/>
         <div className="row">
           <Form onSubmit={fields => this.onSubmit(fields)} />
           <p>

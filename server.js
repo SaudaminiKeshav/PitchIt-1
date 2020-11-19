@@ -20,6 +20,8 @@ const crypto = require("crypto");
 // DB Config
 // const db = process.env.mongoURI;
 const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/Pitchit?retryWrites=true&w=majority";
+
+
 const apiKey = process.env.apiKey;
 
 // Connect to MongoDB
@@ -27,7 +29,7 @@ mongoose.connect(
   db , {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true ,
+  useUnifiedTopology: true,
   useFindAndModify: false
 
 }).then(() => 
@@ -51,6 +53,7 @@ app.use(
     extended: false
   })
 );
+app.use(cors());
 
 // Passport middleware
 app.use(passport.initialize());
@@ -83,7 +86,27 @@ app.get('/api/all', function(req, res){
       res.send(doc)
     })
     .catch()
-})
+});
+
+app.get('/api/completed', function(req, res){
+  CreateTripModel.find({ completed: true })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+
+//NOT DONE
+app.get('/api/update/:id', function(req, res) {
+  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+//NOT DONE
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
@@ -158,6 +181,18 @@ app.get('/:filename', (req, res) => {
   })
 })
 //ADDED NEW STUFF END
+
+if (process.env.NODE_ENV === 'production') {
+  // Exprees will serve up production assets
+  app.use(express.static('client/build'));
+
+  // Express serve up index.html file if it doesn't recognize route
+  // const path = require('path');
+  app.use(routes)
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
