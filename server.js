@@ -20,6 +20,8 @@ const crypto = require("crypto");
 // DB Config
 // const db = process.env.mongoURI;
 const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/Pitchit?retryWrites=true&w=majority";
+
+
 const apiKey = process.env.apiKey;
 
 // Connect to MongoDB
@@ -27,9 +29,8 @@ mongoose.connect(
   db , {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true ,
+  useUnifiedTopology: true,
   useFindAndModify: false
-
 }).then(() => 
 //ADDED NEW STUFF START
 {
