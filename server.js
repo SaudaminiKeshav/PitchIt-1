@@ -36,9 +36,8 @@ mongoose.connect(
  gfs = Grid(mongoose.connection.db, mongoose.mongo)
  gfs.collection('uploads')
  console.log("MongoDB successfully connected", db)
-}
+})
 //ADDED NEW STUFF END
-)
 .catch(err => console.log(err + "Error while connecting to mongo !!!!"));
 
 // }).then(() => console.log("MongoDB successfully connected", db))
@@ -84,7 +83,27 @@ app.get('/api/all', function(req, res){
       res.send(doc)
     })
     .catch()
-})
+});
+
+app.get('/api/completed', function(req, res){
+  CreateTripModel.find({ completed: true })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+
+//NOT DONE
+app.get('/api/update/:id', function(req, res) {
+  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+//NOT DONE
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')

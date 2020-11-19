@@ -16,11 +16,26 @@ const AdvCard = (props) => {
             items: event.target.parentElement.parentElement.querySelector("#items").innerHTML
         };
 
-        console.log("This is the info clicked", payload);
+        console.log("This is the info clickeddddd", payload);
+
+        document.getElementById("exampleModalLongTitle").innerHTML = payload.title;
     };
 
+    const saveReview = (event) => {
+        event.preventDefault();
+
+        console.log(event.target);
+        console.log(event.target.parentElement.previousSibling.firstElementChild.querySelector("#exampleFormControlTextarea1").value);
+
+        var review = event.target.parentElement.previousSibling.firstElementChild.querySelector("#exampleFormControlTextarea1").value;
+
+        console.log("review", review);
+
+        event.target.parentElement.previousSibling.firstElementChild.querySelector("#exampleFormControlTextarea1").value = "";
+    }
+
     useEffect(()=>{
-      console.log("It works!");
+      console.log("Current works!");
       fetch("/api/all")
       .then(data=> data.json())
       .then(data => setTrips(data))
@@ -46,7 +61,7 @@ const AdvCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-warning" onClick={completeTrip}>Update</button>
-                                    <button type="button" className="complete-trip-btn btn btn-outline-success" data-toggle="modal" data-target="#exampleModalid">
+                                    <button type="button" className="complete-trip-btn btn btn-outline-success" data-toggle="modal" data-target="#exampleModalid" onClick={completeTrip}>
                                         Complete Trip
                                     </button>
                                     <button type="button" class="btn btn-danger">Delete</button>
@@ -98,7 +113,7 @@ const AdvCard = (props) => {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary save-review" data-dismiss="modal" data-id="id">Save changes</button>
+                                    <button type="button" className="btn btn-primary save-review" data-dismiss="modal" data-id="id" onClick={saveReview}>Save changes</button>
 
                                 </div>
                             </div>
