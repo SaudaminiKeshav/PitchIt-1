@@ -29,7 +29,7 @@ const Milestones_Timeline = (props) => {
                 <div className="desc">Milestone name</div>
             </div>
         </li>);
-         tripArray.push(<li>
+        tripArray.push(<li>
             <div className="direction-r">
                 <div className="flag-wrapper">
                     <span className="flag">Trip ID</span>
@@ -49,7 +49,7 @@ const Milestones_Timeline = (props) => {
                 <div className="desc">Milestone name</div>
             </div>
         </li>);
-         tripArray.push(<li>
+        tripArray.push(<li>
             <div className="direction-r">
                 <div className="flag-wrapper">
                     <span className="flag">Trip ID</span>
@@ -59,24 +59,24 @@ const Milestones_Timeline = (props) => {
                 <div className="desc">Milestone name</div>
             </div>
         </li>);
-               tripArray.push(<li>
-                <div className="direction-l">
-                    <div className="flag-wrapper">
-                        <span className="flag">Trips ID</span>
-                        <span className="time-wrapper"><span className="time">Date</span></span>
-                    </div>
-                    <div className="desc">Trip name</div>
-                <div className="desc">Milestone name</div>
+        tripArray.push(<li>
+            <div className="direction-l">
+                <div className="flag-wrapper">
+                    <span className="flag">Trips ID</span>
+                    <span className="time-wrapper"><span className="time">Date</span></span>
                 </div>
-            </li>);
-    } 
-     
-console.log(trips)
+                <div className="desc">Trip name</div>
+                <div className="desc">Milestone name</div>
+            </div>
+        </li>);
+    }
+
+    console.log(trips)
     return <>
-        <div className="container" style={{clear:"both"}}>
+        <div className="container" style={{ clear: "both" }}>
             <br></br>
             <hr></hr>
-            <h3 style={{margin:"2%"}}>Milestone Timeline</h3>
+            <h3 style={{ margin: "2%" }}>Milestone Timeline</h3>
             <ul className="timeline">
                 {tripArray}
             </ul>

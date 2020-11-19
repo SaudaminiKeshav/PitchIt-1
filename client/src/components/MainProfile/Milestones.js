@@ -7,9 +7,9 @@ const Milestones = (props) => {
 
   return (<>
     <div className="milestoneStyle">
-      <UserMilestones trips={10}/>
+      <UserMilestones trips={10} />
       <br></br>
-      <Timelines/>
+      <Timelines />
     </div>
   </>);
 }

@@ -37,16 +37,16 @@ const Milestones_Available = (props) => {
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src={RookieBadge} alt="Avatar" style={{width:"100%",height:"100%"}}></img>
+                        <img src={RookieBadge} alt="Avatar" style={{ width: "100%", height: "100%" }}></img>
                     </div>
-                        <div class="flip-card-back">
-                            <h1>John Doe</h1>
-                            <p>Architect & Engineer</p>
-                            <p>We love that guy</p>
-                        </div>
+                    <div class="flip-card-back">
+                        <h1>John Doe</h1>
+                        <p>Architect & Engineer</p>
+                        <p>We love that guy</p>
                     </div>
                 </div>
-{/* 
+            </div>
+            {/* 
                 <div style={badgeCardStyle} >
                     <div className="card" style={badgeCardStyle}>
                         <img src={RookieBadge} alt=" " style={badgeStyle}></img>
@@ -93,7 +93,7 @@ const Milestones_Available = (props) => {
                     </div>
                 </div> */}
 
-            </div>
+        </div>
     </>;
 }
 
