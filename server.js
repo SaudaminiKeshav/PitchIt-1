@@ -129,55 +129,55 @@ sgMail
 
 //ADDED NEW STUFF START
 // Create storage engine
-// const storage = new GridFsStorage({
-//   url: db,
-//   file: (req, file) => {
-//     return new Promise((resolve, reject) => {
-//       crypto.randomBytes(16, (err, buf) => {
-//         if (err) {
-//           return reject(err)
-//         }
-//         const filename = file.originalname
-//         const fileInfo = {
-//           filename: filename,
-//           bucketName: 'uploads',
-//         }
-//         resolve(fileInfo)
-//       })
-//     })
-//   },
-// })
+const storage = new GridFsStorage({
+  url: db,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err)
+        }
+        const filename = file.originalname
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads',
+        }
+        resolve(fileInfo)
+      })
+    })
+  },
+})
 
-// const upload = multer({ storage })
+const upload = multer({ storage })
 
-// app.post('/', upload.single('img'), (req, res, err) => {
-//   if (err) throw err
-//   res.status(201).send()
-// })
+app.post('/', upload.single('img'), (req, res, err) => {
+  if (err) throw err
+  res.status(201).send()
+})
 
-// let gfs;
+let gfs;
 
-// app.get('/:filename', (req, res) => {
-//   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+app.get('/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     // Check if file
-//     if (!file || file.length === 0) {
-//       return res.status(404).json({
-//         err: 'No file exists',
-//       })
-//     }
+    if (!file || file.length === 0) {
+      return res.status(404).json({
+        err: 'No file exists',
+      })
+    }
 
-//     // Check if image
-//     if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-//       // Read output to browser
-//       const readstream = gfs.createReadStream(file.filename)
-//       readstream.pipe(res)
-//     } else {
-//       res.status(404).json({
-//         err: 'Not an image',
-//       })
-//     }
-//   })
-// })
+    // Check if image
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+      // Read output to browser
+      const readstream = gfs.createReadStream(file.filename)
+      readstream.pipe(res)
+    } else {
+      res.status(404).json({
+        err: 'Not an image',
+      })
+    }
+  })
+})
 //ADDED NEW STUFF END
 
 if (process.env.NODE_ENV === 'production') {
@@ -186,7 +186,7 @@ if (process.env.NODE_ENV === 'production') {
 
   // Express serve up index.html file if it doesn't recognize route
   // const path = require('path');
-  app.use(routes);
+  app.use(routes)
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
