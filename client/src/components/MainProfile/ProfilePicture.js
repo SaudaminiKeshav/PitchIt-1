@@ -11,7 +11,7 @@ import axios from 'axios';
 
 class ProfilePicture extends Component {
     //const user = this.props.user;
-    
+
     state = {
         selectedFile: null
     }
@@ -32,32 +32,32 @@ class ProfilePicture extends Component {
         console.log(this.state.selectedFile);
 
         axios.put('/api/profile', this.state.selectedFile)
-         .then(res => {
-            console.log(res);
-            this.setState({
-                selectedFile: res.data.profilepic
-            });
-        })
-        .catch((error) => {
-            console.log('Error in file upload handler')
-        })
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    selectedFile: res.data.profilepic
+                });
+            })
+            .catch((error) => {
+                console.log('Error in file upload handler')
+            })
         console.log(this.props);
     }
 
     //<img src={placeHolder} onClick={() => this.fileInput.click()} className="profilePicStyle" alt="profile" />
 
-render () { 
-    return( <>
-        <div className="img-upload">
-            <label className="add-image-label">
-                <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" ref={fileInput => this.fileInput = fileInput} />
-                <img src={this.fileInput || placeHolder} className="profilePicStyle" alt="profile" />
-            </label>
-            <button type="submit" className="upload-profile-btn" onClick={this.fileUploadHandler}>Submit</button>
-    </div>
-    </>
-    );
-} 
+    render() {
+        return (<>
+            <div className="img-upload">
+                <label className="add-image-label">
+                    <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" ref={fileInput => this.fileInput = fileInput} />
+                    <img src={this.fileInput || placeHolder} className="profilePicStyle" alt="profile" />
+                </label>
+                <button type="submit" className="upload-profile-btn" onClick={this.fileUploadHandler}>Submit</button>
+            </div>
+        </>
+        );
+    }
 }
 
 export default ProfilePicture;

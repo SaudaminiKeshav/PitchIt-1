@@ -4,13 +4,14 @@ import campfire from "../../img/campfire.gif";
 // import { render } from "@testing-library/react";
 import reviewsIcon from "../../img/star.png";
 import milestoneIcon from "../../img/milestone_icon.jpg";
+import TimelineIcon from "../../img/timeline-icon3.PNG"
 import Reviews from "../MainProfile/Reviews";
 import Trips from "../MainProfile/Trips";
-import Milestones from "../MainProfile/Milestones";
+import Milestones from "../MainProfile/MilestonesComponent";
+import Timeline from "../MainProfile/Timeline";
 
 
 const MainProfile = (props) => {
-    console.log(props.userSelection)
     // let userName = props.user.name;
     let userSelectedOption = props.userSelection;
 
@@ -29,14 +30,18 @@ const MainProfile = (props) => {
             icon = <img src={milestoneIcon} className="contentTitleIcon" alt="mountain badge" />
             content = <Milestones />
             break;
+        case "Timeline":
+            icon = <img src={TimelineIcon} className="contentTitleIcon" alt="timeline" />
+            content = <Timeline />
+            break;
         default: <></>
             break;
     }
     return <>
-        <div className="contentAreaStyle">
+        <div className="contentAreaStyle" style={{marginBottom:"20%"}}>
             {icon}
             <h3 style={{ textAlign: "start", verticalAlign: "middle", marginTop: "1%", padding: ".5%", display: "inline-block" }}>{userSelectedOption}</h3>
-            <hr />
+            <hr style={{marginLeft:"3%", marginRight:"3%"}}/>
             {content}
         </div>
         <div>

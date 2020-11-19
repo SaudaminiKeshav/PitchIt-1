@@ -9,13 +9,13 @@ const reviewStyle = {
 const Reviews = () => {
 
   return <>
-  <div style={ reviewStyle }>
-    <ReviewBubble />
-    <br />
-    <ReviewBubble />
-    <br /> 
-    <ReviewBubble />
-  </div>
+    <div style={reviewStyle}>
+      <ReviewBubble />
+      <br />
+      <ReviewBubble />
+      <br />
+      <ReviewBubble />
+    </div>
   </>;
 }
 
