@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import SideBar from "../components/MainProfile/Sidebar";
 import "../components/MainProfile/style.css"
 import MainProfile from "../components/MainProfile/MainProfile";
@@ -29,7 +29,7 @@ class Profile extends Component {
     const { user } = this.props.auth;
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Banner user={user} />
         <SideBar className="sideBar" user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
         <MainProfile user={user} userSelection={userSelection} onSelectionChange={this.handleSideBarOptionChange} />
