@@ -9,12 +9,20 @@
 
 #modal-content {
     /* background-color: #fefefe; */
-    margin: -20%;
+    margin: auto;
+    margin-top: -27%;
     border: 1px solid #888;
     width: 100%;
 }
 
 #exampleModalid {
-    height: 30%;
+    height: 17%;
     margin-top: 20%;
+    overflow: visible;
+}
+
+#exampleModalCenterid {
+    height: 25%;
+    margin-top: 20%;
+    overflow: visible;
 }
