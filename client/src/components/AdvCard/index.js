@@ -35,7 +35,7 @@ const AdvCard = (props) => {
     }
 
     useEffect(()=>{
-      console.log("It works!");
+      console.log("Current works!");
       fetch("/api/all")
       .then(data=> data.json())
       .then(data => setTrips(data))
