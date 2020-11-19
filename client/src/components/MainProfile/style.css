@@ -1,7 +1,4 @@
 /* Side bar styling region */
-html{
-  margin-bottom: 50%
-}
 
 /* Animation for side bar slide in  */
 @keyframes sideBarSlider {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../MainProfile/style.css";
+
 //import placeHolder from "../../img/placeholder.heic";
 //import axios from 'axios';
 
