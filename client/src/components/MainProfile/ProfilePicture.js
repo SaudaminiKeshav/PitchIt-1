@@ -3,21 +3,16 @@ import "../MainProfile/style.css";
 import placeHolder from "../../img/placeholder.heic";
 import axios from 'axios';
 
-// document.querySelector('.upload-profile-btn').addEventListener('click', function(event) {
-//     event.preventDefault();
-//     let profilePic = document.getElementById('add-image-input').value;
-//     console.log(profilePic);
-// })
+document.getElementById('img').setAttribute('src', file[0].name);
 
 class ProfilePicture extends Component {
     //const user = this.props.user;
-
     state = {
         selectedFile: null
     }
     fileSelectedHandler = event => {
         //console.log(event.target.files[0]);
-        //console.log(event);
+        
         this.setState({
             selectedFile: event.target.files[0]
         })
@@ -44,20 +39,42 @@ class ProfilePicture extends Component {
         console.log(this.props);
     }
 
+    Post = e => {
+        e.preventDefault()
+        const file = document.getElementById('add-image-input').files
+        const formData = new FormData()
+      
+        formData.append('img', file[0])
+      
+        fetch('http://localhost:5000/', {
+          method: 'POST',
+          body: formData,
+        }).then(r => {
+          console.log(r)
+        })
+        console.log(file[0])
+      }
+
+
     //<img src={placeHolder} onClick={() => this.fileInput.click()} className="profilePicStyle" alt="profile" />
 
-    render() {
-        return (<>
-            <div className="img-upload">
-                <label className="add-image-label">
-                    <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" ref={fileInput => this.fileInput = fileInput} />
-                    <img src={this.fileInput || placeHolder} className="profilePicStyle" alt="profile" />
-                </label>
-                <button type="submit" className="upload-profile-btn" onClick={this.fileUploadHandler}>Submit</button>
-            </div>
-        </>
-        );
-    }
+render () { 
+    return( <>
+    <div className="img-upload">
+            <label className="add-image-label">
+                <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" ref={fileInput => this.fileInput = fileInput} />
+                <img src={this.state.selectedFile || placeHolder} className="profilePicStyle" alt="profile" />
+            </label>
+            <button type="submit" className="upload-profile-btn" onClick={this.fileUploadHandler}>Submit</button>
+        {/* <input type="file" className="add-image" id="add-image-input" aria-describedby="add-image-input" />
+        <label className="add-image-label" htmlFor="add-image-input">Choose File</label>
+        <button type="button" className="btn btn-primary">Upload</button>
+        <hr />
+        <img id="img"></img> */}
+    </div>
+    </>
+    );
+} 
 }
 
 export default ProfilePicture;
