@@ -1,5 +1,5 @@
 import React from "react";
-import Milestones from "./Milestones";
+import Milestones from "./MilestonesComponent";
 import CamperBadge from "../../img/camper_badge.png";
 import ExpertBadge from "../../img/expert.gif";
 import ExplorerBadge from "../../img/explorer.gif";

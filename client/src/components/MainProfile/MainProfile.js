@@ -4,9 +4,11 @@ import campfire from "../../img/campfire.gif";
 // import { render } from "@testing-library/react";
 import reviewsIcon from "../../img/star.png";
 import milestoneIcon from "../../img/milestone_icon.jpg";
+import TimelineIcon from "../../img/timeline-icon3.PNG"
 import Reviews from "../MainProfile/Reviews";
 import Trips from "../MainProfile/Trips";
-import Milestones from "../MainProfile/Milestones";
+import Milestones from "../MainProfile/MilestonesComponent";
+import Timeline from "../MainProfile/Timeline";
 
 
 const MainProfile = (props) => {
@@ -28,6 +30,10 @@ const MainProfile = (props) => {
         case "Milestones":
             icon = <img src={milestoneIcon} className="contentTitleIcon" alt="mountain badge" />
             content = <Milestones />
+            break;
+        case "Timeline":
+            icon = <img src={TimelineIcon} className="contentTitleIcon" alt="timeline" />
+            content = <Timeline />
             break;
         default: <></>
             break;

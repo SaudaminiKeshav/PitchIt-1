@@ -74,9 +74,6 @@ const Milestones_Timeline = (props) => {
     console.log(trips)
     return <>
         <div className="container" style={{ clear: "both" }}>
-            <br></br>
-            <hr></hr>
-            <h3 style={{ margin: "2%" }}>Milestone Timeline</h3>
             <ul className="timeline">
                 {tripArray}
             </ul>

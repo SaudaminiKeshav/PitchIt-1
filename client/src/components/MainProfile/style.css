@@ -124,7 +124,7 @@
 /* Timeline option specific style  */
 .timelineStyle {
   color: #864e3b;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
 }
 
 .timelineStyle:hover {

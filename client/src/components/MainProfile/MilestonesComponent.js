@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
-import Timelines from "./Milestones_Timeline";
-import UserMilestones from "./UserMilestones";
+import Timelines from "./Timeline";
+import UserMilestones from "./MilestonesUser";
 
 const Milestones = (props) => {
 
@@ -9,7 +9,6 @@ const Milestones = (props) => {
     <div className="milestoneStyle">
       <UserMilestones trips={10} />
       <br></br>
-      <Timelines />
     </div>
   </>);
 }

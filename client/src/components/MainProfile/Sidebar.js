@@ -34,6 +34,9 @@ const SideBar = (props) => {
         props.onSelectionChange("Milestones")
     }
 
+    function displayTimeline(){
+        props.onSelectionChange("Timeline")
+    }
     // if(props.user.img) {
     //     profileSrc = props.user.img;
     // } else {
@@ -74,7 +77,7 @@ const SideBar = (props) => {
                             <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
                         </h5>
                     </li>
-                    <li className={classNames('sideBarMenuItem', props.userSelection === "Timeline" ? 'timelineActive' : 'timelineStyle')} onClick={displayMilestones.bind(this)}>
+                    <li className={classNames('sideBarMenuItem', props.userSelection === "Milestone Timeline" ? 'timelineActive' : 'timelineStyle')} onClick={displayTimeline.bind(this)}>
                         <h5 className="optionsTextAlign">
                             <img src={timelineIcon} className="iconStyle" alt="cannot display" />
                             Timeline
