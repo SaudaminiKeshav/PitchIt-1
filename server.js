@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const routes = require("./routes/api");
+const users = require("./routes/api");
 const app = express();
 require('dotenv').config();
 const CreateTripModel = require("./models/CreateTrip.js");
-const User = require("./models/User");
 
 //ADDED NEW STUFF START
 const path = require("path");
@@ -18,7 +18,8 @@ const crypto = require("crypto");
 //ADDED NEW STUFF END
 
 // DB Config
-const db = process.env.mongoURI;
+// const db = process.env.mongoURI;
+const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/Pitchit?retryWrites=true&w=majority";
 const apiKey = process.env.apiKey;
 
 // Connect to MongoDB
@@ -26,22 +27,27 @@ mongoose.connect(
   db , {
   useNewUrlParser: true,
   useCreateIndex: true,
+  useUnifiedTopology: true ,
   useFindAndModify: false
-}).then(() => 
+
+//}).then(() => 
 //ADDED NEW STUFF START
-{
-  gfs = Grid(conn.db, mongoose.mongo)
-  gfs.collection('uploads')
-  console.log("MongoDB successfully connected")
-}
+//{
+//  gfs = Grid(conn.db, mongoose.mongo)
+//  gfs.collection('uploads')
+//  console.log("MongoDB successfully connected", db)
+//}
 //ADDED NEW STUFF END
-)
+//)
+//.catch(err => console.log(err + "Error while connecting to mongo !!!!"));
+
+}).then(() => console.log("MongoDB successfully connected", db))
 .catch(err => console.log(err + "Error while connecting to mongo !!!!"));
 
 // Bodyparser middleware
-app.use(bodyParser.json({limit: "500kb"}));
+app.use(bodyParser.json());
 app.use(
-  bodyParser.urlencoded({ limit: "500kb",
+  bodyParser.urlencoded({
     extended: false
   })
 );
@@ -53,6 +59,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
+app.use("/api/users", users);
 app.use("/api", routes);
 
 
@@ -70,33 +77,13 @@ app.post("/api/create", (req, res) => {
 });
 
 app.get('/api/all', function(req, res){
-  CreateTripModel.find().sort({_id:-1})
+  CreateTripModel.find()
     .exec()
     .then(doc => {
       res.send(doc)
     })
     .catch()
-});
-
-app.get('/api/completed', function(req, res){
-  CreateTripModel.find({ completed: true })
-    .exec()
-    .then(doc => {
-      res.send(doc)
-    })
-    .catch()
-});
-
-//NOT DONE
-app.get('/api/update/:id', function(req, res) {
-  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
-    .exec()
-    .then(doc => {
-      res.send(doc)
-    })
-    .catch()
-});
-//NOT DONE
+})
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
@@ -118,19 +105,6 @@ sgMail
   })
 });
 
-//Upload Profile Picture
-app.put("/api/profile", (req, res) => {
-  console.log(req.body);
-  User.update(req.body)
-  .then(dbUserUpdate => {
-    console.log(dbUserUpdate);
-    res.json(dbUserUpdate);
-  })
-  .catch(err => {
-    console.log(err);
-    res.send(err);
-  });
-});
 
 //ADDED NEW STUFF START
 // Create storage engine

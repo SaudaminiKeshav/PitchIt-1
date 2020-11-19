@@ -1,18 +1,10 @@
 const mongoose = require("mongoose");
-
-
 const Schema = mongoose.Schema;
 // Create Schema
 const UserSchema = new Schema({
   name: {
     type: String,
     required: true
-  },
-  profilepic: { 
-    data: Buffer, 
-    contentType: String
-    //type: String
-    //default: null
   },
   email: {
     type: String,
@@ -26,12 +18,5 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   }
-  // profilepic: { 
-  //   //data: Buffer, 
-  //   //contentType: String
-  //   type: String
-  //   //default: null
-  // }
-  });
-
+});
 module.exports = User = mongoose.model("users", UserSchema);

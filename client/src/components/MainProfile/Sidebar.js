@@ -2,6 +2,7 @@ import React from "react";
 import tripIcon from "../../img/trips-icon.png";
 import reviewIcon from "../../img/review-icon.png";
 import badgeIcon from "../../img/badge-icon.png";
+import timelineIcon from "../../img/tmeline_icon2.png";
 // import placeHolder from "../../img/placeholder.heic";
 import arrowIcon from "../../img/arrowIcon.png";
 import "../MainProfile/style.css";
@@ -18,8 +19,6 @@ import ProfilePicture from './ProfilePicture';
 //let profileSrc;
 
 const SideBar = (props) => {
-    console.log(props.user);
-    console.log(props.user.img);
 
     function displayTrips() {
         props.onSelectionChange("Trips")
@@ -33,10 +32,13 @@ const SideBar = (props) => {
         props.onSelectionChange("Milestones")
     }
 
+    function displayTimeline(){
+        props.onSelectionChange("Timeline")
+    }
     // if(props.user.img) {
     //     profileSrc = props.user.img;
     // } else {
-    //     profileSrc = placeHolder;
+    //     profileSrc = placeHolder;  #0C3940
     // }
 
     return <>
@@ -70,6 +72,13 @@ const SideBar = (props) => {
                         <h5 className="optionsTextAlign">
                             <img src={badgeIcon} className="iconStyle" alt="cannot display" />
                             Milestones
+                            <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                        </h5>
+                    </li>
+                    <li className={classNames('sideBarMenuItem', props.userSelection === "Milestone Timeline" ? 'timelineActive' : 'timelineStyle')} onClick={displayTimeline.bind(this)}>
+                        <h5 className="optionsTextAlign">
+                            <img src={timelineIcon} className="iconStyle" alt="cannot display" />
+                            Timeline
                             <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
                         </h5>
                     </li>

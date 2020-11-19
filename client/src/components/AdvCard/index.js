@@ -30,6 +30,7 @@ const AdvCard = (props) => {
         <>
             {trips.map((each, index)=>{
                 return (
+                    <>
                     <div className="col mb-4">
                         <div className="card h-100">
                             <img
@@ -45,12 +46,67 @@ const AdvCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-warning" onClick={completeTrip}>Update</button>
-                                    <button type="button" class="btn btn-success">Complete</button>
+                                    <button type="button" className="complete-trip-btn btn btn-outline-success" data-toggle="modal" data-target="#exampleModalid">
+                                        Complete Trip
+                                    </button>
                                     <button type="button" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                        {/*//Prompt for review*/}
+                    <div className="modal fade" id="exampleModalid" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div id="modal-content" className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Review Trip?</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            Would you like to write a review for your trip?
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary no-btn" data-id="id" data-dismiss="modal">No</button>
+                            <button type="button" className="btn btn-primary writeTxtBtn" data-id="id" data-toggle="modal" data-target="#exampleModalCenterid" data-dismiss="modal">
+                                Yes
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    {/*//Prompt for review*/}
+
+
+                    {/*<!-- Review Modal -->*/}
+                    <div className="modal fade" id="exampleModalCenterid" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div className="modal-dialog modal-dialog-centered" role="document">
+                            <div id="modal-content" className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLongTitle"></h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    <div className="form-group">
+                                        <label for="exampleFormControlTextarea1">Write your review:</label>
+                                        <textarea className="form-control review-textid" id="exampleFormControlTextarea1" rows="3" maxlength="250"></textarea>
+                                    </div>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" className="btn btn-primary save-review" data-dismiss="modal" data-id="id">Save changes</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/*<!-- Review Modal -->*/}
+                    
+                    </>
                 )
             })}
         </>

@@ -16,6 +16,7 @@ const CompleCard = (props) => {
         <>
             {trips.map((each, index)=>{
                 return (
+                    
                     <div className="col mb-4">
                         <div className="card h-100">
                             <img
@@ -31,12 +32,15 @@ const CompleCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><p style={{fontWeight: "700"}}>Backpack: </p>{each.items}</p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-success">Completed</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <button type="button" className="complete-trip-btn btn btn-outline-success" data-toggle="modal" data-target="#exampleModalid">
+                                        Complete Trip
+                                    </button>
+                                    <button type="button" className="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                
                 )
             })}
         </>

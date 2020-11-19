@@ -6,7 +6,7 @@ import axios from 'axios';
 document.getElementById('img').setAttribute('src', file[0].name);
 
 class ProfilePicture extends Component {
-    
+    //const user = this.props.user;
     state = {
         selectedFile: null
     }
@@ -27,15 +27,15 @@ class ProfilePicture extends Component {
         console.log(this.state.selectedFile);
 
         axios.put('/api/profile', this.state.selectedFile)
-         .then(res => {
-            console.log(res);
-            this.setState({
-                selectedFile: res.data.profilepic
-            });
-        })
-        .catch((error) => {
-            console.log('Error in file upload handler')
-        })
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    selectedFile: res.data.profilepic
+                });
+            })
+            .catch((error) => {
+                console.log('Error in file upload handler')
+            })
         console.log(this.props);
     }
 

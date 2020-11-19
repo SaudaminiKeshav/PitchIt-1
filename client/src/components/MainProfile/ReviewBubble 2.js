@@ -17,17 +17,17 @@ const bubbleStyle = {
 const ReviewBubble = () => {
 
   return <>
-  <div>
-  <div style={ bubbleStyle }>
-    <h3 className="reviewTitle">Location</h3>
-    <span className="fa fa-star checked"></span>
-    <span className="fa fa-star checked"></span>
-    <span className="fa fa-star checked"></span>
-    <span className="fa fa-star checked"></span>
-    <span className="fa fa-star"></span>
-    <p className="reviewText">This is the review of that trail that I wrote after my friends and I went on a backpacking trip. We saw wildlife and were in the forest. We had smores around a campfire and saw a bear from a safe distance. There were many miles of hiking and many lakes of swimming.</p>
-  </div>
-  </div>
+    <div>
+      <div style={bubbleStyle}>
+        <h3 className="reviewTitle">Location</h3>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star"></span>
+        <p className="reviewText">This is the review of that trail that I wrote after my friends and I went on a backpacking trip. We saw wildlife and were in the forest. We had smores around a campfire and saw a bear from a safe distance. There were many miles of hiking and many lakes of swimming.</p>
+      </div>
+    </div>
   </>;
 }
 
