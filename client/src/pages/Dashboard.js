@@ -2,7 +2,7 @@ import React from "react";
 // import PropTypes from "prop-types";
 // import { connect } from "react-redux";
 // import { logoutUser } from "../actions/authActions";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import TopLocations from "../components/TopLocations";
 import CurrentAdvContainer from "../components/CurrentAdvContainer";
@@ -17,7 +17,7 @@ const Dashboard = () => {
 //   const { user } = this.props.auth;
     return (
     <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <Hero />
         <TopLocations />
         <CurrentAdvContainer />
