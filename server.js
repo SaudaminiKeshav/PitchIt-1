@@ -98,14 +98,32 @@ app.get('/api/completed', function(req, res){
 });
 
 //NOT DONE
-app.get('/api/update/:id', function(req, res) {
-  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
+app.put('/api/update/:id', function(req, res) {
+  console.log("req:", req.params.id);
+  console.log("review", req.body.review);
+
+  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { completed: true, review: req.body.review } }, { upsert: false })
     .exec()
     .then(doc => {
       res.send(doc)
     })
     .catch()
 });
+
+// app.put("/api/workouts/:id", (req, res) => {
+//   db.Workout.findByIdAndUpdate(
+//       { _id: req.params.id },
+//       { $push: { exercises: req.body } },
+//       function(err, result) {
+//           if (err) {
+//               console.log("error", err);
+//               res.send(err);
+//           } else {
+//               res.send(result);
+//           }
+//       }
+//   );
+// });
 //NOT DONE
 
 app.post("/api/forma", (req, res)=>{
