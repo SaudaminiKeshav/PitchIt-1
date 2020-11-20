@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../MainProfile/style.css";
 
-//import placeHolder from "../../img/placeholder.heic";
+import placeHolder from "../../img/placeholder.heic";
 //import axios from 'axios';
 
 class ProfilePicture extends Component {
@@ -31,11 +31,11 @@ class ProfilePicture extends Component {
 render () { 
     return( <>
     <div className="img-upload">
-        <input type="file" className="add-image" id="add-image-input" aria-describedby="add-image-input" />
+        {/* <input type="file" className="add-image" id="add-image-input" aria-describedby="add-image-input" />
         <label className="add-image-label" htmlFor="add-image-input">Choose File</label>
         <button type="button" className="btn btn-primary" onClick={this.Post}>Upload</button>
-        <hr />
-        <img id="img" className="profilePicStyle" alt="profile photo" />
+        <hr /> */}
+        <img src={placeHolder} className="profilePicStyle" alt="profile" />
     </div>
     </>
     );
