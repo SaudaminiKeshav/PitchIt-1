@@ -190,20 +190,22 @@ margin-top: 7%;
 /* Styling for banner */
 .welcome {
   font-family: 'Caveat', cursive;
-  font-size: 110px;
+  font-size: 560%;
   font-weight: 200;
   padding-top: "10%";
   padding-left: "40%";
   color: rgb(233, 233, 233);
-  padding-top: 5%;
+  text-shadow: 2px 2px 4px #000000b2, 0 0 3px #FF0000, 0 0 5px #0000FF;
+  padding-top: 3%;
 }
 
 .quote {
   font-family: 'Caveat', cursive;
-  font-size: 40px;
+  font-size: 300%;
   /*padding-top: "10%"; */
   padding-left: "40%";
   color: rgb(233, 233, 233);
+  text-shadow: 2px 2px 4px #000000b2, 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 
 /* End region  */
@@ -625,7 +627,7 @@ margin-top: 7%;
   z-index: -5;
   margin-top: 4%;
   width: 100%;
-  height: 50%;
+  height: 45%;
   text-align: center;
 }
 
