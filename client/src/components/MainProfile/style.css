@@ -42,8 +42,8 @@
 .arrowIconStyle {
   height: 10%;
   width: 10%;
-  clear:both;
-  display:inline-flex;
+  clear: both;
+  display: inline-flex;
   float: right;
 }
 
@@ -74,8 +74,8 @@
 }
 
 .sidebarText {
-padding:3%;
-margin-top: 7%;
+  padding: 3%;
+  margin-top: 7%;
 }
 
 /* Trip option specific style  */
@@ -618,7 +618,7 @@ margin-top: 7%;
 
 .bannerStyle {
   background: url(https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-1.2.1&auto=format&fit=crop&w=3589&q=80);
-  background-size:contain, cover;
+  background-size: contain, cover;
   background-color: rgba(0, 0, 0, 0.609);
   background-repeat: no-repeat;
   background-position: center;
@@ -632,7 +632,7 @@ margin-top: 7%;
 }
 
 .badgeCardStyle {
-  width: 100%;
+  width: 50%;
   height: fit-content;
   border-radius: 20px;
 }
@@ -675,8 +675,7 @@ margin-top: 7%;
   border-radius: 20px;
 }
 
-.flipCard {
-}
+.flipCard {}
 
 .InnerDiv {
   width: 70%;
@@ -701,7 +700,7 @@ margin-top: 7%;
 
 .cardText {
   padding: 10%;
-  font-size: medium;
+  font-size: small;
 }
 
 /* Mobile style  */
@@ -899,7 +898,7 @@ margin-top: 7%;
 
   .badgeCardStyle {
     margin: 1%;
-    width: 90%;
+    width: 50%;
     height: fit-content;
     border-radius: 20px;
   }
@@ -988,9 +987,9 @@ margin-top: 7%;
   }
 
   .arrowIconStyle {
-    display:none;
+    display: none;
   }
-  
+
 }
 
 /* //Any device with className .loginFeature below 1024px will not be displayed
