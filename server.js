@@ -132,6 +132,7 @@ const upload = multer({ storage })
 app.post('/', upload.single('img'), (req, res, err) => {
   if (err) throw err
   res.status(201).send()
+  console.log(res)
 })
 
 let gfs;

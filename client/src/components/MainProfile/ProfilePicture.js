@@ -45,6 +45,8 @@ class ProfilePicture extends Component {
         const formData = new FormData()
       
         formData.append('img', file[0])
+
+        console.log(formData);
       
         fetch('http://localhost:5000/', {
           method: 'POST',
@@ -61,11 +63,11 @@ class ProfilePicture extends Component {
 render () { 
     return( <>
     <div className="img-upload">
-            <label className="add-image-label">
-                <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" ref={fileInput => this.fileInput = fileInput} />
+            {/* <label className="add-image-label"> */}
+                {/* <input id="add-image-input" type="file" onChange={this.fileSelectedHandler} className="add-image" ref={fileInput => this.fileInput = fileInput} /> */}
                 <img src={this.state.selectedFile || placeHolder} className="profilePicStyle" alt="profile" />
-            </label>
-            <button type="submit" className="upload-profile-btn" onClick={this.fileUploadHandler}>Submit</button>
+            {/* </label> */}
+            {/* <button type="submit" className="upload-profile-btn" onClick={this.fileUploadHandler}>Submit</button> */}
         {/* <input type="file" className="add-image" id="add-image-input" aria-describedby="add-image-input" />
         <label className="add-image-label" htmlFor="add-image-input">Choose File</label>
         <button type="button" className="btn btn-primary">Upload</button>
