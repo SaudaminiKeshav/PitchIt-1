@@ -32,12 +32,12 @@ const Milestones_Timeline = (props) => {
     if (trips !== 0) {
         for (let i = 0; i < trips.length; i++) {
 
-            if (i == 0) {
+            if (i === 0) {
                 counter += 1;
                 tripArray.push(
 
                     <li>
-                        <div className={classNames(counter % 2 == 0 ? 'direction-r' : 'direction-l')}>
+                        <div className={classNames(counter % 2 === 0 ? 'direction-r' : 'direction-l')}>
                             <div className="flag-wrapper">
                                 <span className="flag">{trips[i].title}</span>
                             </div>
@@ -51,7 +51,7 @@ const Milestones_Timeline = (props) => {
                 counter += 1;
                 tripArray.push(
                     <li>
-                        <div className={classNames(counter % 2 == 0 ? 'direction-r' : 'direction-l')}>
+                        <div className={classNames(counter % 2 === 0 ? 'direction-r' : 'direction-l')}>
                             <div className="flag-wrapper">
                                 <span className="flag">{trips[i].title}</span>
                             </div>
@@ -66,7 +66,7 @@ const Milestones_Timeline = (props) => {
                 counter += 1;
                 tripArray.push(
                     <li>
-                        <div className={classNames(counter % 2 == 0 ? 'direction-r' : 'direction-l')}>
+                        <div className={classNames(counter % 2 === 0 ? 'direction-r' : 'direction-l')}>
                             <div className="flag-wrapper">
                                 <span className="flag">{trips[i].title}</span>
                             </div>
@@ -81,7 +81,7 @@ const Milestones_Timeline = (props) => {
                 counter += 1;
                 tripArray.push(
                     <li>
-                        <div className={classNames(counter % 2 == 0 ? 'direction-r' : 'direction-l')}>
+                        <div className={classNames(counter % 2 === 0 ? 'direction-r' : 'direction-l')}>
                             <div className="flag-wrapper">
                                 <span className="flag">{trips[i].title}</span>
                             </div>
@@ -92,11 +92,11 @@ const Milestones_Timeline = (props) => {
                     </li>
                 );
             }
-            if (i == 3) {
+            if (i === 3) {
                 counter += 1;
                 tripArray.push(
                     <li>
-                        <div className={classNames(counter % 2 == 0 ? 'direction-r' : 'direction-l')}>
+                        <div className={classNames(counter % 2 === 0 ? 'direction-r' : 'direction-l')}>
                             <div className="flag-wrapper">
                                 <span className="flag">{trips[i].title}</span>
                             </div>
@@ -106,11 +106,11 @@ const Milestones_Timeline = (props) => {
                         </div>
                     </li>);
             }
-            if (i == 5) {
+            if (i === 5) {
                 counter += 1;
                 tripArray.push(
                     <li>
-                        <div className={classNames(counter % 2 == 0 ? 'direction-r' : 'direction-l')}>
+                        <div className={classNames(counter % 2 === 0 ? 'direction-r' : 'direction-l')}>
                             <div className="flag-wrapper">
                                 <span className="flag">{trips[i].title}</span>
                             </div>
@@ -120,11 +120,11 @@ const Milestones_Timeline = (props) => {
                         </div>
                     </li>);
             }
-            if (i == 10) {
+            if (i === 10) {
                 counter += 1;
                 tripArray.push(
                     <li>
-                        <div className={classNames(counter % 2 == 0 ? 'direction-r' : 'direction-l')}>
+                        <div className={classNames(counter % 2 === 0 ? 'direction-r' : 'direction-l')}>
                             <div className="flag-wrapper">
                                 <span className="flag">{trips[i].title}</span>
                             </div>
