@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
-import CalendarComponent from "../Calendar/CalendarComponent"
+import CalendarComponent from "../Calendar/CalendarComponent";
+import classNames from 'classnames';
 
 class CreateTrip extends React.Component {
     constructor(props) {
@@ -99,7 +100,7 @@ class CreateTrip extends React.Component {
         console.log('State: ', this.state);
         return(
             <>
-            <div className=  "blurBackground" >
+            <div className={classNames('container', 'blurBackground')} >
                 <div style={{paddingTop: "6%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "6%"}}>
                     <form id="create-adventure" onSubmit={this.submit}>
                         <div>
