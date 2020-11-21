@@ -39,8 +39,8 @@ const MainProfile = (props) => {
     }
     return <>
         <div className="contentAreaStyle" style={{marginBottom:"20%"}}>
-            {icon}
-            <h3 style={{ textAlign: "start", verticalAlign: "middle", marginTop: "1%", padding: ".5%", display: "inline-block" }}>{userSelectedOption}</h3>
+            <br></br>
+            <p className="profileContentTitle">{icon}{userSelectedOption}</p>
             <hr style={{marginLeft:"3%", marginRight:"3%"}}/>
             {content}
         </div>

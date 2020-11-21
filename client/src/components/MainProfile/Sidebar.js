@@ -32,7 +32,7 @@ const SideBar = (props) => {
         props.onSelectionChange("Milestones")
     }
 
-    function displayTimeline(){
+    function displayTimeline() {
         props.onSelectionChange("Timeline")
     }
     // if(props.user.img) {
@@ -55,31 +55,31 @@ const SideBar = (props) => {
 
                 <ul>
                     <li className={classNames('sideBarMenuItem', props.userSelection === "Trips" ? 'tripActive' : 'tripsStyle')} onClick={displayTrips.bind(this)}>
-                        <h5 className="optionsTextAlign">
+                         <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                        <h5 className="optionsTextAlign" style={{ display: "flex" }}>
                             <img src={tripIcon} className="iconStyle" alt="cannot display" />
-                            Trips
-                            <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                            <p className="sidebarText">Trips</p>
                         </h5>
                     </li>
                     <li className={classNames('sideBarMenuItem', props.userSelection === "Reviews" ? 'revewActive' : 'reviewStyle')} onClick={displayReviews.bind(this)}>
-                        <h5 className="optionsTextAlign">
+                         <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                        <h5 className="optionsTextAlign" style={{ display: "flex" }}>
                             <img src={reviewIcon} className="iconStyle" alt="cannot display" />
-                            Reviews
-                            <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                            <p className="sidebarText">Reviews</p>
                         </h5>
                     </li>
                     <li className={classNames('sideBarMenuItem', props.userSelection === "Milestones" ? 'milestoneActive' : 'mileStoneStyle')} onClick={displayMilestones.bind(this)}>
-                        <h5 className="optionsTextAlign">
+                         <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                        <h5 className="optionsTextAlign" style={{ display: "flex" }}>
                             <img src={badgeIcon} className="iconStyle" alt="cannot display" />
-                            Milestones
-                            <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                            <p className="sidebarText">Milestones</p>
                         </h5>
                     </li>
                     <li className={classNames('sideBarMenuItem', props.userSelection === "Milestone Timeline" ? 'timelineActive' : 'timelineStyle')} onClick={displayTimeline.bind(this)}>
-                        <h5 className="optionsTextAlign">
+                         <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                        <h5 className="optionsTextAlign" style={{ display: "flex" }}>
                             <img src={timelineIcon} className="iconStyle" alt="cannot display" />
-                            Timeline
-                            <img src={arrowIcon} className="arrowIconStyle" alt="profile" />
+                            <p className="sidebarText">Timeline</p>
                         </h5>
                     </li>
                 </ul>
