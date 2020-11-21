@@ -17,7 +17,7 @@ class ProfilePicture extends Component {
           method: "POST",
           body: formData
         }).then(res => {
-          console.log(res);
+          //console.log(res.keys(object).find(keys => object[keys] === "name"));
         });
     
         document.getElementById("img").setAttribute("src", `http://localhost:5000/${file[0].name}`);
