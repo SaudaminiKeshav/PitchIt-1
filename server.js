@@ -80,7 +80,7 @@ app.post("/api/create", (req, res) => {
 });
 
 app.get('/api/all', function(req, res){
-  CreateTripModel.find()
+  CreateTripModel.find({ completed: false })
     .exec()
     .then(doc => {
       res.send(doc)
@@ -97,7 +97,6 @@ app.get('/api/completed', function(req, res){
     .catch()
 });
 
-//NOT DONE
 app.put('/api/update/:id', function(req, res) {
   console.log("req:", req.params.id);
   console.log("review", req.body.review);
@@ -110,21 +109,17 @@ app.put('/api/update/:id', function(req, res) {
     .catch()
 });
 
-// app.put("/api/workouts/:id", (req, res) => {
-//   db.Workout.findByIdAndUpdate(
-//       { _id: req.params.id },
-//       { $push: { exercises: req.body } },
-//       function(err, result) {
-//           if (err) {
-//               console.log("error", err);
-//               res.send(err);
-//           } else {
-//               res.send(result);
-//           }
-//       }
-//   );
-// });
-//NOT DONE
+app.delete('/api/delete/:id', function(req, res) {
+  console.log("req:", req.params.id);
+  console.log("review", req.body.review);
+
+  CreateTripModel.deleteOne({ _id: req.params.id })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
