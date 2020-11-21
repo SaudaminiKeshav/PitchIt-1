@@ -6,6 +6,7 @@ import placeHolder from "../../img/placeholder.heic";
 //import axios from 'axios';
 
 class ProfilePicture extends Component {
+  
   constructor(props){
     super(props)
     this.state = {
