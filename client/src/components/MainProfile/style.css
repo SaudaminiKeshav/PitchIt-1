@@ -52,6 +52,7 @@
   height: 30%;
   width: 95%;
   padding: 10%;
+  cursor: pointer;
   margin-bottom: 10px;
   background-color: white;
   border-radius: 15px 15px 15px 15px;
@@ -739,6 +740,7 @@
   .profilePicStyle {
     height: 110%;
     width: 120%;
+    cursor: pointer;
     background-color: white;
     border-radius: 15px 15px 15px 15px;
     animation: sideBarSlider 1s forwards;
