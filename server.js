@@ -201,6 +201,15 @@ app.get('/:filename', (req, res) => {
 })
 //ADDED NEW STUFF END
 
+let router = express.Router();
+const storage = multer.diskStorage({
+  destination: function (req, res, cb) {
+      cb(null, 'uploads/')
+  }
+});
+app.use(router);
+app.use(storage);
+
 if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
   app.use(express.static('client/build'));

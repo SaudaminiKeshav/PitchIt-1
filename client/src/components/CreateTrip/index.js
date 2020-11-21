@@ -82,7 +82,13 @@ class CreateTrip extends React.Component {
                 console.log('Internal server error :(', err);
             });
 
+            axios.get(`http://api.amp.active.com/camping/campgrounds?pstate=CA&amenity=4004&api_key=8ek9pa2yr6hsasqubhajmzx3`)
+            .then(res => {
+              console.log(res.data)
+            })
     };
+
+     
 
     // Reset inputs
     resetUserInputs = () => {
@@ -95,6 +101,9 @@ class CreateTrip extends React.Component {
             isCalendarOpen: false
         });
     };
+
+    
+   
 
     render(){
         console.log('State: ', this.state);

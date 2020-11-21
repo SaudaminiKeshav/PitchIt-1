@@ -18,14 +18,13 @@ class ProfilePicture extends Component {
     this.setState({
       file: URL.createObjectURL(event.target.files[0])
     })
-  }
-
-  Post = event => {
+    
     event.preventDefault();
+    
     const file = document.getElementById("add-image-input").files;
     const formData = new FormData();
 
-    formData.append("img", file[0]);
+    formData.append("img", Buffer.from(file[0]).toString('base64'));
 
     fetch("http://localhost:5000/", {
       method: "POST",
@@ -33,19 +32,14 @@ class ProfilePicture extends Component {
     }).then(res => {
       console.log(res);
     });
-
-    document.getElementById("img").setAttribute("src", `http://localhost:5000/${file[0].name}`);
-    console.log(file[0]);
-  };
+  }
 
   render() {
+    if(this.state.file != null){
+      console.log(Buffer.from(this.state.file).toString('base64') )
+    }
+   
     return (<>
-      {/* <div className="img-upload">
-        <input type="file" className=""  />
-        <button type="button" className="btn btn-primary" onClick={this.Post}>Upload</button>
-        <hr />
-        <img src={placeHolder}  id="add-image-input" className={classNames('profilePicStyle', 'add-image-label')} htmlFor="add-image-input" aria-describedby="add-image-input"  alt="profile" />
-    </div> */}
       <label htmlFor="myInput"> <img src={this.state.file ? this.state.file :placeHolder} type="camera" id="profileImage" className={classNames('profilePicStyle', 'add-image-label')} htmlFor="add-image-input" aria-describedby="add-image-input" alt="profile" /></label>
       <input
         id="myInput"
