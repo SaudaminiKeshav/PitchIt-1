@@ -16,9 +16,11 @@
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: transparent;
+  border-color: transparent;
+  border: 0px;
+  box-shadow: transparent;
+  box-shadow: none;
   /* Black w/ opacity */
 }
 
@@ -26,9 +28,11 @@
 .modal-content {
   /* background-color: #fefefe; */
   margin: auto;
-
-  border: 1px solid #888;
   width: 30%;
+  background-color: transparent;
+  border-color: transparent;
+  border: 0px;
+  box-shadow: transparent;
 }
 
 @media only screen and (max-width: 600px) {
