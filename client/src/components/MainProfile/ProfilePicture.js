@@ -6,6 +6,7 @@ import placeHolder from "../../img/placeholder.heic";
 //import axios from 'axios';
 
 class ProfilePicture extends Component {
+  
   constructor(props){
     super(props)
     this.state = {
@@ -40,12 +41,6 @@ class ProfilePicture extends Component {
 
   render() {
     return (<>
-      {/* <div className="img-upload">
-        <input type="file" className=""  />
-        <button type="button" className="btn btn-primary" onClick={this.Post}>Upload</button>
-        <hr />
-        <img src={placeHolder}  id="add-image-input" className={classNames('profilePicStyle', 'add-image-label')} htmlFor="add-image-input" aria-describedby="add-image-input"  alt="profile" />
-    </div> */}
       <label htmlFor="myInput"> <img src={this.state.file ? this.state.file :placeHolder} type="camera" id="profileImage" className={classNames('profilePicStyle', 'add-image-label')} htmlFor="add-image-input" aria-describedby="add-image-input" alt="profile" /></label>
       <input
         id="myInput"
