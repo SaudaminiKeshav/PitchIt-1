@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReviewBubble from "../MainProfile/ReviewBubble";
-
 
 const reviewStyle = {
   backgroundColor: "transparent"
@@ -22,36 +20,35 @@ const bubbleStyle = {
 
 const Reviews = (props) => {
 
-  //console.log(props);
-
   const [reviews, setTrips] = useState([]);
 
   useEffect(() => {
-    //console.log("reviews works");
+
     fetch("/api/completed")
       .then(data => data.json())
       .then(data => setTrips(data))
+
   }, [])
 
+
   return <>
+
     {reviews.map((each, index) => {
+      
       let stars = parseInt(each.stars);
-      for(let i=1; i < stars; i++) {
-        document.getElementById(`star${i}`).removeAttribute("style");
-      }
+
       return(
         <div style={reviewStyle}>
-        <div style={bubbleStyle}>
-        <h3 className="reviewTitle">{each.location}</h3>
-        <span id="star1" className="fa fa-star checked" style={{ opacity: '0' }}></span>
-        <span id="star2" className="fa fa-star checked" style={{ opacity: '0' }}></span>
-        <span id="star3" className="fa fa-star checked" style={{ opacity: '0' }}></span>
-        <span id="star4" className="fa fa-star checked" style={{ opacity: '0' }}></span>
-        <span id="star5" className="fa fa-star checked" style={{ opacity: '0' }}></span>
-        {/* <span className="dates">({each.date})</span> */}
-      <p className="reviewText">{each.review}</p>
-      </div>
-      </div>
+          <div style={bubbleStyle}>
+            <h3 className="reviewTitle">{each.location}</h3>
+            <span id="star1" className="fa fa-star checked visible"></span>
+            <span id="star2" className={ stars > 1 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+            <span id="star3" className={ stars > 2 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+            <span id="star4" className={ stars > 3 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+            <span id="star5" className={ stars > 4 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+            <p className="reviewText">{each.review}</p>
+          </div>
+        </div>
       )
     })}
     

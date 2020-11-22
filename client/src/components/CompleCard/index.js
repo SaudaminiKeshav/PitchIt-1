@@ -58,6 +58,9 @@ const CompleCard = (props) => {
     return (
         <>
             {trips.map((each, index)=>{
+
+                let stars = parseInt(each.stars);
+
                 return (
                     <>
                     <div className="col mb-4">
@@ -73,7 +76,16 @@ const CompleCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Location: </span><span id="location">{each.location}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text hiddenText"><span style={{fontWeight: "700"}}>Campers: </span><span id="campers">{each.campers}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text hiddenText"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
-                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Rating: </span><span id="stars">{each.stars}</span></p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text">
+                                    <span style={{fontWeight: "700", float: "left"}}>Rating: </span>
+                                        <span id="star1" className="fa fa-star checked visible"></span>
+                                        <span id="star2" className={ stars > 1 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+                                        <span id="star3" className={ stars > 2 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+                                        <span id="star4" className={ stars > 3 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+                                        <span id="star5" className={ stars > 4 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
+                                </p>
+                                    
+
                                 <div className="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" className="view-trip-btn btn btn-success" data-id="id" data-toggle="modal" data-target="#viewTripid" onClick={viewCard}>
                                     View
