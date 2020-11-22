@@ -110,6 +110,24 @@ app.put('/api/update/:id', function(req, res) {
     .catch()
 });
 
+app.put('/api/updatecard/:id', function(req, res) {
+  console.log("req:", req.params.id);
+  console.log("review", req.body);
+
+  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { 
+    title: req.body.title,
+    date: req.body.date,
+    location: req.body.location,
+    campers: req.body.campers,
+    items: req.body.items
+  } }, { upsert: false })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+
 app.delete('/api/delete/:id', function(req, res) {
   console.log("req:", req.params.id);
   console.log("review", req.body.review);

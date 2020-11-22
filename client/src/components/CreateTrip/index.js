@@ -11,7 +11,8 @@ class CreateTrip extends React.Component {
         this.state = {
             title: '',
             location: '',
-            date: '',
+            startDate: '',
+            endDate: '',
             campers: '',
             items: '',
             displayStartCalendar: false,
@@ -49,7 +50,8 @@ class CreateTrip extends React.Component {
         const payload = {
             title: this.state.title,
             location: this.state.location,
-            date: this.state.date,
+            startDate: this.state.startDate,
+            endDate: this.state.endDate,
             campers: this.state.campers,
             items: this.state.items
         };
@@ -64,7 +66,7 @@ class CreateTrip extends React.Component {
         const payload = {
             title: this.state.title,
             location: this.state.location,
-            date: this.state.startDate + " - " + this.state.endDate,
+            date: this.state.startDate + "" + this.state.endDate,
             campers: this.state.campers,
             items: this.state.items
         };
@@ -95,7 +97,8 @@ class CreateTrip extends React.Component {
         this.setState({
             title: '',
             location: '',
-            date: '',
+            startDate: '',
+            endDate: '',
             campers: '',
             items: '',
             isCalendarOpen: false
