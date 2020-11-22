@@ -18,10 +18,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  img: {
-    data: String,
-    default: " "
-  }
+  profilePic: {
+    data: Buffer,
+    contentType: String
+   //type: String
 }
 );
 module.exports = User = mongoose.model("users", UserSchema);

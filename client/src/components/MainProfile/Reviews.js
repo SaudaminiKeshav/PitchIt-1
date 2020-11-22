@@ -6,7 +6,9 @@ const reviewStyle = {
   backgroundColor: "transparent"
 }
 
-const Reviews = () => {
+const Reviews = (props) => {
+
+  //console.log(props);
 
   return <>
     <div style={reviewStyle}>
