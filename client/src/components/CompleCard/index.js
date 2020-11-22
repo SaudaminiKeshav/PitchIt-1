@@ -53,7 +53,8 @@ const CompleCard = (props) => {
         document.getElementById("backpack2").innerHTML = payload.items;
     }
 
-
+    console.log("tripsssss", trips);
+    
     return (
         <>
             {trips.map((each, index)=>{
@@ -72,6 +73,7 @@ const CompleCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Location: </span><span id="location">{each.location}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text hiddenText"><span style={{fontWeight: "700"}}>Campers: </span><span id="campers">{each.campers}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text hiddenText"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Rating: </span><span id="stars">{each.stars}</span></p>
                                 <div className="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" className="view-trip-btn btn btn-success" data-id="id" data-toggle="modal" data-target="#viewTripid" onClick={viewCard}>
                                     View
