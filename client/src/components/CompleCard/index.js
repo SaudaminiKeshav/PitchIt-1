@@ -72,8 +72,8 @@ const CompleCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Location: </span><span id="location">{each.location}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text hiddenText"><span style={{fontWeight: "700"}}>Campers: </span><span id="campers">{each.campers}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text hiddenText"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="view-trip-btn btn btn-outline-success" data-id="id" data-toggle="modal" data-target="#viewTripid" onClick={viewCard}>
+                                <div className="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" className="view-trip-btn btn btn-success" data-id="id" data-toggle="modal" data-target="#viewTripid" onClick={viewCard}>
                                     View
                                     </button>
                                     <button id={each._id} type="button" className="btn btn-danger" onClick={deleteCard}>Delete</button>
@@ -83,28 +83,28 @@ const CompleCard = (props) => {
                     </div>
 
                     {/* <!--View Trip--> */}
-                    <div class="modal fade" id="viewTripid" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div id="modal-content" class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="title2"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div className="modal fade" id="viewTripid" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div id="modal-content" className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="title2"></h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="row modal-body">
-                                <div class="col-md-6 form-group">
-                                    <p class="trip-ptags">Dates: </p><p id="dates"></p>
-                                    <p class="trip-ptags">Location: </p><p id="location2"></p>
-                                    <p class="trip-ptags">Campers: </p><p id="campers2"></p>
-                                    <p class="trip-ptags">Backpack:</p><p id="backpack2"></p>
+                            <div className="row modal-body">
+                                <div className="col-md-6 form-group">
+                                    <p className="trip-ptags">Dates: </p><p id="dates"></p>
+                                    <p className="trip-ptags">Location: </p><p id="location2"></p>
+                                    <p className="trip-ptags">Campers: </p><p id="campers2"></p>
+                                    <p className="trip-ptags">Backpack:</p><p id="backpack2"></p>
                                 </div>
-                                <div class="col-md-6 view-image">
+                                <div className="col-md-6 view-image">
                                     <img src="https://www.iconfinder.com/data/icons/scenarium-vol-3-1/128/036_backpack_bag_camping_travel_school_rucksack-512.png" alt=""></img>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Close</button>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-outline-success" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>

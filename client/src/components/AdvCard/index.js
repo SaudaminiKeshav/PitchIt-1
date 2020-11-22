@@ -128,10 +128,56 @@ const AdvCard = (props) => {
     }
 
     const updateTrip = (event) => {
-        var id = event.target.id;
         console.log("update id:", event.target.id);
 
         event.preventDefault();
+
+        const payload = {
+            title: event.target.parentElement.parentElement.querySelector("#title").innerHTML,
+            location: event.target.parentElement.parentElement.querySelector("#location").innerHTML,
+            date: event.target.parentElement.parentElement.querySelector("#date").innerHTML,
+            campers: event.target.parentElement.parentElement.querySelector("#campers").innerHTML,
+            items: event.target.parentElement.parentElement.querySelector("#items").innerHTML
+        };
+
+        console.log("This is the info clickeddddd", payload);
+
+        document.getElementById("title3").value = payload.title;
+        document.getElementById("dates3").value = payload.date;
+        document.getElementById("location3").value = payload.location;
+        document.getElementById("campers3").value = payload.campers;
+        document.getElementById("backpack3").value = payload.items;
+        document.getElementById("updatebtn").value = event.target.id;
+    }
+
+    const saveUpdate = (event) => {
+        event.preventDefault();
+
+        var id = event.target.value;
+
+        const info = {
+            title: event.target.parentElement.parentElement.querySelector("#title3").value,
+            location: event.target.parentElement.parentElement.querySelector("#location3").value,
+            date: event.target.parentElement.parentElement.querySelector("#dates3").value,
+            campers: event.target.parentElement.parentElement.querySelector("#campers3").value,
+            items: event.target.parentElement.parentElement.querySelector("#backpack3").value
+        }
+
+        console.log("updated infoooo", info);
+        console.log("iddd", id);
+
+        axios({
+            url: `/api/updatecard/${id}`,
+            method: 'PUT',
+            data: info
+        })
+        .then(() => {
+            console.log('Data has been sent to the server!');
+            this.resetUserInputs();
+        })
+        .catch((err) => {
+            console.log('Internal server error :(', err);
+        });
 
         window.location.reload();
     }
@@ -162,8 +208,10 @@ const AdvCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Campers: </span><span id="campers">{each.campers}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button id={each._id} type="button" class="btn btn-warning" onClick={updateTrip}>Update</button>
-                                    <button id={each._id} type="button" className="complete-trip-btn btn btn-outline-success" data-toggle="modal" data-target="#exampleModalid" onClick={completeTrip}>
+                                    <button id={each._id} type="button" class="view-trip-btn btn btn-warning" data-id="id" data-toggle="modal" data-target="#viewTripid2" onClick={updateTrip}>
+                                    Update
+                                    </button>
+                                    <button id={each._id} type="button" className="complete-trip-btn btn btn-success" data-toggle="modal" data-target="#exampleModalid" onClick={completeTrip}>
                                         Complete Trip
                                     </button>
                                     <button id={each._id} type="button" class="btn btn-danger" onClick={deleteCard}>Delete</button>
@@ -225,12 +273,40 @@ const AdvCard = (props) => {
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button id="savebtn" type="button" className="btn btn-primary save-review" data-dismiss="modal" data-id="id" onClick={saveReview}>Save changes</button>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/*<!-- Review Modal -->*/}
+
+
+                    {/* <!--Update Trip--> */}
+                    <div className="modal fade" id="viewTripid2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div id="modal-content" className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title"><input id="title3"></input></h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="row modal-body">
+                                <div className="col-md-6 form-group">
+                                    <p className="trip-ptags">Dates: </p><input id="dates3"></input>
+                                    <p className="trip-ptags">Location: </p><input id="location3"></input>
+                                    <p className="trip-ptags">Campers: </p><input id="campers3"></input>
+                                    <p className="trip-ptags">Backpack:</p><input id="backpack3"></input>
+                                </div>
+                                <div className="col-md-6 view-image">
+                                    <img src="https://www.iconfinder.com/data/icons/scenarium-vol-3-1/128/036_backpack_bag_camping_travel_school_rucksack-512.png" alt=""></img>
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button id="updatebtn" type="button" className="btn btn-outline-success" data-dismiss="modal" onClick={saveUpdate}>Update</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                     
                     </>
                 )
