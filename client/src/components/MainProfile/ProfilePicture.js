@@ -19,6 +19,7 @@ class ProfilePicture extends Component {
     this.setState({
       file: URL.createObjectURL(event.target.files[0])
     })
+    
     //const formData = new FormData();
     //formData.append("img", this.state.file[0]);
 
@@ -67,6 +68,10 @@ class ProfilePicture extends Component {
 
 
   render() {
+    if(this.state.file != null){
+      console.log(Buffer.from(this.state.file).toString('base64') )
+    }
+   
     return (<>
       <label htmlFor="myInput"> <img src={ this.state.file ? this.state.file :placeHolder } type="camera" id="profileImage" className={classNames('profilePicStyle', 'add-image-label')} htmlFor="add-image-input" aria-describedby="add-image-input" alt="profile" /></label>
       <input

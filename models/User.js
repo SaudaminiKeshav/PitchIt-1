@@ -22,6 +22,6 @@ const UserSchema = new Schema({
     data: Buffer,
     contentType: String
    //type: String
-  }
-});
+}
+);
 module.exports = User = mongoose.model("users", UserSchema);

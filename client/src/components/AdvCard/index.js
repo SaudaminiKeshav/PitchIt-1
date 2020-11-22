@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import "./style.css";
+import "./style.css"; 
 
 const AdvCard = (props) => {
 
@@ -12,6 +12,7 @@ const AdvCard = (props) => {
         console.log("id:", event.target.id);
         document.querySelector("#yesbtn").value = event.target.id;
         document.querySelector("#savebtn").value = event.target.id;
+        document.querySelector("#nobtn").value = event.target.id;
 
         const payload = {
             title: event.target.parentElement.parentElement.querySelector("#title").innerHTML,
@@ -62,6 +63,69 @@ const AdvCard = (props) => {
         .catch((err) => {
             console.log('Internal server error :(', err);
         });
+
+        window.location.reload();
+    }
+
+    const saveReview2 = (event) => {
+        // console.log("completeBtn ID:", event.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.firstElementChild.childNodes[1].childNodes[5].childNodes[1].id);
+        // var id = event.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.firstElementChild.childNodes[1].childNodes[5].childNodes[1].id;
+        var id = event.target.value;
+        console.log("modal2 id:", id);
+
+        event.preventDefault();
+
+        var info = {
+            id: id,
+            review: ""
+        }
+
+        //Update to True
+        axios({
+            url: `/api/update/${id}`,
+            method: 'PUT',
+            data: info
+        })
+        .then(() => {
+            console.log('Data has been sent to the server!');
+            this.resetUserInputs();
+        })
+        .catch((err) => {
+            console.log('Internal server error :(', err);
+        });
+
+        window.location.reload();
+    }
+
+    const deleteCard = (event) => {
+        var id = event.target.id;
+        console.log("delete id:", event.target.id);
+
+        event.preventDefault();
+
+        axios({
+            url: `/api/delete/${id}`,
+            method: 'DELETE',
+            data: id
+        })
+        .then(() => {
+            console.log('Data has been deleted!');
+            this.resetUserInputs();
+        })
+        .catch((err) => {
+            console.log('Internal server error :(', err);
+        });
+
+        window.location.reload();
+    }
+
+    const updateTrip = (event) => {
+        var id = event.target.id;
+        console.log("update id:", event.target.id);
+
+        event.preventDefault();
+
+        window.location.reload();
     }
 
     useEffect(()=>{
@@ -90,11 +154,11 @@ const AdvCard = (props) => {
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Campers: </span><span id="campers">{each.campers}</span></p>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Backpack: </span><span id="items">{each.items}</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning" onClick={completeTrip}>Update</button>
+                                    <button id={each._id} type="button" class="btn btn-warning" onClick={updateTrip}>Update</button>
                                     <button id={each._id} type="button" className="complete-trip-btn btn btn-outline-success" data-toggle="modal" data-target="#exampleModalid" onClick={completeTrip}>
                                         Complete Trip
                                     </button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <button id={each._id} type="button" class="btn btn-danger" onClick={deleteCard}>Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +178,7 @@ const AdvCard = (props) => {
                             Would you like to write a review for your trip?
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary no-btn" data-id="id" data-dismiss="modal">No</button>
+                            <button id="nobtn" type="button" className="btn btn-secondary no-btn" data-id="id" data-dismiss="modal" onClick={saveReview2}>No</button>
                             <button id="yesbtn" type="button" className="btn btn-primary writeTxtBtn" data-id="id" data-toggle="modal" data-target="#exampleModalCenterid" data-dismiss="modal" onClick={showID}>
                                 Yes
                             </button>
