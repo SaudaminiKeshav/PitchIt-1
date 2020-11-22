@@ -7,6 +7,7 @@ const users = require("./routes/api");
 const app = express();
 require('dotenv').config();
 const CreateTripModel = require("./models/CreateTrip.js");
+const User = require("./models/User");
 
 //ADDED NEW STUFF START
 const path = require("path");
@@ -110,6 +111,17 @@ app.put('/api/update/:id', function(req, res) {
     .catch()
 });
 
+app.delete('/api/delete/:id', function(req, res) {
+  console.log("req:", req.params.id);
+  console.log("review", req.body.review);
+  CreateTripModel.deleteOne({ _id: req.params.id })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+
 // app.put("/api/workouts/:id", (req, res) => {
 //   db.Workout.findByIdAndUpdate(
 //       { _id: req.params.id },
@@ -147,7 +159,41 @@ sgMail
 });
 
 
-//ADDED NEW STUFF START
+// app.post('/api/user', upload.single('img'), (req, res, err) => {
+//   if (err) throw err
+//   console.log(res);
+//   res.status(201).send()
+//   console.log(res)
+// })
+// .save()
+// .then(() => {
+//   res.send('Profile picture sent')
+// })
+
+// app.get('/api/user/:id', function(req, res){
+//   User.findOne({ _id: user.id })
+//     .exec()
+//     .then(doc => {
+//       res.send(doc)
+//     })
+//     .catch()
+//   console.log(user);
+// });
+
+app.put('/api/user/:id', (req, res, err) => {
+  if (err) throw err
+  console.log(res);
+  console.log(req);
+  res.status(201).send();
+  console.log(res);
+
+  User.update({ _id: req.params.id }, { $set: { profilePic: req.data } }, { upsert: false })
+})
+.save()
+.then(() => {
+  res.send('Profile picture sent')
+})
+
 // Create storage engine
 const storage = new GridFsStorage({
   url: db,
@@ -170,11 +216,9 @@ const storage = new GridFsStorage({
 
 const upload = multer({ storage })
 
-app.post('/', upload.single('img'), (req, res, err) => {
+app.post('/', upload.single('progileImg'), (req, res, err) => {
   if (err) throw err
-  console.log(res);
   res.status(201).send()
-  console.log(res)
 })
 
 let gfs;
@@ -201,6 +245,7 @@ app.get('/:filename', (req, res) => {
   })
 })
 //ADDED NEW STUFF END
+
 
 if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets

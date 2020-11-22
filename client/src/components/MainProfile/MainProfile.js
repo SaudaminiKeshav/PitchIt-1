@@ -9,6 +9,7 @@ import Reviews from "../MainProfile/Reviews";
 import Trips from "../MainProfile/Trips";
 import Milestones from "../MainProfile/MilestonesComponent";
 import Timeline from "../MainProfile/Timeline";
+import { PromiseProvider } from "mongoose";
 
 
 const MainProfile = (props) => {
@@ -24,7 +25,7 @@ const MainProfile = (props) => {
             break;
         case "Reviews":
             icon = <img src={reviewsIcon} className="contentTitleIcon" alt="stars" />
-            content = <Reviews />
+            content = <Reviews user={ props.user }/>
             break;
         case "Milestones":
             icon = <img src={milestoneIcon} className="contentTitleIcon" alt="mountain badge" />
