@@ -41,7 +41,7 @@ const MainProfile = (props) => {
     return <>
         <div className="contentAreaStyle" style={{marginBottom:"20%"}}>
             <br></br>
-            <p className="profileContentTitle">{icon}{userSelectedOption}</p>
+            <p className="profileContentTitle">{icon}<span className="spacing">{userSelectedOption}</span></p>
             <hr style={{marginLeft:"3%", marginRight:"3%"}}/>
             {content}
         </div>
