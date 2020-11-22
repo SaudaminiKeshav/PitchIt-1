@@ -30,6 +30,9 @@ const createTripSchema = new Schema(
     },
     review: {
         type: String
+    },
+    stars: {
+      type: String
     }
   }
 );

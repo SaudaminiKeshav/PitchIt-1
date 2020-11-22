@@ -28,6 +28,7 @@ const AdvCard = (props) => {
     };
 
     const showID = (event) => {
+        console.log(event.target);
         console.log("modal1 id:", event.target.value);
     }
 
@@ -41,12 +42,19 @@ const AdvCard = (props) => {
 
         var review = event.target.parentElement.previousSibling.firstElementChild.querySelector("#exampleFormControlTextarea1").value;
 
+        var stars = event.target.parentElement.previousSibling.firstElementChild.querySelector("#starReview").value;
+        
+        console.log(stars); 
+
         console.log("review", review);
 
         var info = {
             id: id,
-            review: review
+            review: review,
+            stars: stars
         }
+        
+        console.log(info);
 
         event.target.parentElement.previousSibling.firstElementChild.querySelector("#exampleFormControlTextarea1").value = "";
 
@@ -201,6 +209,15 @@ const AdvCard = (props) => {
                                 </div>
                                 <div className="modal-body">
                                     <div className="form-group">
+                                        <label for="starReview">Star Rating: </label>
+                                        <select id="starReview" name="starReview">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                        <br />
                                         <label for="exampleFormControlTextarea1">Write your review:</label>
                                         <textarea className="form-control review-textid" id="exampleFormControlTextarea1" rows="3" maxlength="250"></textarea>
                                     </div>

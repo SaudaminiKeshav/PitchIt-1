@@ -112,6 +112,18 @@
   background-color: #cdfa9e;
 }
 
+.dates {
+  margin-left: 0.5%;
+  color: rgb(24, 48, 18);
+  opacity: 0.8;
+  border-radius: 7%;
+  padding: 1%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
 /* Milestone option specific style  */
 .mileStoneStyle {
   color: #FFAB00;
@@ -614,7 +626,13 @@
   margin-top: "1%";
   padding: ".5%";
   display: "inline-block";
-  font-size: large;
+  font-size: 32px;
+  margin-left: 2%;
+}
+
+/*Spacing between title and icon in main profile area*/
+.spacing {
+  margin-left: 1.5%;
 }
 
 .bannerStyle {
