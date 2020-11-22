@@ -100,9 +100,9 @@ app.get('/api/completed', function(req, res){
 
 app.put('/api/update/:id', function(req, res) {
   console.log("req:", req.params.id);
-  console.log("review", req.body.review);
+  console.log("review", req.body);
 
-  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { completed: true, review: req.body.review } }, { upsert: false })
+  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { completed: true, review: req.body.review, stars: req.body.stars } }, { upsert: false })
     .exec()
     .then(doc => {
       res.send(doc)
