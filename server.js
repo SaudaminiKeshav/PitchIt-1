@@ -173,10 +173,6 @@ app.put('/api/user/:id', (req, res, err) => {
 
   User.update({ _id: req.params.id }, { $set: { profilePic: req.data } }, { upsert: false })
 })
-.save()
-.then(() => {
-  res.send('Profile picture sent')
-})
 
 // Create storage engine
 const storage = new GridFsStorage({
@@ -230,14 +226,15 @@ app.get('/:filename', (req, res) => {
 })
 //ADDED NEW STUFF END
 
-let router = express.Router();
-const storage = multer.diskStorage({
-  destination: function (req, res, cb) {
-      cb(null, 'uploads/')
-  }
-});
-app.use(router);
-app.use(storage);
+// let router = express.Router();
+// const storage = multer.diskStorage({
+//   destination: function (req, res, cb) {
+//       cb(null, 'uploads/')
+//   }
+// });
+
+// app.use(router);
+// app.use(storage);
 
 if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
