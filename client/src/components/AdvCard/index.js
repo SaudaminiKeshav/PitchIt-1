@@ -192,6 +192,7 @@ const AdvCard = (props) => {
     return (
         <>
             {trips.map((each, index)=>{
+                console.log(each);
                 return (
                     <>
                     <div className="col mb-4">
