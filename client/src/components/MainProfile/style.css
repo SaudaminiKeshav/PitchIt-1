@@ -124,6 +124,10 @@
   visibility: hidden;
 }
 
+.visibile {
+  visibility: visible;
+}
+
 /* Milestone option specific style  */
 .mileStoneStyle {
   color: #FFAB00;

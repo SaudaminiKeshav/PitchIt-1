@@ -33,7 +33,7 @@ const createTripSchema = new Schema(
     },
     stars: {
       type: String,
-      default: null
+      default: "1"
     }
   }
 );
