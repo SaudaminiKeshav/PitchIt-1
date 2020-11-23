@@ -36,8 +36,6 @@ export default class Form extends React.Component {
         }).catch((err)=>{
             console.log("message not sent", err);
         });
-
-        
     }
 
     resetForm=()=>{
@@ -52,7 +50,7 @@ export default class Form extends React.Component {
             this.setState({
             sent:false,
             })
-        },3000)
+        },5000)
     }
 
 
@@ -93,13 +91,13 @@ export default class Form extends React.Component {
                             onChange={e => this.change(e)}
                             />
                         </div>
-                    <div className={this.state.sent ?`msg msgShow`:`msg`}>Message has been sent</div>
+                    <div className={this.state.sent ? `msgtxt mssgShow`:`msgtxt` }>Message has been sent</div>
                     <div className="textArea singleItem">
                         <label htmlFor="message">Message</label>
                         <textArea    
                             name="textMessage" 
                             placeholder="Message ..." 
-                            className="msgtxt"
+                            className="textMessage"
                             value={this.state.textMessage} 
                             onChange={e => this.change(e)} cols={30} rows={10}>
                         </textArea>

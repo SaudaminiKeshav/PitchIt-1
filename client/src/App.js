@@ -15,7 +15,7 @@ import PrivateRoute from "./components/Private-route/PrivateRoute";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import TripForm from "./pages/CreateTrip";
-import Gallery from "./pages/Gallery";
+import Slider from "./pages/Slider";
 import Contact from "./components/Contact/Contact";
 
 
@@ -52,7 +52,7 @@ class App extends Component {
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/createtrip" component={TripForm} />
-              <PrivateRoute exact path="/gallery" component={Gallery} />
+              <PrivateRoute exact path="/gallery" component={Slider} />
               <PrivateRoute exact path="/contact" component={Contact} />
             </Switch>
           </div>
