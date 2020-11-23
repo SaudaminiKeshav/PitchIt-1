@@ -1,5 +1,5 @@
 /* The Modal (background) */
-.modal {
+.modal-calendar {
   display: none;
   /* Hidden by default */
   position: fixed;
@@ -23,7 +23,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+.modal-content-calendar {
   /* background-color: #fefefe; */
   margin: auto;
 
@@ -32,7 +32,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .modal-content {
+  .modal-content-calendar {
     /* background-color: #fefefe; */
     margin: auto;
     padding: 20px;

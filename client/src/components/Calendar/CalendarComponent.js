@@ -288,9 +288,9 @@ class CalendarComponent extends React.Component {
         });
 
         return <>
-            <div id="myModal" className={classNames('modal', this.state.display === true ? 'displayBlock' : 'displayNone')}>
+            <div id="myModal" className={classNames('modal-calendar', this.state.display === true ? 'displayBlock' : 'displayNone')}>
 
-                <div className="modal-content">
+                <div className="modal-content-calendar">
                     <span className="close" onClick={closeModal.bind(this)}>&times;</span>
                     <div>
                         <div className="tail-datetime-calendar">
