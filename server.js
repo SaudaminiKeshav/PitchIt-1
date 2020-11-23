@@ -7,6 +7,7 @@ const users = require("./routes/api");
 const app = express();
 require('dotenv').config();
 const CreateTripModel = require("./models/CreateTrip.js");
+const User = require("./models/User");
 
 //ADDED NEW STUFF START
 const path = require("path");
@@ -80,7 +81,7 @@ app.post("/api/create", (req, res) => {
 });
 
 app.get('/api/all', function(req, res){
-  CreateTripModel.find()
+  CreateTripModel.find({ completed: false })
     .exec()
     .then(doc => {
       res.send(doc)
@@ -97,16 +98,47 @@ app.get('/api/completed', function(req, res){
     .catch()
 });
 
-//NOT DONE
-app.get('/api/update/:id', function(req, res) {
-  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
+app.put('/api/update/:id', function(req, res) {
+  console.log("req:", req.params.id);
+  console.log("review", req.body);
+
+  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { completed: true, review: req.body.review, stars: req.body.stars } }, { upsert: false })
     .exec()
     .then(doc => {
       res.send(doc)
     })
     .catch()
 });
-//NOT DONE
+
+app.put('/api/updatecard/:id', function(req, res) {
+  console.log("req:", req.params.id);
+  console.log("review", req.body);
+
+  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { 
+    title: req.body.title,
+    date: req.body.date,
+    location: req.body.location,
+    campers: req.body.campers,
+    items: req.body.items
+  } }, { upsert: false })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
+
+app.delete('/api/delete/:id', function(req, res) {
+  console.log("req:", req.params.id);
+  console.log("review", req.body.review);
+  
+  CreateTripModel.deleteOne({ _id: req.params.id })
+    .exec()
+    .then(doc => {
+      res.send(doc)
+    })
+    .catch()
+});
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
@@ -129,7 +161,37 @@ sgMail
 });
 
 
-//ADDED NEW STUFF START
+// app.post('/api/user', upload.single('img'), (req, res, err) => {
+//   if (err) throw err
+//   console.log(res);
+//   res.status(201).send()
+//   console.log(res)
+// })
+// .save()
+// .then(() => {
+//   res.send('Profile picture sent')
+// })
+
+// app.get('/api/user/:id', function(req, res){
+//   User.findOne({ _id: user.id })
+//     .exec()
+//     .then(doc => {
+//       res.send(doc)
+//     })
+//     .catch()
+//   console.log(user);
+// });
+
+app.put('/api/user/:id', (req, res, err) => {
+  if (err) throw err
+  console.log(res);
+  console.log(req);
+  res.status(201).send();
+  console.log(res);
+
+  User.update({ _id: req.params.id }, { $set: { profilePic: req.data } }, { upsert: false })
+})
+
 // Create storage engine
 const storage = new GridFsStorage({
   url: db,
@@ -152,7 +214,7 @@ const storage = new GridFsStorage({
 
 const upload = multer({ storage })
 
-app.post('/', upload.single('img'), (req, res, err) => {
+app.post('/', upload.single('progileImg'), (req, res, err) => {
   if (err) throw err
   res.status(201).send()
 })
@@ -181,6 +243,16 @@ app.get('/:filename', (req, res) => {
   })
 })
 //ADDED NEW STUFF END
+
+// let router = express.Router();
+// const storage = multer.diskStorage({
+//   destination: function (req, res, cb) {
+//       cb(null, 'uploads/')
+//   }
+// });
+
+// app.use(router);
+// app.use(storage);
 
 if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets

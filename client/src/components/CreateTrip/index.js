@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
-import CalendarComponent from "../Calendar/CalendarComponent"
+import CalendarComponent from "../Calendar/CalendarComponent";
+import classNames from 'classnames';
 
 class CreateTrip extends React.Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class CreateTrip extends React.Component {
         this.state = {
             title: '',
             location: '',
-            date: '',
+            startDate: '',
+            endDate: '',
             campers: '',
             items: '',
             displayStartCalendar: false,
@@ -48,7 +50,8 @@ class CreateTrip extends React.Component {
         const payload = {
             title: this.state.title,
             location: this.state.location,
-            date: this.state.date,
+            startDate: this.state.startDate,
+            endDate: this.state.endDate,
             campers: this.state.campers,
             items: this.state.items
         };
@@ -63,7 +66,7 @@ class CreateTrip extends React.Component {
         const payload = {
             title: this.state.title,
             location: this.state.location,
-            date: this.state.startDate + " - " + this.state.endDate,
+            date: this.state.startDate + "" + this.state.endDate,
             campers: this.state.campers,
             items: this.state.items
         };
@@ -81,25 +84,35 @@ class CreateTrip extends React.Component {
                 console.log('Internal server error :(', err);
             });
 
+            axios.get(`http://api.amp.active.com/camping/campgrounds?pstate=CA&amenity=4004&api_key=8ek9pa2yr6hsasqubhajmzx3`)
+            .then(res => {
+              console.log(res.data)
+            })
     };
+
+     
 
     // Reset inputs
     resetUserInputs = () => {
         this.setState({
             title: '',
             location: '',
-            date: '',
+            startDate: '',
+            endDate: '',
             campers: '',
             items: '',
             isCalendarOpen: false
         });
     };
 
+    
+   
+
     render(){
         console.log('State: ', this.state);
         return(
             <>
-            <div className=  "blurBackground" >
+            <div className={classNames('container', 'blurBackground')} >
                 <div style={{paddingTop: "6%", paddingLeft: "6%", paddingRight: "6%", paddingBottom: "6%"}}>
                     <form id="create-adventure" onSubmit={this.submit}>
                         <div>

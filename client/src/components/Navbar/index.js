@@ -44,10 +44,10 @@ const Navbar = (props) => {
                             <a style={navTabBtns} className="nav-link" href="/profile">Profile</a>
                         </li>
                         <li className="nav-item">
-                            <a style={navTabBtns} className="nav-link" href="/gallery">Gallery</a>
+                            <a style={navTabBtns} className="nav-link" href="/createtrip">Create Trip</a>
                         </li>
                         <li className="nav-item">
-                            <a style={navTabBtns} className="nav-link" href="/createtrip">Create Trip</a>
+                            <a style={navTabBtns} className="nav-link" href="/gallery">Gallery</a>
                         </li>
                         <li className="nav-item">
                             <a style={navTabBtns} className="nav-link" href="/contact">Contact</a>
