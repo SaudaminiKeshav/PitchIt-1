@@ -7,7 +7,6 @@ const users = require("./routes/api");
 const app = express();
 require('dotenv').config();
 const CreateTripModel = require("./models/CreateTrip.js");
-const User = require("./models/User");
 
 //ADDED NEW STUFF START
 const path = require("path");
@@ -32,20 +31,18 @@ mongoose.connect(
   useCreateIndex: true,
   useUnifiedTopology: true,
   useFindAndModify: false
-
 }).then(() => 
-// ADDED NEW STUFF START
+//ADDED NEW STUFF START
 {
- gfs = Grid(mongoose.connection.db, mongoose.mongo);
- gfs.collection('uploads');
- console.log("MongoDB successfully connected!");
-}
-// ADDED NEW STUFF END
-)
-.catch(err => console.log(err + " => Error while connecting to mongo !!!!"));
+ gfs = Grid(mongoose.connection.db, mongoose.mongo)
+ gfs.collection('uploads')
+ console.log("MongoDB successfully connected", db)
+})
+//ADDED NEW STUFF END
+.catch(err => console.log(err + "Error while connecting to mongo !!!!"));
 
 // }).then(() => console.log("MongoDB successfully connected", db))
-// .catch(err => console.log(err + " => Error while connecting to mongo !!!!"));
+// .catch(err => console.log(err + "Error while connecting to mongo !!!!"));
 
 // Bodyparser middleware
 app.use(bodyParser.json());
@@ -81,7 +78,7 @@ app.post("/api/create", (req, res) => {
 });
 
 app.get('/api/all', function(req, res){
-  CreateTripModel.find({ completed: false })
+  CreateTripModel.find()
     .exec()
     .then(doc => {
       res.send(doc)
@@ -98,161 +95,92 @@ app.get('/api/completed', function(req, res){
     .catch()
 });
 
-app.put('/api/update/:id', function(req, res) {
-  console.log("req:", req.params.id);
-  console.log("review", req.body);
-
-  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { completed: true, review: req.body.review, stars: req.body.stars } }, { upsert: false })
+//NOT DONE
+app.get('/api/update/:id', function(req, res) {
+  CreateTripModel.updateOne({ _id: ':id' }, { $set: { completed: true } }, { upsert: false })
     .exec()
     .then(doc => {
       res.send(doc)
     })
     .catch()
 });
-
-app.put('/api/updatecard/:id', function(req, res) {
-  console.log("req:", req.params.id);
-  console.log("review", req.body);
-
-  CreateTripModel.updateOne({ _id: req.params.id }, { $set: { 
-    title: req.body.title,
-    date: req.body.date,
-    location: req.body.location,
-    campers: req.body.campers,
-    items: req.body.items
-  } }, { upsert: false })
-    .exec()
-    .then(doc => {
-      res.send(doc)
-    })
-    .catch()
-});
-
-app.delete('/api/delete/:id', function(req, res) {
-  console.log("req:", req.params.id);
-  console.log("review", req.body.review);
-  
-  CreateTripModel.deleteOne({ _id: req.params.id })
-    .exec()
-    .then(doc => {
-      res.send(doc)
-    })
-    .catch()
-});
+//NOT DONE
 
 app.post("/api/forma", (req, res)=>{
   const sgMail = require('@sendgrid/mail')
+  console.log(req.body.name, req.body.lastname, req.body.email, req.body.message);
   sgMail.setApiKey(apiKey)
   const msg = {
-  to: 'haroldzuluaga@aol.com',// Change to your recipient
+  to: req.body.email,// Change to your recipient
   from: 'haroldzuluaga@aol.com', // Change to your verified sender
-  subject: 'Sending with SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
+  subject: 'This is a support ticket for Pitchit',
+  text: req.body.message,
   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
 }
-sgMail
-  .send(msg)
-  .then(() => {
-    res.send('Email sent2')
-  })
-  .catch((error) => {
-    res.send(error)
-  })
+console.log(msg);
+// sgMail
+//   .send(msg)
+//   .then(() => {
+//     res.send('Email sent2')
+//   })
+//   .catch((error) => {
+//     res.send(error)
+//   })
 });
 
 
-// app.post('/api/user', upload.single('img'), (req, res, err) => {
-//   if (err) throw err
-//   console.log(res);
-//   res.status(201).send()
-//   console.log(res)
-// })
-// .save()
-// .then(() => {
-//   res.send('Profile picture sent')
-// })
-
-// app.get('/api/user/:id', function(req, res){
-//   User.findOne({ _id: user.id })
-//     .exec()
-//     .then(doc => {
-//       res.send(doc)
-//     })
-//     .catch()
-//   console.log(user);
-// });
-
-app.put('/api/user/:id', (req, res, err) => {
-  if (err) throw err
-  console.log(res);
-  console.log(req);
-  res.status(201).send();
-  console.log(res);
-
-  User.update({ _id: req.params.id }, { $set: { profilePic: req.data } }, { upsert: false })
+//ADDED NEW STUFF START
+// Create storage engine
+const storage = new GridFsStorage({
+  url: db,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err)
+        }
+        const filename = file.originalname
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads',
+        }
+        resolve(fileInfo)
+      })
+    })
+  },
 })
 
-// Create storage engine
-// const storage = new GridFsStorage({
-//   url: db,
-//   file: (req, file) => {
-//     return new Promise((resolve, reject) => {
-//       crypto.randomBytes(16, (err, buf) => {
-//         if (err) {
-//           return reject(err)
-//         }
-//         const filename = file.originalname
-//         const fileInfo = {
-//           filename: filename,
-//           bucketName: 'uploads',
-//         }
-//         resolve(fileInfo)
-//       })
-//     })
-//   },
-// })
+const upload = multer({ storage })
 
-// const upload = multer({ storage })
+app.post('/', upload.single('img'), (req, res, err) => {
+  if (err) throw err
+  res.status(201).send()
+})
 
-// app.post('/', upload.single('progileImg'), (req, res, err) => {
-//   if (err) throw err
-//   res.status(201).send()
-// })
+let gfs;
 
-// let gfs;
+app.get('/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    // Check if file
+    if (!file || file.length === 0) {
+      return res.status(404).json({
+        err: 'No file exists',
+      })
+    }
 
-// app.get('/:filename', (req, res) => {
-//   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-//     // Check if file
-//     if (!file || file.length === 0) {
-//       return res.status(404).json({
-//         err: 'No file exists',
-//       })
-//     }
-
-//     // Check if image
-//     if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-//       // Read output to browser
-//       const readstream = gfs.createReadStream(file.filename)
-//       readstream.pipe(res)
-//     } else {
-//       res.status(404).json({
-//         err: 'Not an image',
-//       })
-//     }
-//   })
-// })
+    // Check if image
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+      // Read output to browser
+      const readstream = gfs.createReadStream(file.filename)
+      readstream.pipe(res)
+    } else {
+      res.status(404).json({
+        err: 'Not an image',
+      })
+    }
+  })
+})
 //ADDED NEW STUFF END
-
-// let router = express.Router();
-// const storage = multer.diskStorage({
-//   destination: function (req, res, cb) {
-//       cb(null, 'uploads/')
-//   }
-// });
-
-// app.use(router);
-// app.use(storage);
 
 if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
@@ -268,3 +196,4 @@ if (process.env.NODE_ENV === 'production') {
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
