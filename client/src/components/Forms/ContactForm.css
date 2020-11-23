@@ -1,8 +1,8 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 .contact-container {
   margin-left: 15%;
@@ -79,6 +79,7 @@
   color: green;
   background-color: #fff;
   border-radius: 5px;
+  display: none;
 }
 
 .mssgShow {
