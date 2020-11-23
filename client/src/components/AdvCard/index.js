@@ -22,9 +22,7 @@ const AdvCard = (props) => {
             items: event.target.parentElement.parentElement.querySelector("#items").innerHTML
         };
 
-        console.log("This is the info clickeddddd", payload);
-
-        document.getElementById("exampleModalLongTitle").innerHTML = payload.title;
+        console.log("This is the info clicked", payload);
     };
 
     const showID = (event) => {
@@ -183,7 +181,7 @@ const AdvCard = (props) => {
     }
 
     useEffect(()=>{
-      console.log("Current works!");
+      console.log("It works!");
       fetch("/api/all")
       .then(data=> data.json())
       .then(data => setTrips(data))
@@ -241,7 +239,6 @@ const AdvCard = (props) => {
                             </button>
                         </div>
                         </div>
-                    </div>
                     </div>
                     {/*//Prompt for review*/}
 
