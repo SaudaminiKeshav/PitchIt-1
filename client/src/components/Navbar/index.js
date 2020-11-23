@@ -54,7 +54,7 @@ const Navbar = (props) => {
                         </li>
                     </ul>
                     <li className="navbar-nav nav-item sign-out-btn">
-                        <a style={navTabBtns} className="nav-link" href="*">Sign Out</a>
+                        <a style={navTabBtns} className="nav-link" href="/">Sign Out</a>
                     </li>
                     {/* <form className="form-inline my-2 my-lg-0">
                     <button className="btn btn-outline-warning my-2 my-sm-0" type="submit">Sign Out</button>
