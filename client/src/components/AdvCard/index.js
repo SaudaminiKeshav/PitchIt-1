@@ -185,7 +185,7 @@ const AdvCard = (props) => {
       fetch("/api/all")
       .then(data=> data.json())
       .then(data => setTrips(data))
-    },[])
+    },[]);
 
     return (
         <>
@@ -221,23 +221,24 @@ const AdvCard = (props) => {
 
                     {/*//Prompt for review*/}
                     <div className="modal fade" id="exampleModalid" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div id="modal-content" className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Review Trip?</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            Would you like to write a review for your trip?
-                        </div>
-                        <div className="modal-footer">
-                            <button id="nobtn" type="button" className="btn btn-secondary no-btn" data-id="id" data-dismiss="modal" onClick={saveReview2}>No</button>
-                            <button id="yesbtn" type="button" className="btn btn-primary writeTxtBtn" data-id="id" data-toggle="modal" data-target="#exampleModalCenterid" data-dismiss="modal" onClick={showID}>
-                                Yes
-                            </button>
-                        </div>
+                        <div className="modal-dialog">
+                            <div id="modal-content" className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Review Trip?</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    Would you like to write a review for your trip?
+                                </div>
+                                <div className="modal-footer">
+                                    <button id="nobtn" type="button" className="btn btn-secondary no-btn" data-id="id" data-dismiss="modal" onClick={saveReview2}>No</button>
+                                    <button id="yesbtn" type="button" className="btn btn-primary writeTxtBtn" data-id="id" data-toggle="modal" data-target="#exampleModalCenterid" data-dismiss="modal" onClick={showID}>
+                                        Yes
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {/*//Prompt for review*/}
