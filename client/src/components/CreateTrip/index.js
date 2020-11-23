@@ -24,6 +24,7 @@ class CreateTrip extends React.Component {
     handleChange = ({ target }) => {
         const { name, value } = target;
         this.setState({ [name]: value });
+        this.setState({displayStartCalendar: false});
     };
 
     openCalendarStart = () => {

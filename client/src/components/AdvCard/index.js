@@ -6,6 +6,20 @@ const AdvCard = (props) => {
 
     const [ trips, setTrips] = useState([]);
 
+    useEffect(()=>{
+        fetch("/api/all",{
+          headers: { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }    
+        })
+        .then(data => data.json())
+        .then(data => {
+            setTrips(data)
+            console.log(data.text)
+        })
+      },[]);
+
     const saveReview = (event) => {
         var id = event.target.value;
 
@@ -133,17 +147,6 @@ const AdvCard = (props) => {
 
         window.location.reload();
     }
-
-    useEffect(()=>{
-      fetch("/api/all",{
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }    
-      })
-      .then(data => data.json())
-      .then(data => setTrips(data))
-    },[]);
 
     return (
         <>
