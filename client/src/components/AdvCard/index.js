@@ -74,8 +74,6 @@ const AdvCard = (props) => {
     }
 
     const saveReview2 = (event) => {
-        // console.log("completeBtn ID:", event.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.firstElementChild.childNodes[1].childNodes[5].childNodes[1].id);
-        // var id = event.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.firstElementChild.childNodes[1].childNodes[5].childNodes[1].id;
         var id = event.target.value;
         console.log("modal2 id:", id);
 
