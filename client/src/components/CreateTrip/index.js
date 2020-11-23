@@ -66,7 +66,7 @@ class CreateTrip extends React.Component {
         const payload = {
             title: this.state.title,
             location: this.state.location,
-            date: this.state.startDate + "" + this.state.endDate,
+            date: this.state.startDate + " - " + this.state.endDate,
             campers: this.state.campers,
             items: this.state.items
         };
@@ -84,10 +84,12 @@ class CreateTrip extends React.Component {
                 console.log('Internal server error :(', err);
             });
 
-            axios.get(`http://api.amp.active.com/camping/campgrounds?pstate=CA&amenity=4004&api_key=8ek9pa2yr6hsasqubhajmzx3`)
-            .then(res => {
-              console.log(res.data)
-            })
+            // axios.get(`http://api.amp.active.com/camping/campgrounds?pstate=CA&amenity=4004&api_key=8ek9pa2yr6hsasqubhajmzx3`)
+            // .then(res => {
+            //   console.log(res.data)
+            // })
+
+        window.location.href='/dashboard';
     };
 
      
@@ -179,9 +181,7 @@ class CreateTrip extends React.Component {
                                 onChange={this.handleChange}
                             ></input>
                             <datalist id="campers-list">
-                                {/* {{#each user}}
-                                    <option>{{this.name}}</option>
-                                {{/each}} */}
+
                             </datalist>
                             <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect add-btn">
                                 <i className="material-icons">add</i>
@@ -201,11 +201,11 @@ class CreateTrip extends React.Component {
                                 onChange={this.handleChange}
                             ></textarea>
                         </div>
-                    <a className="submit-trip" href="/dashboard"><button type="submit" className="btn btn-outline-success">Submit</button></a>
+                    <button type="submit" className="btn btn-outline-success">Submit</button>
                     <a className="cancel" href="/dashboard"><button type="button" className="btn btn-outline-success">Cancel</button></a>
                     </form>
                 </div>
-                </div>
+            </div>
                 
                 
             </>
