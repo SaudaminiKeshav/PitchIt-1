@@ -201,13 +201,11 @@ class CreateTrip extends React.Component {
                                 onChange={this.handleChange}
                             ></textarea>
                         </div>
-                    <button type="submit" className="btn btn-outline-success">Submit</button>
-                    <a className="cancel" href="/dashboard"><button type="button" className="btn btn-outline-success">Cancel</button></a>
+                    <button type="submit" style={{marginRight: "3%"}} className="btn btn-outline-success">Submit</button>
+                    <a className="cancel" href="/dashboard"><button type="button" className="btn btn-outline-danger">Cancel</button></a>
                     </form>
                 </div>
             </div>
-                
-                
             </>
         );
     }
