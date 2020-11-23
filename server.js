@@ -18,9 +18,8 @@ const crypto = require("crypto");
 //ADDED NEW STUFF END
 
 // DB Config
-// const db = process.env.mongoURI;
-const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/Pitchit?retryWrites=true&w=majority";
-
+const db = process.env.mongoURI;
+//const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/Pitchit?retryWrites=true&w=majority";
 
 const apiKey = process.env.apiKey;
 
