@@ -135,7 +135,12 @@ const AdvCard = (props) => {
     }
 
     useEffect(()=>{
-      fetch("/api/all")
+      fetch("/api/all",{
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }    
+      })
       .then(data => data.json())
       .then(data => setTrips(data))
     },[]);
