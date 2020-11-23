@@ -48,7 +48,7 @@ mongoose.connect(
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: false
   })
 );
 app.use(cors());
@@ -189,8 +189,8 @@ if (process.env.NODE_ENV === 'production') {
   // Express serve up index.html file if it doesn't recognize route
   // const path = require('path');
   app.use(routes)
-  app.get('/', (req, res) => {
-    res.sendFile('index.html');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 
