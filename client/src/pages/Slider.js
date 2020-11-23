@@ -2,53 +2,31 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import "../pages/Slider.scss";
 import ImgComp from "./ImgComp";
-import img1 from "img/gallery/gates-of-arctic.jpg";
-import img2 from "img/gallery/Arches.jpg";
-import img3 from "img/gallery/badlands.jpg";
-import img4 from "img/gallery/big-bend.jpg";
-import img5 from "img/gallery/black-canyon.jpg";
-import img6 from "img/gallery/canyonlands.jpg";
-import img7 from "img/gallery/carlsbad-caverns.jpg";
-import img8 from "img/gallery/channel-islands.jpg";
-import img9 from "img/gallery/congaree.jpg";
-import img10 from "img/gallery/crater-lake.jpg";
-import img11 from "img/gallery/cuyahoga.jpg";
-import img12 from "img/gallery/death-valley.jpg";
-import img13 from "img/gallery/denali.jpg";
-import img14 from "img/gallery/dry-tortugas.jpg";
-import img15 from "img/gallery/everglades.jpg";
-import img16 from "img/gallery/glacier-bay.jpg";
-import img17 from "img/gallery/glacier.jpg";
-import img18 from "img/gallery/grand-canyon.jpg";
-import img19 from "img/gallery/grand-tetons.JPG";
-import img20 from "img/gallery/great-smokey-mountains.jpg";
-import img21 from "img/gallery/volcanoes.jpg";
-
 
 function Slider() {
 
     let sliderArr = [
-        <ImgComp src={img1} />,
-        <ImgComp src={img2} />,    
-        <ImgComp src={img3} />,
-        <ImgComp src={img4} />,
-        <ImgComp src={img5} />,
-        <ImgComp src={img6} />,
-        <ImgComp src={img7} />,
-        <ImgComp src={img8} />,
-        <ImgComp src={img9} />,
-        <ImgComp src={img10} />,
-        <ImgComp src={img11} />,
-        <ImgComp src={img12} />,
-        <ImgComp src={img13} />,
-        <ImgComp src={img14} />,
-        <ImgComp src={img15} />,
-        <ImgComp src={img16} />,
-        <ImgComp src={img17} />,
-        <ImgComp src={img18} />,
-        <ImgComp src={img19} />,
-        <ImgComp src={img20} />,
-        <ImgComp src={img21} />
+        <ImgComp src="img/gallery/gates-of-arctic.jpg" />,
+        <ImgComp src="img/gallery/Arches.jpg" />,
+        <ImgComp src="img/gallery/badlands.jpg" />,
+        <ImgComp src="img/gallery/big-bend.jpg" />,
+        <ImgComp src="img/gallery/black-canyon.jpg" />,
+        <ImgComp src="img/gallery/canyonlands.jpg" />,
+        <ImgComp src="img/gallery/carlsbad-caverns.jpg" />,
+        <ImgComp src="img/gallery/channel-islands.jpg" />,
+        <ImgComp src="img/gallery/congaree.jpg" />,
+        <ImgComp src="img/gallery/crater-lake.jpg" />,
+        <ImgComp src="img/gallery/cuyahoga.jpg" />,
+        <ImgComp src="img/gallery/death-valley.jpg" />,
+        <ImgComp src="img/gallery/denali.jpg" />,
+        <ImgComp src="img/gallery/dry-tortugas.jpg" />,
+        <ImgComp src="img/gallery/everglades.jpg" />,
+        <ImgComp src="img/gallery/glacier-bay.jpg" />,
+        <ImgComp src="img/gallery/glacier.jpg" />,
+        <ImgComp src="img/gallery/grand-canyon.jpg" />,
+        <ImgComp src="img/gallery/grand-tetons.JPG" />,
+        <ImgComp src="img/gallery/great-smokey-mountains.jpg" />,
+        <ImgComp src="img/gallery/volcanoes.jpg" />
     ];
     const [x,setX] = useState(0);
     const goLeft=()=> {
