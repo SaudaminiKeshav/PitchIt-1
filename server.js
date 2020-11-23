@@ -24,6 +24,10 @@ const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/
 
 const apiKey = process.env.apiKey;
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
 const root = require('path').join(__dirname, 'client', 'build')
 app.use(express.static(root));
 app.get("*", (req, res) => {
