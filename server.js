@@ -197,7 +197,7 @@ app.get('/:filename', (req, res) => {
 const root = require("path").join(__dirname, "../build");
 app.use(express.static(root));
 app.get("*", (req, res) => {
-  res.sendFile("./client/public/index.html", { root });
+  res.sendFile("index.html", { root });
 });
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
