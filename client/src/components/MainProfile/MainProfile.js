@@ -9,7 +9,7 @@ import Reviews from "../MainProfile/Reviews";
 import Trips from "../MainProfile/Trips";
 import Milestones from "../MainProfile/MilestonesComponent";
 import Timeline from "../MainProfile/Timeline";
-import { PromiseProvider } from "mongoose";
+// import { PromiseProvider } from "mongoose";
 
 
 const MainProfile = (props) => {
