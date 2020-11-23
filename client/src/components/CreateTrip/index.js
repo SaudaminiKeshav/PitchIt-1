@@ -106,7 +106,8 @@ class CreateTrip extends React.Component {
             //   console.log(res.data)
             // })
 
-        window.location.href='/dashboard';
+            window.location.href='/dashboard';
+        });
     };
 
      
