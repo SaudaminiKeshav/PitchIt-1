@@ -24,6 +24,12 @@ const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/
 
 const apiKey = process.env.apiKey;
 
+const root = require('path').join(__dirname, 'client', 'build')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root });
+})
+
 // Connect to MongoDB
 mongoose.connect(
   db , {
@@ -182,17 +188,17 @@ app.get('/:filename', (req, res) => {
 })
 //ADDED NEW STUFF END
 
-if (process.env.NODE_ENV === 'production') {
-  // Exprees will serve up production assets
-  app.use(express.static('build'));
+// if (process.env.NODE_ENV === 'production') {
+//   // Exprees will serve up production assets
+//   app.use(express.static('build'));
 
-  // Express serve up index.html file if it doesn't recognize route
-  // const path = require('path');
-  app.use(routes)
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-};
+//   // Express serve up index.html file if it doesn't recognize route
+//   // const path = require('path');
+//   app.use(routes)
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// };
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
