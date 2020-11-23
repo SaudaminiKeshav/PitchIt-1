@@ -16,13 +16,15 @@ const Dashboard = () => {
 
 //   const { user } = this.props.auth;
     return (
-    <div>
-        <Navbar visibility={true}/>
-        <Hero />
-        <TopLocations />
-        <CurrentAdvContainer />
-        <CompletedAdvContainer />
-    </div>
+        <>
+            <div>
+                <Navbar visibility={true} />
+                <Hero />
+                <TopLocations />
+                <CurrentAdvContainer />
+                <CompletedAdvContainer />
+            </div>
+        </>
     );
 
 }
