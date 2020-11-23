@@ -190,7 +190,7 @@ if (process.env.NODE_ENV === 'production') {
   // const path = require('path');
   app.use(routes)
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('index.html'));
+    res.sendFile('index.html');
   });
 }
 
