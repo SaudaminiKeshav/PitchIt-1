@@ -87,7 +87,7 @@ app.get('/api/all', function(req, res){
   CreateTripModel.find()
     .exec()
     .then(doc => {
-      res.send(doc)
+      res.json().send(doc)
     })
     .catch()
 });
