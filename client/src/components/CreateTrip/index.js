@@ -55,8 +55,6 @@ class CreateTrip extends React.Component {
             campers: this.state.campers,
             items: this.state.items
         };
-
-        console.log("This is the info clicked", payload);
     }
 
     // POSTing trip data with axios
@@ -71,21 +69,6 @@ class CreateTrip extends React.Component {
             items: this.state.items
         };
 
-        // axios({
-        //     url: '/api/create',
-        //     method: 'POST',
-        //     data: payload
-        // })
-        // .then(() => {
-        //     console.log('Data has been sent to the server!');
-        //     this.resetUserInputs();
-        // })
-        // .catch((err) => {
-        //     console.log('Internal server error :(', err);
-        // });
-
-
-        console.log("location value", document.querySelector("#starReview").value);
         let parkCode = document.querySelector("#starReview").value;
         let apiKey = 'Cz73kVYJzbhAkHWqVSxeyXyeRx5q01oBXc9Pdhtz';
         let campURL = `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${apiKey}`;
@@ -94,7 +77,6 @@ class CreateTrip extends React.Component {
             url: campURL,
             method: "GET"
         }).then(function (response) {
-            console.log("respon.dataaa", response.data.data[0]);
 
             const parkInfo = {
                 title: payload.title,
@@ -105,10 +87,6 @@ class CreateTrip extends React.Component {
                 image: response.data.data[0].images[1].url,
                 url: response.data.data[0].url
             };
-
-            console.log("park info:", parkInfo);
-
-
 
             axios({
                 url: '/api/create',

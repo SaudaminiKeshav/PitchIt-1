@@ -7,7 +7,6 @@ const CompleCard = (props) => {
     const [ trips, setTrips] = useState([]);
 
     useEffect(()=>{
-      console.log("Complete Works!");
       fetch("/api/completed")
       .then(data=> data.json())
       .then(data => setTrips(data))
@@ -15,7 +14,6 @@ const CompleCard = (props) => {
 
     const deleteCard = (event) => {
         var id = event.target.id;
-        console.log("delete id:", event.target.id);
 
         event.preventDefault();
 
@@ -44,16 +42,12 @@ const CompleCard = (props) => {
             items: event.target.parentElement.parentElement.querySelector("#items").innerHTML
         };
 
-        console.log("info", payload);
-
         document.getElementById("title2").innerHTML = payload.title;
         document.getElementById("dates").innerHTML = payload.date;
         document.getElementById("location2").innerHTML = payload.location;
         document.getElementById("campers2").innerHTML = payload.campers;
         document.getElementById("backpack2").innerHTML = payload.items;
     }
-
-    console.log("tripsssss", trips);
     
     return (
         <>
@@ -66,10 +60,10 @@ const CompleCard = (props) => {
                     <div className="col mb-4">
                         <div className="card h-100">
                             <img
-                                src="https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1600&h=1067&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2020%2F01%2Fglacier-national-park-GLACIERSIGNS0120.jpg"
+                                src={each.image}
                                 className="card-img-top"
                                 alt="..."
-                            />
+                            ></img>
                             <div className="card-body">
                             <h5 id="title" style={{fontWeight: "600", marginBottom: "5%"}} className="card-title">{each.title}</h5>
                                 <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text hiddenText"><span style={{fontWeight: "700"}}>Dates: </span><span id="date">{each.date}</span></p>
@@ -83,7 +77,8 @@ const CompleCard = (props) => {
                                         <span id="star3" className={ stars > 2 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
                                         <span id="star4" className={ stars > 3 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
                                         <span id="star5" className={ stars > 4 ? "fa fa-star checked visible" : "fa fa-star checked hidden" }></span>
-                                </p>
+                                </p> <br></br>
+                                <p style={{ textAlign: "left", marginLeft: "5%" }} className="card-text"><span style={{fontWeight: "700"}}>Review: </span><span id="review">{each.review}</span></p>
                                     
 
                                 <div className="btn-group" role="group" aria-label="Basic example">
