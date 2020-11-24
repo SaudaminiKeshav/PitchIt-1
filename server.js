@@ -18,20 +18,10 @@ const crypto = require("crypto");
 //ADDED NEW STUFF END
 
 // DB Config
-const db = process.env.mongoURI;
+const db = process.env.mongodb_URI;
 //const db = "mongodb+srv://user_atlas:KaP23G43H5JjcPm@cluster0.lhnjo.mongodb.net/Pitchit?retryWrites=true&w=majority";
 
-const apiKey = process.env.apiKey;
-
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
-
-const root = require('path').join(__dirname, 'client', 'build')
-app.use(express.static(root));
-app.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
-})
+// const apiKey = process.env.apiKey;
 
 // Connect to MongoDB
 mongoose.connect(
@@ -71,6 +61,21 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api", routes);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
+
+}
+
+// const root = require('path').join(__dirname, 'client', 'build')
+// app.use(express.static(root));
+// app.get("*", (req, res) => {
+//     res.sendFile('index.html', { root });
+// })
 
 
 app.post("/api/create", (req, res) => {
@@ -115,27 +120,27 @@ app.get('/api/update/:id', function(req, res) {
 });
 //NOT DONE
 
-app.post("/api/forma", (req, res)=>{
-  const sgMail = require('@sendgrid/mail')
-  console.log(req.body.name, req.body.lastname, req.body.email, req.body.message);
-  sgMail.setApiKey(apiKey)
-  const msg = {
-  to: req.body.email,// Change to your recipient
-  from: 'haroldzuluaga@aol.com', // Change to your verified sender
-  subject: 'This is a support ticket for Pitchit',
-  text: req.body.message,
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-}
-console.log(msg);
-// sgMail
-//   .send(msg)
-//   .then(() => {
-//     res.send('Email sent2')
-//   })
-//   .catch((error) => {
-//     res.send(error)
-//   })
-});
+// app.post("/api/forma", (req, res)=>{
+//   const sgMail = require('@sendgrid/mail')
+//   console.log(req.body.name, req.body.lastname, req.body.email, req.body.message);
+//   sgMail.setApiKey(apiKey)
+//   const msg = {
+//   to: req.body.email,// Change to your recipient
+//   from: 'haroldzuluaga@aol.com', // Change to your verified sender
+//   subject: 'This is a support ticket for Pitchit',
+//   text: req.body.message,
+//   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+// }
+// console.log(msg);
+// // sgMail
+// //   .send(msg)
+// //   .then(() => {
+// //     res.send('Email sent2')
+// //   })
+// //   .catch((error) => {
+// //     res.send(error)
+// //   })
+// });
 
 
 //ADDED NEW STUFF START
